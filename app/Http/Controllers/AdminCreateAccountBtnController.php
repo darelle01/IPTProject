@@ -40,8 +40,6 @@ class AdminCreateAccountBtnController extends Controller
         $AccountDetails['Status'] = 'Active';
         $AccountDetails['Position'] = 'Staff';
         $AccountDetails['ActivityStatus'] = 'offline';
-        $Prefix = '+63';
-        $AccountDetails['ContactNumber'] = $Prefix . $AccountDetails['ContactNumber'];
         AccountsModel::create($AccountDetails);
 
          

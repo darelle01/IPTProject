@@ -68,7 +68,7 @@
         </x-slot:Title>
 
         <form action="{{route('Admin.FullView')}}" method="GET" class="SearchResultTable">
-
+            @csrf
             {{-- Search Result Title Area --}}
             <div class="SearchResultTitleArea">
                 <h3>Search Result</h3>
@@ -87,7 +87,7 @@
                             <th class="tbAddress">Address</th>
                             <th class="tbAction">Action</th>
                         </tr>
-
+    
                         @if(isset($patientsBasicInfo['message']))
                             <tr class="trMessege">
                                 <td class="tbMessege">{{ $patientsBasicInfo['message'] }}</td>
@@ -95,27 +95,28 @@
                         @else
                             @foreach($patientsBasicInfo as $patient)
                                 <tr>
-                                
+                                   
                                     <td class="tbPatientID">{{ $patient->PatientID }}</td>
                                     <td class="tbLastName">{{ $patient->LastName }}</td>
                                     <td class="tbFirstName">{{ $patient->FirstName }}</td>
                                     <td class="tbMiddleName">{{ $patient->MiddleName }}</td>
                                     <td class="tbAge">{{ $patient->Age }}</td>
                                     <td class="tbGender">{{ $patient->Gender }}</td>
-                                    <td class="tbContact">+{{ $patient->ContactNumber }}</td>
+                                    <td class="tbContact">+63{{ $patient->ContactNumber }}</td>
                                     <td class="tbAddress">{{ $patient->HouseNumber }}, {{ $patient->Street }}, {{ $patient->Barangay }}, {{ $patient->Municipality }}, {{ $patient->Province }}</td>
                                     <td class="tbAction">
-                                        @csrf
-                                        <button type="submit" name="Seemore" class="Seemore bg-primary" value="{{ $patient->PatientID }}">See More...</button>
+                                        <button type="submit" name="Seemore" class="Seemore bg-primary" value="{{ $patient->Stamp_Token }}">See More...</button>
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
-
+    
                 </table>
             </div>
             {{-- Result Table Area --}}
-
+    
+    
+    
         </form>
     </x-StaffNavigation>
 @endif

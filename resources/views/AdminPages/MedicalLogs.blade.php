@@ -386,18 +386,15 @@
                                                 <input type="text" class="id" name="id" value="{{$MedicalLogsValue->id}}" readonly hidden>
                                                 <div class="ConsultationUpdateArea">
                                                     <label class="ConsultationUpdateLabel">Consultation</label>
-                                                    <select name="FilterByConsultation" class="FilterByConsultation">
-                                                        <option value="">------------- Select Consultation -------------</option>
-                                                        @if(isset($PatientConsultation) && count($PatientConsultation) > 0)
-                                                            @foreach ($PatientConsultation as $AllConsultation)
-                                                                <option value="{{ $AllConsultation->Consultation }}">
-                                                                    {{ $AllConsultation->Consultation }}
-                                                                </option>
-                                                            @endforeach
-                                                        @else
-                                                            <option value="">No consultations found</option>
-                                                        @endif
+                                                    <select name="FilterByConsultation" class="FilterByConsultation2">
+                                                        <option value="">----------- Select Consultation -----------</option>
+                                                        @foreach ($getAllConsultation as $consultation)
+                                                            <option value="{{ $consultation->ConsultationList }}">
+                                                                {{ $consultation->ConsultationList }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
+                                                    
                                                 </div>
                                                 <div class="error">
                                                     @error('Consultation')

@@ -14,10 +14,7 @@ class ViewPatientRecordController extends Controller
             'View' => 'required|string',
         ]);
         $View = $request->input('View');
-        $PatientInfo = patientrecord::where('Stamp_Token' , $View)->first();
         $EncryptedStampToken = Crypt::encrypt($View);
-        $EncryptedpatientsBasicInfo = Crypt::encrypt($PatientInfo->PatientID);
-        session(['EncryptedpatientsBasicInfo' => $EncryptedpatientsBasicInfo]);
         $url = route('Admin.patientFullView', ['Stamp_Token' => urlencode($EncryptedStampToken)]);
         return redirect($url);
     }

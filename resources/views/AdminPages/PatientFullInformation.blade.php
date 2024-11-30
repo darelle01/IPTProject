@@ -29,7 +29,7 @@
         <div class="PatientNumberandPhilhealthArea">
             <div class="PatientNumberandPhilhealthValue">
                 <div class="PatientNumberArea">
-                    <input type="text" class="PatientNumberValue" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" readonly>
+                    <input type="text" class="PatientNumberValue" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" readonly>         
                 </div>
                 <div class="PhilHealthArea">
                     <label class="PhilHealthNumberValue">{{$patientsBasicInfo->PhilhealthNumber}}</label>
@@ -165,8 +165,9 @@
             </div>
         </div>{{-- Contact and Email Value --}}
         <div class="ButtonArea">
-        <form action="" class="">
-            <button type="button" class="">Generate QR Code</button>
+        <form action="{{route ('Generate.QrCode')}}" method="GET" class="">
+            @csrf
+            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="">Generate QR Code</button>
         </form>
         <form action="{{route('Redirect.Update')}}" method="GET"  class="">
             <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-primary">Update</button>
@@ -363,12 +364,12 @@
         Add Patient Medical Logs
     </x-slot:Title>
     {{-- Patient Full Basic Information --}}
-    <form action="{{route('Redirect.Update')}}" method="GET" class="PatientFullBasicInformation">
+    <div class="PatientFullBasicInformation">
         @csrf
         <div class="TitleArea">
             <h3>Patient Full Information</h3>
         </div>
-        @foreach ($patientsBasicInfo as $patient)
+        {{-- @foreach ($patientsBasicInfo as $patientsBasicInfo) --}}
         {{-- Patient Number and Philhealth --}}
         <div class="PatientNumberandPhilhealthArea">
             <div class="PatientNumberandPhilhealthLabel">
@@ -385,10 +386,10 @@
         <div class="PatientNumberandPhilhealthArea">
             <div class="PatientNumberandPhilhealthValue">
                 <div class="PatientNumberArea">
-                    <input type="text" class="PatientNumberValue" name="PatientNumberValue" value="{{$patient->PatientID}}" readonly>
+                    <input type="text" class="PatientNumberValue" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" readonly>         
                 </div>
                 <div class="PhilHealthArea">
-                    <label class="PhilHealthNumberValue">{{$patient->PhilhealthNumber}}</label>
+                    <label class="PhilHealthNumberValue">{{$patientsBasicInfo->PhilhealthNumber}}</label>
                 </div> 
             </div>
         </div>{{-- Patient Number and Philhealth Value --}}
@@ -410,13 +411,13 @@
             {{-- Full Name Value --}}
             <div class="FullNameValue">
                 <div class="LastNameArea">
-                    <label class="LastNameValue">{{$patient->LastName}}</label>
+                    <label class="LastNameValue">{{$patientsBasicInfo->LastName}}</label>
                 </div>
                 <div class="FirsttNameArea">
-                    <label class="FirstNameValue">{{$patient->FirstName}}</label>
+                    <label class="FirstNameValue">{{$patientsBasicInfo->FirstName}}</label>
                 </div>
                 <div class="MiddleNameArea">
-                    <label class="MiddleNameValue">{{$patient->MiddleName}}</label>
+                    <label class="MiddleNameValue">{{$patientsBasicInfo->MiddleName}}</label>
                 </div>
             </div>{{-- Full Name Value --}}
         </div>{{-- Basic Info Area --}}
@@ -439,15 +440,15 @@
         <div class="BirthdateAgeGenderValue">
             <div class="BirthdateArea">
                 <label class="BirthdateValue">
-                    {{ \Carbon\Carbon::parse($patient->Birthdate)->format('m-d-Y') }}
+                    {{ \Carbon\Carbon::parse($patientsBasicInfo->Birthdate)->format('m-d-Y') }}
                 </label>
             </div>
             
                 <div class="AgeArea">
-                    <label class="AgeValue">{{$patient->Age}}</label>
+                    <label class="AgeValue">{{$patientsBasicInfo->Age}}</label>
                 </div>
                 <div class="GenderArea">
-                    <label class="GenderValue">{{$patient->Gender}}</label>
+                    <label class="GenderValue">{{$patientsBasicInfo->Gender}}</label>
                 </div>
         </div>{{-- Birthdate, Age and Gender --}}        
         {{-- Address Contact Label--}}
@@ -474,19 +475,19 @@
         <div class="AddressContactArea">
             <div class="AddressContactValue">
                 <div class="HouseNoArea">
-                    <label class="HouseNoValue">{{$patient->HouseNumber}}</label>
+                    <label class="HouseNoValue">{{$patientsBasicInfo->HouseNumber}}</label>
                 </div>
                 <div class="StreetArea">
-                    <label class="StreetValue">{{$patient->Street}}</label>
+                    <label class="StreetValue">{{$patientsBasicInfo->Street}}</label>
                 </div>
                 <div class="BarangayArea">
-                    <label class="BarangayValue">{{$patient->Barangay}}</label>
+                    <label class="BarangayValue">{{$patientsBasicInfo->Barangay}}</label>
                 </div>
                 <div class="MunicipalityArea">
-                    <label class="MunicipalityValue">{{$patient->Municipality}}</label>
+                    <label class="MunicipalityValue">{{$patientsBasicInfo->Municipality}}</label>
                 </div>
                 <div class="ProvinceArea">
-                    <label class="ProvinceValue">{{$patient->Province}}</label>
+                    <label class="ProvinceValue">{{$patientsBasicInfo->Province}}</label>
                 </div>
             </div>
         </div>{{-- Address Contact Value --}}
@@ -509,23 +510,28 @@
                 <div class="ContactArea">
                     <label class="ConatactValue">
                         <i class="fa-solid fa-phone"></i>
-                        +63{{$patient->ContactNumber}}
+                        +63{{$patientsBasicInfo->ContactNumber}}
                     </label>
                 </div>
                 <div class="EmailArea">
                     <label class="EmailValue">
                         <i class="fa-solid fa-envelope"></i>
-                        {{$patient->email}}
+                        {{$patientsBasicInfo->email}}
                     </label>
                 </div> 
             </div>
         </div>{{-- Contact and Email Value --}}
-     
         <div class="ButtonArea">
-            <button type="submit" name="PatientNumberValue" value="{{$patient->PatientID}}" class="update bg-primary">Update</button>
+        <form action="{{route ('Generate.QrCode')}}" method="GET" class="">
+            @csrf
+            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="">Generate QR Code</button>
+        </form>
+        <form action="{{route('Redirect.Update')}}" method="GET"  class="">
+            <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-primary">Update</button>
+        </form>
         </div>
-        @endforeach
-    </form>{{-- Patient Full Basic Information --}}
+        {{-- @endforeach --}}
+    </div>{{-- Patient Full Basic Information --}}
 {{-- ------------------------------------------------------------------------------------------------------------ --}}
 
 {{-- ------------------------------------------------------------------------------------------------------------ --}}
@@ -592,7 +598,7 @@
                     
                     {{-- Patient Number Input Area --}}
                     <div class="PatientNoInputArea">
-                        <input type="text" name="PatientNumber" class="PatientNoValue" value="{{$patient->PatientID}}" readonly>
+                        <input type="text" name="PatientNumber" class="PatientNoValue" value="{{$patientsBasicInfo->PatientID}}" readonly>
                     </div>{{-- Patient Number Input Area --}}
 
                     {{-- Consultation Input Area --}}
@@ -688,7 +694,7 @@
     </div>{{-- Add Patient Medical Record --}}
 
     <form action="{{route('Admin.ViewMedicalLogs')}}" method="GET" class="RedirectBtn">
-        <input type="text" name="RedirectToPatientNo" value="{{ $patient->PatientID }}" hidden>
+        <input type="text" name="RedirectToPatientNo" value="{{ $patientsBasicInfo->PatientID }}" hidden>
         <button class="ViewMedicalLogs" >View Medical Logs</button>
     </form>
     </x-StaffNavigation>

@@ -13,12 +13,8 @@ class SeemoreBtnController extends Controller
         $request->validate([
             'Seemore' => 'required|string|max:255',
         ]);
-
         $Seemore = $request->input('Seemore');   
-        $PatientInfo = patientrecord::where('Stamp_Token' , $Seemore)->first();
         $EncryptedStampToken = Crypt::encrypt($Seemore);
-        $EncryptedpatientsBasicInfo = Crypt::encrypt($PatientInfo->PatientID);
-        session(['EncryptedpatientsBasicInfo' => $EncryptedpatientsBasicInfo]);
         $url = route('Admin.patientFullView', ['Stamp_Token' => urlencode($EncryptedStampToken)]);
         return redirect($url);
     }

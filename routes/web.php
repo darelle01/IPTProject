@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\DeleteAvatarController;
-use App\Http\Controllers\SettingsSaveController;
-use App\Http\Controllers\UploadNewAvatarController;
+use App\Http\Controllers\GenerateQRCodeController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -16,13 +14,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginPageController;
 use App\Http\Controllers\LogOutBtnController;
 use App\Http\Controllers\DeleteFileController;
+use App\Http\Controllers\QRCodeViewController;
 use App\Http\Controllers\SeemoreBtnController;
 use App\Http\Controllers\UpdateFileController;
 use App\Http\Controllers\MedicalLogsController;
 use App\Http\Controllers\SettingsBtnController;
 use App\Http\Controllers\AdminSaveBtnController;
 use App\Http\Controllers\ConfirmEmailController;
+use App\Http\Controllers\DeleteAvatarController;
 use App\Http\Controllers\SearchResultController;
+use App\Http\Controllers\SettingsSaveController;
 use App\Http\Controllers\AddImageIndexController;
 use App\Http\Controllers\AdminLoginBtnController;
 use App\Http\Controllers\OTPConfirmBtnController;
@@ -35,6 +36,7 @@ use App\Http\Controllers\ActivateAccountController;
 use App\Http\Controllers\BrowserDetectorController;
 use App\Http\Controllers\PatientFullInfoController;
 use App\Http\Controllers\PatientListViewController;
+use App\Http\Controllers\UploadNewAvatarController;
 use App\Http\Controllers\ViewMedicalLogsController;
 use App\Http\Controllers\ConsultationListController;
 use App\Http\Controllers\DeleteImageIndexController;
@@ -117,7 +119,11 @@ Route::middleware(['auth','CombineMiddle'])->group(function () {
     Route::get('/Search-Result',[SearchResultController::class,'SearchResult'])->name('Admin.Result');
     Route::get('/Search-Result-View',[SearchResultViewController::class,'SearchResultView'])->name('Admin.SearchResult');
     Route::get('/Search-View',[SeemoreBtnController::class,'SeemoreBtn'])->name('Admin.FullView');
-    
+
+    // Qr-Code
+    Route::get('/Generate-QR-Code',[GenerateQRCodeController::class,'GenerateQRCode'])->name('Generate.QrCode');
+    Route::get('/QR-Code',[QRCodeViewController::class,'QRCodePage'])->name('View.QrCode');
+
     Route::get('/Patient-Full-Informations/{Stamp_Token}',[PatientFullInfoController::class,'ViewFullInfo'])->name('Admin.patientFullView');
     Route::post('/Patient-Full-Informations', [SaveBtnController::class,'SaveBtn'])->name('Admin.SaveMedicalLogs');
 
