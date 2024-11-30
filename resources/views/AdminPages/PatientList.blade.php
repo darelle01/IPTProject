@@ -173,7 +173,7 @@
             </form>{{-- Filter Area --}}
 
                 {{-- Patient Full List Table --}}
-                <div class="PatientFullListTableArea">
+                <form action="{{route('Admin.ViewMore')}}"  class="PatientFullListTableArea">
                     @if($patients->isEmpty())
                         <p class="warn">No data found for the specified filters.</p>
                     @else
@@ -198,7 +198,7 @@
                         <td name="PatientIdVal">{{$patientRecord->MiddleName}}</td>
                         <td name="PatientIdVal">{{$patientRecord->Age}}</td>
                         <td name="PatientIdVal">{{$patientRecord->Gender}}</td>
-                        <td name="PatientIdVal">+{{$patientRecord->ContactNumber}}</td>
+                        <td name="PatientIdVal">+63{{$patientRecord->ContactNumber}}</td>
                         <td name="PatientIdVal">
                             {{$patientRecord->HouseNumber}}, 
                             {{$patientRecord->Street}}, 
@@ -207,16 +207,15 @@
                             {{$patientRecord->Province}}
                         </td>
                         <td name="PatientIdVal">
-                            <form action="{{route('Admin.ViewMore')}}" class="ViewBtnform">
-                                <input type="text" value="{{$patientRecord->PatientID}}" name="View" class="ViewValue" hidden>
-                                <button type="submit" class="btn btn-primary seemore">View</button>
-                            </form>
+                            <div class="ViewBtnform">
+                                <button type="submit" name="View" value="{{$patientRecord->Stamp_Token}}" class="btn btn-primary seemore">View</button>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                     </table>
                     @endif
-                </div>{{-- Patient Full List Table --}}
+                </form>{{-- Patient Full List Table --}}
 
         </div>{{-- Patient Full List --}}
     </x-StaffNavigation>
