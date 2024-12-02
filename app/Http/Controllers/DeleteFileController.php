@@ -22,17 +22,17 @@ class DeleteFileController extends Controller
                                         ->firstOrFail();
 
         if ($deleteRecord->Images) {
-                    $ImagesPaths = json_decode($deleteRecord->Images, true);
+        $ImagesPaths = json_decode($deleteRecord->Images, true);
 
-                    foreach ($ImagesPaths as $ImagesPath) {
-                        Storage::disk('public')->exists($ImagesPath);
-                            Storage::disk('public')->delete($ImagesPath);
-                            Log::info("Deleted file: $ImagesPath");
+        foreach ($ImagesPaths as $ImagesPath) {
+        Storage::disk('public')->exists($ImagesPath);
+        Storage::disk('public')->delete($ImagesPath);
+        Log::info("Deleted file: $ImagesPath");
      
-                    }
-                }
+        }
+        }
 
-                $deleteRecord->delete();
+        $deleteRecord->delete();
         $ViewFullMedicalLogs = $request->input('PatientNumber');
         $MedicalLogs = patientmedicallog::where('PatientNumber', $ViewFullMedicalLogs)->get();
         $getAllConsultation = ConsultationListModel::all(); 
@@ -40,7 +40,7 @@ class DeleteFileController extends Controller
 
         session(['EncryptMedicalLogs' => $EncryptMedicalLogs,
                 'getAllConsultation' => $getAllConsultation]);
-        return redirect()->route('Admin.ViewMedicalLogsRecords')->with('delete', 'Images Deleted successfully!');                
+        return redirect()->route('Admin.ViewMedicalLogsRecords');                
 
     }
 }

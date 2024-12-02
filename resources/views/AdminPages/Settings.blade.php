@@ -32,9 +32,9 @@
 
                             <div class="ProfilePictureArea">
                                 @if (Auth::user()->profile_picture)
-                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="profilepicture">
+                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture">
                                 @else
-                                <p>No profile picture available.</p>
+                                
                                 @endif
                             </div>
                             <div class="ProfilePicBtns">
@@ -157,9 +157,9 @@
 
                             <div class="ProfilePictureArea">
                                 @if (Auth::user()->profile_picture)
-                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="profilepicture">
+                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture">
                                 @else
-                                <p>No profile picture available.</p>
+                                
                                 @endif
                             </div>
                             <div class="ProfilePicBtns">

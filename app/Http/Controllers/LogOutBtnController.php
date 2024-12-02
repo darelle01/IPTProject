@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AccountsModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Container\Attributes\Log;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -19,6 +20,8 @@ class LogOutBtnController extends Controller
             return back()->withErrors(['OTPcode' => 'Unable to decrypt the OTP.']);
         }
         Auth::logout();
+        Cookie::queue(Cookie::forget('laravel_session')); 
+        Cookie::queue(Cookie::forget('XSRF-TOKEN'));
         $ActivityStatus = 'offline';
         $user->ActivityStatus = $ActivityStatus;
         $user->save(); 

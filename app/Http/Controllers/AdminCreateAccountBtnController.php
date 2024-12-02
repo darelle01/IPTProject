@@ -33,7 +33,7 @@ class AdminCreateAccountBtnController extends Controller
         // Handle image upload
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
-            $path = $file->store('profile_pictures', 'public');
+            $path = $file->store('profile_picture', 'public');
             $AccountDetails['profile_picture'] = $path;
         }
         

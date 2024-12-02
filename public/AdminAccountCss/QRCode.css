@@ -1,0 +1,26 @@
+.Mid{
+    display: flex;
+    width: 80%;
+    height: 99vh;
+}
+.QrCodeArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 500px;
+    background-color: aqua;
+}
+.Code{
+    margin-top: 50px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: white;
+}
+.PatientInfo{
+    height: 100%;
+}

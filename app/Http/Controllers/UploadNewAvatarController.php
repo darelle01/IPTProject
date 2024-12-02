@@ -13,7 +13,7 @@ class UploadNewAvatarController extends Controller
             'profile_picture' => 'nullable|image|max:4096',
             'targetAcc' => 'required|string',
         ]);
-        if ($request->hasFile('profile_picture')) { // Fetch the current user 
+        if ($request->hasFile('profile_picture')) {
             $user = AccountsModel::where('username' , $Image['targetAcc'])->first();
            
             if ($user->profile_pictures) { 

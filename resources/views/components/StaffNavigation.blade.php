@@ -46,9 +46,9 @@
             </div>
             <div class="ProfilePictureArea1">
                 @if (Auth::user()->profile_picture)
-                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="profilepicture1">
+                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
                 @else
-                <p>No profile picture available.</p>
+                
                 @endif
             </div>
             <div class="NameArea">

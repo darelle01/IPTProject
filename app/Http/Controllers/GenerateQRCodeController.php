@@ -17,8 +17,9 @@ class GenerateQRCodeController extends Controller
         $Stamp_Token = $Patient->Stamp_Token;
         $EncryptedStamp_Token = Crypt::encrypt($Stamp_Token);
         $url = route('Admin.patientFullView', ['Stamp_Token' => urlencode($EncryptedStamp_Token)]);
-        $PatientQRCode = QrCode::format('svg')->size(200)->generate($url);
-        session(['PatientQRCode' => $PatientQRCode]);
+        $PatientQRCode = base64_encode(QrCode::format('svg')->size(200)->generate($url));
+        session(['PatientQRCode' => $PatientQRCode,
+                'EncryptedStamp_Token' => $EncryptedStamp_Token]);
         return redirect()->route('View.QrCode');
     }
 }

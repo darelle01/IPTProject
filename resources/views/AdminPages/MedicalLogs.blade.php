@@ -161,7 +161,7 @@
                                                 <div class="ConsultationUpdateArea">
                                                     <label class="ConsultationUpdateLabel">Consultation</label>
                                                     <select name="FilterByConsultation" class="FilterByConsultation2">
-                                                        <option value="">----------- Select Consultation -----------</option>
+                                                        <option value="">-------- Select Consultation --------</option>
                                                         @foreach ($getAllConsultation as $consultation)
                                                             <option value="{{ $consultation->ConsultationList }}">
                                                                 {{ $consultation->ConsultationList }}
