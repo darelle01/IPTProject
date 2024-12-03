@@ -1,5 +1,6 @@
 .Mid{
     display: flex;
+    flex-direction: column;
     width: 80%;
     height: 99vh;
 }
@@ -11,16 +12,93 @@
     margin-left: auto;
     margin-right: auto;
     width: 400px;
-    height: 500px;
-    background-color: aqua;
+    height: fit-content;
+    background-color: #00A3FF;
+    border-radius: 20px;
 }
 .Code{
-    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: fit-content;
     height: fit-content;
+    border-radius: 10px;
+    border: 1px solid black;
     padding: 10px;
     background-color: white;
 }
-.PatientInfo{
-    height: 100%;
+.Info{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+    background-color: white;
 }
+.labelPatientName{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.PatientName{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.labelAddress{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.PatientAddress{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.LineSigniture{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.labelSignature{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.QR-Download{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+.QR-Download:hover{
+    transform: scale(1.1);
+    color: white;
+}
+

@@ -89,7 +89,6 @@ table{
 .Seemore{
     width: 120px;
     height: 32px;
-    padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
     border: none;
@@ -97,8 +96,6 @@ table{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     transition: 0.4s ease-in-out;
-    color: black;
-    text-decoration: none;
 }
 .Seemore:hover{
     transform: scale(1.1);

@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\AccountsModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AccountListViewController extends Controller
 {
     public function ViewAccountList()
     {
+        
+
         $AllActiveAccounts = AccountsModel::where('Position', 'Staff')
                                     ->where('Status', 'Active')
                                     ->get();
