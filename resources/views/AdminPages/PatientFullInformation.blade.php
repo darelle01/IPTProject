@@ -167,10 +167,10 @@
         <div class="ButtonArea">
         <form action="{{route ('Generate.QrCode')}}" method="GET" class="">
             @csrf
-            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="">Generate QR Code</button>
+            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="Qr-generator btn bg-info">Generate QR Code</button>
         </form>
         <form action="{{route('Redirect.Update')}}" method="GET"  class="">
-            <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-primary">Update</button>
+            <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-info">Update</button>
         </form>
         </div>
         {{-- @endforeach --}}
@@ -282,7 +282,7 @@
 
                     {{-- Action Slot Area --}}
                     <div class="ActionBtnArea">
-                        <button type="submit" class="SaveBtn bg-primary">Save</button>
+                        <button type="submit" class="SaveBtn bg-info">Save</button>
                     </div>{{-- Action Slot --}}
 
                 </div>{{-- Medical Log Input --}}
@@ -524,10 +524,10 @@
         <div class="ButtonArea">
         <form action="{{route ('Generate.QrCode')}}" method="GET" class="">
             @csrf
-            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="">Generate QR Code</button>
+            <button type="submit" name="Info" value="{{$patientsBasicInfo->PatientID}}" class="Qr-generator btn bg-info">Generate QR Code</button>
         </form>
         <form action="{{route('Redirect.Update')}}" method="GET"  class="">
-            <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-primary">Update</button>
+            <button type="submit" name="PatientNumberValue" value="{{$patientsBasicInfo->PatientID}}" class="update bg-info">Update</button>
         </form>
         </div>
         {{-- @endforeach --}}
@@ -639,7 +639,7 @@
 
                     {{-- Action Slot Area --}}
                     <div class="ActionBtnArea">
-                        <button type="submit" class="SaveBtn bg-primary">Save</button>
+                        <button type="submit" class="SaveBtn bg-info">Save</button>
                     </div>{{-- Action Slot --}}
 
                 </div>{{-- Medical Log Input --}}

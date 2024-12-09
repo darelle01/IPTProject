@@ -262,7 +262,7 @@
             
         {{-- Create Btn --}}
         <div class="CreateBtnArea">
-            <button type="submit" class="Create bg-primary">Create</button>
+            <button type="submit" class="Create bg-info">Create</button>
         </div>{{-- Create Btn --}}     
     </form>
 </x-AdminNavigation>            

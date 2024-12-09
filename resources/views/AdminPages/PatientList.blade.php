@@ -57,7 +57,7 @@
                     </select>
                 </div>
                 <div class="ApplyBtnArea">
-                    <button type="submit" class="btn btn-primary Apply">Apply</button>
+                    <button type="submit" class="btn btn-info Apply">Apply</button>
                 </div>
             </form>{{-- Filter Area --}}
 
@@ -97,7 +97,7 @@
                         </td>
                         <td name="PatientIdVal">
                             <div class="ViewBtnform">
-                                <button type="submit" name="View" value="{{$patientRecord->Stamp_Token}}" class="btn btn-primary seemore">View</button>
+                                <button type="submit" name="View" value="{{$patientRecord->Stamp_Token}}" class="btn btn-info seemore">View</button>
                             </div>
                         </td>
                     </tr>

@@ -2,121 +2,160 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\TwoTables;
-use App\Repositories\PieChartTables;
-use App\Repositories\ListOfAllConsultation;
+use App\Repositories\AdultFemaleCount;
+use App\Repositories\ChildFemaleCount;
+use App\Repositories\ChildMaleCount;
+use App\Repositories\FemaleCount;
+use App\Repositories\PieChart;
+use App\Repositories\MaleCount;
+use App\Repositories\SeniorFemale;
+use App\Repositories\SeniorMale;
+use App\Repositories\LowestRecord;
+use App\Repositories\HighestRecord;
+use App\Repositories\TeenFemaleCount;
+use App\Repositories\TeenMaleCount;
+use App\Repositories\AdultMaleCount;
+use App\Repositories\ConsultationDesc;
+use App\Repositories\LowestConsultation;
+use App\Repositories\HighestConsultation;
+use App\Repositories\TotalConsultationPerMonth;
+use App\Repositories\TotalPatientThisMonth;
+use App\Repositories\PrevRecordOfCurrentLowest;
+use App\Repositories\PrevRecordOfCurrentHighest;
+use App\Repositories\TotalPatientPerConsultation;
 
 class DashboardController extends Controller
 {
-    protected $CurrentHighestConsul;
-    protected $CurrentTopConsulPastRecord;
-    protected $CurrentLowestConsul;
-    protected $CurrentBottomConsulPastRecord;
-    protected $charts;
-    protected $all;
-    protected $showAllConsultation;
-    protected $sumOfAll;
-    protected $totalPerMonth;
-
     
- 
-
-    public function __construct(TwoTables $CurrentHighestConsul, TwoTables $CurrentTopConsulPastRecord, TwoTables $CurrentLowestConsul, TwoTables $CurrentBottomConsulPastRecord, PieChartTables $PieCharts, TwoTables $all, ListOfAllConsultation $showAllConsultation, TwoTables $sumOfAll, TwoTables $totalPerMonth)
+    protected $totalPatientThisMonth;
+    protected $highestRecord;
+    protected $lowestRecord;
+    protected $highestConsultation;
+    protected $lowestConsultation;
+    protected $prevRecordOfCurrentHighest;
+    protected $prevRecordOfCurrentLowest;
+    protected $pieChart;
+    protected $consultationDesc;
+    protected $totalPatientPerConsultation;
+    protected $adultMaleCount;
+    protected $seniorMale;
+    protected $maleCount;
+    protected $teenMaleCount;
+    protected $childMaleCount;
+    protected $femaleCount;
+    protected $adultFemaleCount;
+    protected $seniorFemale;
+    protected $teenFemaleCount;
+    protected $childFemaleCount;
+    protected $totalConsultationPerMonth;
+    public function __construct(TotalPatientThisMonth $totalPatientThisMonth, HighestRecord $highestRecord, LowestRecord $lowestRecord, 
+                                HighestConsultation $highestConsultation, LowestConsultation $lowestConsultation, PrevRecordOfCurrentHighest $prevRecordOfCurrentHighest,
+                                PrevRecordOfCurrentLowest $prevRecordOfCurrentLowest, PieChart $pieChart, ConsultationDesc $consultationDesc,
+                                TotalPatientPerConsultation $totalPatientPerConsultation, AdultMaleCount $adultMaleCount, SeniorMale $seniorMale,
+                                MaleCount $maleCount, TeenMaleCount $teenMaleCount, ChildMaleCount $childMaleCount, FemaleCount $femaleCount,
+                                AdultFemaleCount $adultFemaleCount, SeniorFemale $seniorFemale, TeenFemaleCount $teenFemaleCount, ChildFemaleCount $childFemaleCount,
+                                TotalConsultationPerMonth $totalConsultationPerMonth)
     {
-        $this->CurrentHighestConsul = $CurrentHighestConsul;
-        $this->CurrentTopConsulPastRecord = $CurrentTopConsulPastRecord;
-        $this->CurrentLowestConsul = $CurrentLowestConsul;
-        $this->CurrentBottomConsulPastRecord = $CurrentBottomConsulPastRecord;
-        $this->charts = $PieCharts;
-        $this->showAllConsultation = $showAllConsultation;
-        $this->all = $all;
-        $this->sumOfAll = $sumOfAll;
-        $this->totalPerMonth = $totalPerMonth;
-  
-        
+        $this->totalPatientThisMonth = $totalPatientThisMonth;
+        $this->highestRecord = $highestRecord;
+        $this->lowestRecord = $lowestRecord;
+        $this->highestConsultation = $highestConsultation;
+        $this->lowestConsultation = $lowestConsultation;
+        $this->prevRecordOfCurrentHighest = $prevRecordOfCurrentHighest;
+        $this->prevRecordOfCurrentLowest = $prevRecordOfCurrentLowest;
+        $this->pieChart = $pieChart;
+        $this->consultationDesc = $consultationDesc;
+        $this->totalPatientPerConsultation = $totalPatientPerConsultation;
+        // male area
+        $this->maleCount = $maleCount;
+        $this->seniorMale = $seniorMale;
+        $this->adultMaleCount = $adultMaleCount;
+        $this->teenMaleCount = $teenMaleCount;
+        $this->childMaleCount = $childMaleCount;
+        // female area 
+        $this->femaleCount = $femaleCount;    
+        $this->seniorFemale = $seniorFemale;
+        $this->adultFemaleCount = $adultFemaleCount;
+        $this->teenFemaleCount = $teenFemaleCount;
+        $this->childFemaleCount = $childFemaleCount;
+
+        $this->totalConsultationPerMonth = $totalConsultationPerMonth;
+
     }
 
     public function ShowDashboard()
     {
 
-        // Get highest consultation ------------------------------------------------------------------------------------------------------------------
-        $CurrentTopConsul = $this->CurrentHighestConsul->GetThisMonthHighestConsultation();
+        $ThisMonthTotal = $this->totalPatientThisMonth->CurrentMonthTotalPatient();
+        $PieChartModel = $this->pieChart->PieChart();
+        $CurrentHighestRecord = $this->highestRecord->CurrentHighestRecord();
+        $CurrentLowestRecord = $this->lowestRecord->CurrentLowestRecord();
+        $CurrentHighestConsultation = $this->highestConsultation->CurrentHighestConsultation();
+        $CurrentLowestConsulatation = $this->lowestConsultation->CurrentLowestConsultation();
+        $PreviousRecordofCurrentHighest = $this->prevRecordOfCurrentHighest->PrevRecordOfCurrentHighest();
+        $PreviousRecordofCurrentLowest = $this->prevRecordOfCurrentLowest->PrevRecordOfCurrentLowest();
+        $ConsultationDescending = $this->consultationDesc->ConsultationDesc();
+        $TotalPatientPerConsul = $this->totalPatientPerConsultation->TotalPatientPerConsul();
+        // male area
+        $TotalMaleCount = $this->maleCount->MaleCount();
+        $SeniorMaleCountPerConsul = $this->seniorMale->SeniorMaleCount();
+        $AdultMaleCountPerConsul = $this->adultMaleCount->AdultMaleCount();
+        $TeenMaleCountPerConsul = $this->teenMaleCount->TeenMaleCount();
+        $ChildMaleCountPerConsul = $this->childMaleCount->ChildMaleCount();
+        // female area
+        $TotalFemaleCount = $this->femaleCount->FemaleCount();
+        $SeniorFemaleCountPerConsul = $this->seniorFemale->SeniorFemaleCount();
+        $AdultFemaleCountPerConsul = $this->adultFemaleCount->AdultFemaleCount();
+        $TeenFemaleCountPerConsul = $this->teenFemaleCount->TeenFemaleCount();
+        $ChildFemaleCountPerConsul = $this->childFemaleCount->ChildFemaleCount();
 
-        // Get the Current Highest Consultation Past Record ------------------------------------------------------------------------------------------------------------------
-        $PastRecordOfTheCurrentTop = $this->CurrentTopConsulPastRecord->GetPastRecordOfCurrentHighestConsultation();
-    
-        // Get lowest consultation
-        $CurrentBottomConsul = $this->CurrentLowestConsul->GetThisMonthLowestConsultation();
+        $NumberOfConsultationPerMonth = $this->totalConsultationPerMonth->TotalPatientPerConsul();
+               
+        // Comaparison of Current Highest Record to its Past Record
+        if ($PreviousRecordofCurrentHighest === 0) {
+            $PercentageCurrentHighest = "There is no previous record";
+        }else{
+            $Sub = $CurrentHighestRecord - $PreviousRecordofCurrentHighest;
+            $Div = $Sub / $PreviousRecordofCurrentHighest;
+            $PercentageCurrentHighest = $Div * 100;
+        }
 
-        // Get the Current Lowest Consultation Past Record ------------------------------------------------------------------------------------------------------------------
-        $PastRecordOfTheCurrentBottom = $this->CurrentBottomConsulPastRecord->GetPastRecordOfCurrentLowestConsultation();
-
-        // Get Pie Chart data ------------------------------------------------------------------------------------------------------------------
-        $PieCharts = $this->charts->RespoPieChart();
-
-        // Display Table of Consultation From Highest to Lowest ------------------------------------------------------------------------------------------------------------------
-        $ShowAllConsultation = $this->showAllConsultation->AllConsultations();
-
-        // Get the Total Number Of Patient ------------------------------------------------------------------------------------------------------------------
-        $TotalCount = $this->all->ThisMonthPatientTotal();
-
-        // Get the Total of all Consultation record ------------------------------------------------------------------------------------------------------------------
-        $FinalSumOfAll = $this->sumOfAll->TotalOfAllConsultation();
-       
-        // Compute the difference form past and current
-        if (is_object($CurrentTopConsul) && isset($CurrentTopConsul->HighestToLowest)) {
-            if ($PastRecordOfTheCurrentTop > 0) {
-                $TopDifference = (($CurrentTopConsul->HighestToLowest - $PastRecordOfTheCurrentTop) / $PastRecordOfTheCurrentTop) * 100;
-            } 
-            else {
-                $TopDifference = $CurrentTopConsul->HighestToLowest * 100;
-            }
-        } else {
-            // Handle the case where $CurrentTopConsul is not an object or property doesn't exist
-            $TopDifference = 'N/A'; // or another fallback value
+        // Comaparison of Current Lowest Record to its Past Record
+        if ($PreviousRecordofCurrentLowest === 0) {
+            $PercentageCurrentLowest = "There is no previous record";
+        }else{
+            $Sub = $CurrentLowestRecord - $PreviousRecordofCurrentLowest;
+            $Div = $Sub / $PreviousRecordofCurrentLowest;
+            $PercentageCurrentLowest = $Div * 100;
         }
         
-        if (is_object($CurrentBottomConsul) && isset($CurrentBottomConsul->LowestToHighest)) {
-            if ($PastRecordOfTheCurrentBottom > 0) {
-                $BotDifference = (($CurrentBottomConsul->LowestToHighest - $PastRecordOfTheCurrentBottom) / $PastRecordOfTheCurrentBottom) * 100;
-            } else {
-                $BotDifference = $CurrentBottomConsul->LowestToHighest * 100;
-            }
-        } else {
-            // Handle the case where $CurrentBottomConsul is not an object or property doesn't exist
-            $BotDifference = 'N/A'; // or another fallback value
-        }
+        return view('AdminPages.RHUDashboard', compact(
+            'ThisMonthTotal',
+            'PieChartModel',
+            'CurrentHighestRecord',
+            'CurrentLowestRecord',
+            'CurrentHighestConsultation',
+            'CurrentLowestConsulatation',
+            'PreviousRecordofCurrentHighest',
+            'PercentageCurrentHighest',
+            'PreviousRecordofCurrentLowest',
+            'PercentageCurrentLowest',
+            'ConsultationDescending',
+            'TotalPatientPerConsul',
+            // male area
+            'TotalMaleCount',
+            'SeniorMaleCountPerConsul',
+            'AdultMaleCountPerConsul',
+            'TeenMaleCountPerConsul',
+            'ChildMaleCountPerConsul',
+            // female area
+            'TotalFemaleCount',
+            'SeniorFemaleCountPerConsul',
+            'AdultFemaleCountPerConsul',
+            'TeenFemaleCountPerConsul',
+            'ChildFemaleCountPerConsul',
 
-        // Total per Month
-        $OverAllPerMonth = $this->totalPerMonth->TotalForEveryMonth();
-
-
-        return view('AdminPages.RHUDashboard', [
-            // Highest Consultation and its Total Area -------------------------------------------------------------------------------------------------
-            'ThisMonthTopConsultation' => $CurrentTopConsul->Consultation ?? 'N/A',
-            'ThisMonthBiggestNumberOfPatient' => $CurrentTopConsul->HighestToLowest ?? 0,
-            // Lowest Consultation and its Total Area -------------------------------------------------------------------------------------------------
-            'ThisMonthBottomConsultation' => $CurrentBottomConsul->Consultation ?? 'N/A',
-            'ThisMonthLowestNumberOfPatient' => $CurrentBottomConsul->LowestToHighest ?? 0,
-
-            // Pie Chart Data -------------------------------------------------------------------------------------------------------------
-            'PieCharts' => $PieCharts,
-            // Display Table of Consultation From Highest to Lowest --------------------------------------------------------------------------------------------------------------
-            'DisplayAllConsultation' => $ShowAllConsultation,
-            // Total Number Of Patient -------------------------------------------------------------------------------------------------------------
-            'FinalCountThisMonth' => $TotalCount,
-            // Final Count of combined consultation -------------------------------------------------------------------------------------------------------------
-            'FinalSum' => $FinalSumOfAll,
-            // Get the Current Highest Consultation Past Record ------------------------------------------------------------------------------------------------------------------
-            'ValueOfPastRecordOfCurrentTopConsul' => $PastRecordOfTheCurrentTop,
-           // Get the Current Lowest Consultation Past Record ------------------------------------------------------------------------------------------------------------------
-           'ValueOfPastRecordOfCurrentBottomConsul' => $PastRecordOfTheCurrentBottom,
-           
-            // Compute the difference form past and current
-           'TopDifference' => $TopDifference,
-           'BotDifference' => $BotDifference,
-
-           'OverAllPerMonth' => $OverAllPerMonth
-        ]);
+            'NumberOfConsultationPerMonth',
+        ));
     }
 }

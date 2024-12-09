@@ -98,12 +98,12 @@
         <div class="BtnArea">
             <form action="{{ route('Admin.BackBtn') }}" method="GET" class="BackBtnForm">
                 <input type="text" class="BackBtnValue" name="PatientNumber" value="{{$PatientNumber}}" hidden>
-                <button class="BackBtn bg-primary">Back</button>
+                <button class="BackBtn bg-info">Back</button>
             </form>
             <p class="d-inline-flex gap-1">
 
             {{-- modal for Add New Images --}}
-            <button type="button" class="btn btn-primary Updload" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn btn-success Updload" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add New Images
             </button>{{-- modal for Add New Images --}}
             </p>
@@ -127,8 +127,8 @@
                               </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-primary closeBtn" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-secondary bg-info closeBtn" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary bg-success">Upload</button>
                         </div>
                     </form>
                 </div>
@@ -271,8 +271,8 @@
                               </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-primary closeBtn" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-secondary bg-info closeBtn" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary bg-success">Upload</button>
                         </div>
                     </form>
                 </div>

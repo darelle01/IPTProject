@@ -46,7 +46,7 @@
                 <option value="desc">Newest record</option>
             </select>
         </div>
-            <button type="submit" class="btn btn-primary FilterBtn">Go</button>
+            <button type="submit" class="btn btn-info FilterBtn">Go</button>
             
         </form>{{-- Filter --}}
         {{-- Medical Logs Table Area --}}
@@ -97,7 +97,7 @@
                             <input type="text" value="{{$MedicalLogsValue->id}}" class="id" hidden>
                             <td class="FilesValueCol">
                                 {{-- Go to Viewer Image --}}
-                                <a href="{{ route('Admin.ViewImages', ['PatientNumber' => $MedicalLogsValue->PatientNumber,'id' => $MedicalLogsValue->id]) }}" class="btn btn-primary ViewImageBtn">View Images</a>
+                                <a href="{{ route('Admin.ViewImages', ['PatientNumber' => $MedicalLogsValue->PatientNumber,'id' => $MedicalLogsValue->id]) }}" class="btn btn-success ViewImageBtn">View Images</a>
                                 {{-- Go to Viewer Image --}}
                             </td>
                             <td class="ActionValueCol">
@@ -125,8 +125,8 @@
                                             Do you want to delete this permanently, including the files inside this record?
                                         </div>
                                         <div class="modal-footer">
-                                          <button type="submit" class="btn btn-primary">Delete</button>
-                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-danger">Delete</button>
+                                          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
                                         </div>
                                       </div>
                                     </div>
@@ -137,7 +137,7 @@
 
 
                                 {{-- Update Button --}}
-                                <button type="button" class="btn btn-primary Update" value="{{ $getAllConsultation }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
+                                <button type="button" class="btn btn-info Update" value="{{ $getAllConsultation }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
                                     Update
                                 </button>
                                 {{-- Update Button --}}
@@ -198,8 +198,8 @@
                                                     @enderror
                                                 </div>
                                                 <div class="btns">
-                                                    <button type="submit" class="btn btn-primary SaveChanges">Save changes</button>
-                                                    <button type="button" class="btn btn-primary close" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success SaveChanges">Save changes</button>
+                                                    <button type="button" class="btn btn-info close" data-bs-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -272,7 +272,7 @@
                 <option value="desc">Newest record</option>
             </select>
         </div>
-            <button type="submit" class="btn btn-primary FilterBtn">Go</button>
+            <button type="submit" class="btn btn-info FilterBtn">Go</button>
             
         </form>{{-- Filter --}}
         {{-- Medical Logs Table Area --}}
@@ -323,7 +323,7 @@
                             <input type="text" value="{{$MedicalLogsValue->id}}" class="id" hidden>
                             <td class="FilesValueCol">
                                 {{-- Go to Viewer Image --}}
-                                <a href="{{ route('Admin.ViewImages', ['PatientNumber' => $MedicalLogsValue->PatientNumber,'id' => $MedicalLogsValue->id]) }}" class="btn btn-primary ViewImageBtn">View Images</a>
+                                <a href="{{ route('Admin.ViewImages', ['PatientNumber' => $MedicalLogsValue->PatientNumber,'id' => $MedicalLogsValue->id]) }}" class="btn btn-success ViewImageBtn">View Images</a>
                                 {{-- Go to Viewer Image --}}
                             </td>
                             <td class="ActionValueCol">
@@ -351,8 +351,8 @@
                                             Do you want to delete this permanently, including the files inside this record?
                                         </div>
                                         <div class="modal-footer">
-                                          <button type="submit" class="btn btn-primary">Delete</button>
-                                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-danger">Delete</button>
+                                          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
                                         </div>
                                       </div>
                                     </div>
@@ -363,7 +363,7 @@
 
 
                                 {{-- Update Button --}}
-                                <button type="button" class="btn btn-primary Update" value="{{ $getAllConsultation }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
+                                <button type="button" class="btn btn-info Update" value="{{ $getAllConsultation }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
                                     Update
                                 </button>
                                 {{-- Update Button --}}
@@ -424,8 +424,8 @@
                                                     @enderror
                                                 </div>
                                                 <div class="btns">
-                                                    <button type="submit" class="btn btn-primary SaveChanges">Save changes</button>
-                                                    <button type="button" class="btn btn-primary close" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success SaveChanges">Save changes</button>
+                                                    <button type="button" class="btn btn-info close" data-bs-dismiss="modal">Close</button>
                                                 </div>
                                             </form>
                                         </div>

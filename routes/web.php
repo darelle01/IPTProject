@@ -33,7 +33,6 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\AccountListViewController;
 use App\Http\Controllers\ActivateAccountController;
-use App\Http\Controllers\BrowserDetectorController;
 use App\Http\Controllers\PatientFullInfoController;
 use App\Http\Controllers\PatientListViewController;
 use App\Http\Controllers\UploadNewAvatarController;

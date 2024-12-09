@@ -243,7 +243,7 @@
         
         {{-- Save Btn --}}
         <div class="SaveBtnArea">
-            <button type="submit" class="Save bg-primary">Save</button>
+            <button type="submit" class="Save bg-info">Save</button>
         </div>{{-- Save Btn --}}
     </form>
 </x-AdminNavigation>
@@ -492,7 +492,7 @@
         
         {{-- Save Btn --}}
         <div class="SaveBtnArea">
-            <button type="submit" class="Save bg-primary">Save</button>
+            <button type="submit" class="Save bg-info">Save</button>
         </div>{{-- Save Btn --}}
     </form>
     </x-StaffNavigation>

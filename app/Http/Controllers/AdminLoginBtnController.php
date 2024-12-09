@@ -38,8 +38,13 @@ class AdminLoginBtnController extends Controller
                     'OTPDuration' => $OTPDuration,
                     'EncryptUsername' => $EncryptUsername,
                 ]);
-                return redirect()->route('AdminOTP.Page', ['data' => urlencode($EncryptOTPcode), 'data2' => urlencode($OTPDuration), 'data3' => urlencode($EncryptUsername)]);
-            }
+                return view('LoginFolder.AdminOTPPage', [
+                    'data' => urlencode($EncryptOTPcode),
+                    'data2' => urlencode($OTPDuration),
+                    'data3' => urlencode($EncryptUsername)
+                ]);
+                
+                            }
             else{
                 // If the Account Position is Not Admin
                 return back()->withErrors(['loginError' => 'You are not authorized to access this page.']);

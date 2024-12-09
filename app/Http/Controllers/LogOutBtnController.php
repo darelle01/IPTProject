@@ -13,22 +13,18 @@ use Illuminate\Contracts\Encryption\DecryptException;
 class LogOutBtnController extends Controller
 {
     public function LogoutBtn(Request $request){
-        try {
-            $DecryptedUsername = Crypt::decrypt(session('EncryptUsername'));
-            $user = AccountsModel::where('username', $DecryptedUsername)->first();
-        } catch (DecryptException $e) {
-            return back()->withErrors(['OTPcode' => 'Unable to decrypt the OTP.']);
-        }
-        Auth::logout();
-        Cookie::queue(Cookie::forget('laravel_session')); 
-        Cookie::queue(Cookie::forget('XSRF-TOKEN'));
+
+        $DecryptedUsername = Crypt::decrypt(session('EncryptUsername'));
+        $user = AccountsModel::where('username', $DecryptedUsername)->first();
         $ActivityStatus = 'offline';
         $user->ActivityStatus = $ActivityStatus;
         $user->save(); 
+        Auth::logout();
+
         $request->session()->invalidate();
-     
         $request->session()->regenerateToken();
-        $ActivityStatus = 'offline';
+        Cookie::queue(Cookie::forget('laravel_session')); 
+        Cookie::queue(Cookie::forget('XSRF-TOKEN'));
         return redirect()->route('Login');
     }
 }

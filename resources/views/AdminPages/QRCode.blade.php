@@ -6,53 +6,19 @@
         QR Code
     </x-slot:Title>
     {{-- Qr-Code --}}
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
 
     <div class="QrCodeArea" id="QrCodeArea">
         <div class="Code">
             <img src="data:image/svg+xml;base64, {!! $PatientQRCode !!} " class="QRCode"/>
         </div>
         <div class="Info">
-            <div class="labelPatientName">
-                <label>Patient Name</label>
-            </div>
-            <div class="PatientName">
-                {{$PatientInfo->LastName}}, {{$PatientInfo->FirstName}} {{$PatientInfo->MiddleName}} 
-            </div>
-            <div class="labelAddress">
-                <label for="" class="">Address</label>
-            </div>
-            <div class="PatientAddress">
-                {{$PatientInfo->Street}},{{$PatientInfo->HouseNo}},{{$PatientInfo->Barangay}},{{$PatientInfo->Municipality}},{{$PatientInfo->Province}}
-            </div>
-            <div class="LineSigniture">
-                _______________________
-            </div>
-            <div class="labelSignature">
-                <label for="" class="">Signature</label>
-            </div>
+            
         </div> 
     </div>{{-- Qr-Code --}}
-    <button onclick="DownloadWQRcode()" class="QR-Download btn bg-primary">Download Qr-Code</button>
-
-
-    <script>
-        function DownloadWQRcode() {
-        var element = document.getElementById('QrCodeArea');
-        html2canvas(element).then(function(canvas) {
-        var imgData = canvas.toDataURL('image/png');
-        var link = document.createElement('a');
-        link.href = imgData;
-        link.download = 'QrCode.png';
-        link.click();
-    });
-}
-
-    </script>
+    <button id="QrCodeBtn" onclick="DownloadWQRcode()" class="QR-Download btn bg-success">Download Qr-Code</button>
 
 
 </x-AdminNavigation>
-
 
 
 
@@ -70,44 +36,36 @@
         <div class="Code">
             <img src="data:image/svg+xml;base64, {!! $PatientQRCode !!} " class="QRCode"/>
         </div>
+        <div class="InfoAndLogoArea">
+        <div class="CardLogoArea">
+        </div>    
         <div class="Info">
-            <div class="labelPatientName">
-                <label>Patient Name</label>
+            <div class="PatientNameArea">
+                <label for="" class="NameLabel">Name :</label>
+                <label for="" class="PatientName">
+                    {{$PatientInfo->LastName}}, {{$PatientInfo->FirstName}} {{$PatientInfo->MiddleName}}
+                </label>
             </div>
-            <div class="PatientName">
-                {{$PatientInfo->LastName}}, {{$PatientInfo->FirstName}} {{$PatientInfo->MiddleName}} 
+            <div class="AddressArea">
+                <label for="" class="AddressName">Address :</label>
+                <label for="" class="PatientAddress">
+                    {{$PatientInfo->HouseNumber}}, {{$PatientInfo->Street}}, {{$PatientInfo->Barangay}}, {{$PatientInfo->Municipality}}, {{$PatientInfo->Province}}
+                </label>
             </div>
-            <div class="labelAddress">
-                <label for="" class="">Address</label>
+            <div class="PhoneNoArea">
+                <label for="" class="PhoneNoLabel">Phone No.</label>
+                <label for="" class="PatientPhoneNo">
+                    +63{{$PatientInfo->ContactNumber }}
+                </label>
             </div>
-            <div class="PatientAddress">
-                {{$PatientInfo->Street}},{{$PatientInfo->HouseNo}},{{$PatientInfo->Barangay}},{{$PatientInfo->Municipality}},{{$PatientInfo->Province}}
+            <div class="SignatureArea">
+                <label for="" class="SignatureLine">_____________________________</label>
+                <label for="" class="SignatureLabel">Signature</label>
             </div>
-            <div class="LineSigniture">
-                _______________________
-            </div>
-            <div class="labelSignature">
-                <label for="" class="">Signature</label>
-            </div>
-        </div> 
+        </div>
+        </div>
     </div>{{-- Qr-Code --}}
-    <button onclick="DownloadWQRcode()" class="QR-Download btn bg-primary">Download Qr-Code</button>
-
-
-    <script>
-        function DownloadWQRcode() {
-        var element = document.getElementById('QrCodeArea');
-        html2canvas(element).then(function(canvas) {
-        var imgData = canvas.toDataURL('image/png');
-        var link = document.createElement('a');
-        link.href = imgData;
-        link.download = 'QrCode.png';
-        link.click();
-    });
-}
-
-    </script>
-
+    <button id="QrCodeBtn" onclick="DownloadWQRcode()" class="QR-Download btn bg-primary">Download Qr-Code</button>
 
 </x-StaffNavigation>
 @endif

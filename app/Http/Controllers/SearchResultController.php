@@ -36,6 +36,6 @@ class SearchResultController extends Controller
         }
         $EncryptedpatientsBasicInfo = Crypt::encrypt($patientsBasicInfo);
         session(['EncryptedpatientsBasicInfo' => $EncryptedpatientsBasicInfo,'Search' => $Search]);
-        return redirect()->route('Admin.SearchResult', ['data' => urlencode($EncryptedpatientsBasicInfo), 'data2' => urlencode($Search)]);
+        return redirect()->route('Admin.SearchResult');
     }
 }

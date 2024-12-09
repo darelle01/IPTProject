@@ -42,7 +42,6 @@
                 <form action="{{route('StaffOTP.Confirm')}}" method="POST" class="">
                     @csrf
                     @method('POST')
-
                     <div class="OTPLabelArea">
                         <h2 class="OTPLAbel">Enter the OTP for verification.</h2>
                     </div>

@@ -6,21 +6,18 @@
 }
 .QrCodeArea{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: fit-content;
     height: fit-content;
     background-color: #00A3FF;
     border-radius: 20px;
 }
 .Code{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     width: fit-content;
     height: fit-content;
     border-radius: 10px;
@@ -28,65 +25,135 @@
     padding: 10px;
     background-color: white;
 }
+.InfoAndLogoArea{
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+}
+.CardLogoArea{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-image: url('/images/LogoVr1.png');
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.logo{
+    width: 230px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
 .Info{
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 90%;
-    width: 90%;
+    margin: 10px;
+    height: fit-content;
+    width: fit-content;
     border-radius: 10px;
     background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.labelPatientName{
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
+.PatientNameArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: fit-content;
+}
+.NameLabel{
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
 .PatientName{
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
+    margin-left: 5px;
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
-.labelAddress{
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
+.AddressArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: fit-content;
+}
+.AddressName{
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
 .PatientAddress{
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 20px;
+    margin-left: 5px;
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
-.LineSigniture{
-    margin-top: 10px;
+.PhoneNoArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    height: fit-content;
+}
+.PhoneNoLabel{
+    color: black;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.PatientPhoneNo{
+    margin-left: 5px;
+    color: black;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+.SignatureArea{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+.SignatureLine{
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
-.labelSignature{
+.SignatureLabel{
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5px;
-    font-size: 13px;
+    color: black;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
     font-weight: bold;
 }
+/* download btn */
 .QR-Download{
     margin-top: 20px;
     margin-left: auto;

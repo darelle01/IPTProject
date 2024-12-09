@@ -508,6 +508,22 @@ h3{
     transform: scale(1.1);
     color: white;
 }
+.Qr-generator{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 50px;
+    width: fit-content;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.4s ease-in-out;
+}
+.Qr-generator:hover{
+    transform: scale(1.1);
+    color: white;
+}
 
 /* Alert Info */
 
