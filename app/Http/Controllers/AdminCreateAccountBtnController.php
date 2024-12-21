@@ -29,8 +29,7 @@ class AdminCreateAccountBtnController extends Controller
             'password' => 'required|string|min:8|regex:/[0-9]/|regex:/[@$!%*?&#]/|regex:/[A-Z]/',       
             'profile_picture' => 'nullable|image|max:4096',
         ]);
-
-        // Handle image upload
+        // Handle image upload   
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
             $path = $file->store('profile_picture', 'public');
@@ -39,7 +38,7 @@ class AdminCreateAccountBtnController extends Controller
         
         $AccountDetails['Status'] = 'Active';
         $AccountDetails['Position'] = 'Staff';
-        $AccountDetails['ActivityStatus'] = 'offline';
+        $AccountDetails['ActivityStatus'] = 'Offline';
         AccountsModel::create($AccountDetails);
 
          

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\AccountsModel;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -26,6 +27,10 @@ class AdminOTPMiddleware
                 $OTPVerifiedDuration = session('OTPVerifiedDuration');
                 if ($OTPVerified === true && now()->timestamp < $OTPVerifiedDuration) {
                     $OTPVerifiedDuration = now()->addMinutes(30)->timestamp;
+                     /** @var AccountsModel $user */
+                    $user = Auth::user();
+                    $user->LastActivity = now();
+                    $user->save();
                     session(['OTPVerified' => true,
                     'OTPVerifiedDuration' => $OTPVerifiedDuration]);
                     return $next($request);

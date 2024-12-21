@@ -33,8 +33,8 @@ class AccountsModel extends Authenticatable
         'username',
         'password',
         'profile_picture',
-        'OTP',                
-        'OTPduration',
+        'LastActivity',                
+      
     ];
     protected $hidden = [
         'password', 'remember_token',

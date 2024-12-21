@@ -265,4 +265,6 @@
             <button type="submit" class="Create bg-info">Create</button>
         </div>{{-- Create Btn --}}     
     </form>
+    {{-- Javascript Area --}}
+    <script src="{{asset ('javascript/PhoneNumber.js')}}"></script>
 </x-AdminNavigation>            

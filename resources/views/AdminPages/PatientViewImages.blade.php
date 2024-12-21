@@ -123,7 +123,7 @@
                             <div class="mb-3">
                                 <input type="text" class="PN" name="PatientNumber" value="{{$PatientNumber}}" hidden readonly>
                                 <input type="text" class="ID" name="id" value="{{$id}}" hidden readonly>
-                                <input class="form-control" type="file" id="formFile" accept="image/*" name="Files[]" multiple>
+                                <input class="form-control" type="file" id="formFile" accept="image/*" name="Files[]" multiple required>
                               </div>
                         </div>
                         <div class="modal-footer">

@@ -16,10 +16,10 @@ class LogOutBtnController extends Controller
 
         $DecryptedUsername = Crypt::decrypt(session('EncryptUsername'));
         $user = AccountsModel::where('username', $DecryptedUsername)->first();
-        $ActivityStatus = 'offline';
+        $ActivityStatus = 'Offline';
         $user->ActivityStatus = $ActivityStatus;
         $user->save(); 
-        Auth::logout();
+        Auth::logout();    
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AccountsModel;
 use Illuminate\Http\Request;
+use App\Models\AccountsModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Contracts\Encryption\DecryptException;
 
@@ -46,6 +47,10 @@ class OTPConfirmBtnController extends Controller
             // OTP is correct, proceed to Admin dashboard
             $OTPVerifiedDuration = now()->addMinutes(30)->timestamp;
             $OTPVerified = true;
+            /** @var AccountsModel $user */
+            $user = Auth::user();
+            $user->LastActivity = now();            
+            $user->save();
             if ($OTPVerified) {
                 $ActivityStatus = 'Online';
                 $user->ActivityStatus = $ActivityStatus;
@@ -58,7 +63,7 @@ class OTPConfirmBtnController extends Controller
             return redirect()->route('Admin.Dashboard');
         } else {
             // OTP is incorrect
-            return back()->withErrors(['OTPcode' => 'Invalid OTP code. Please try again.']);
+            return redirect()->route('AdminOTP.Page')->withErrors(['OTPcode' => 'Invalid OTP code. Please try again.']);
         }
         
     }
@@ -102,6 +107,10 @@ class OTPConfirmBtnController extends Controller
             // OTP is correct, proceed to Admin dashboard
             $OTPVerifiedDuration = now()->addMinutes(5)->timestamp;
             $OTPVerified = true;
+            /** @var AccountsModel $user */
+            $user = Auth::user();
+            $user->LastActivity = now();
+            $user->save();
             if ($OTPVerified) {
                 $ActivityStatus = 'Online';
                 $user->ActivityStatus = $ActivityStatus;

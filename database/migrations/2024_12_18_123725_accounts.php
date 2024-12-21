@@ -42,9 +42,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('profile_picture')->nullable();
 
-           
-            $table->string('OTP')->nullable(); 
-            $table->timestamp('OTPduration')->nullable(); 
+			$table->timestamp('LastActivity')->nullable();
         });
     }
 

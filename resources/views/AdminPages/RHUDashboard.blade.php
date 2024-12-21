@@ -337,7 +337,7 @@
           chart.draw(data, options);
       
         }
-    </script>
+    // </script>
     {{-- Script for Google 3d Pie Chart --}}
 
     {{-- Script for Google Chart --}}

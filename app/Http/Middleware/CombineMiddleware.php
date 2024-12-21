@@ -39,6 +39,10 @@ class CombineMiddleware
                 $OTPVerifiedDuration = session('OTPVerifiedDuration');
                 if ($OTPVerified === true && now()->timestamp < $OTPVerifiedDuration) {
                     $OTPVerifiedDuration = now()->addMinutes(30)->timestamp;
+                     /** @var AccountsModel $user */
+                    $user = Auth::user();
+                    $user->LastActivity = now();
+                    $user->save();
                     session(['OTPVerified' => true,
                     'OTPVerifiedDuration' => $OTPVerifiedDuration]);
                     return $next($request);
