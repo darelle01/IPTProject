@@ -1,12 +1,13 @@
 @if(Auth::check() && Auth::user()->Position === 'Admin')
     <x-AdminNavigation>
-        
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
    {{-- Script for Google 3d Pie Chart --}}
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <script type="text/javascript">
        google.charts.load ("current", {packages:["corechart"]});
        google.charts.setOnLoadCallback(drawChart);
        function drawChart() {
+        console.log(1);
          var data = google.visualization.arrayToDataTable([
              ['Consultation', 'NumPatient'],
              @foreach ($PieChartModel as $data)
@@ -22,11 +23,13 @@
            chartArea: { left: '5%', top: '0', width: '90%', height: '80%'},
            titleTextStyle: { color: 'black', fontName: 'Arial', fontSize: 18, italic: true, bold: true }
          };
- 
+         
          var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
          chart.draw(data, options);
        }
-   // </script>
+       google.charts.setOnLoadCallback(drawChart);       
+       setInterval(drawChart, 15000);
+    </script>
    {{-- Script for Google 3d Pie Chart --}}
 
    {{-- Script for Google Chart --}}

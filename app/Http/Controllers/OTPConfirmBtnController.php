@@ -123,7 +123,7 @@ class OTPConfirmBtnController extends Controller
             return redirect()->route('Admin.Dashboard');
         } else {
             // OTP is incorrect
-            return back()->withErrors(['OTPcode' => 'Invalid OTP code. Please try again.']);
+            return redirect()->route('StaffOTP.Page')->withErrors(['OTPcode' => 'Invalid OTP code. Please try again.']);
         }
         
     } 

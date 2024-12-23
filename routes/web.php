@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GenerateQRCodeController;
+use App\Http\Controllers\AccountListFetchController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -30,6 +30,7 @@ use App\Http\Controllers\OTPConfirmBtnController;
 use App\Http\Controllers\StaffLoginBtnController;
 use App\Http\Controllers\UpdateAccountController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\GenerateQRCodeController;
 use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\AccountListViewController;
 use App\Http\Controllers\ActivateAccountController;
@@ -96,7 +97,9 @@ Route::middleware(['auth','AdminOTPMiddle'])->group(function () {
     Route::get('/Create-Account',[AdminCreateAccountController::class,'ViewAdminCreateAccount'])->name('Admin.Create');
     Route::post('/Create-Account',[AdminCreateAccountBtnController::class,'CreateAccountBtn'])->name('Admin.Store');
 
-    Route::get('/Account-List', [AccountListViewController::class,'ViewAccountList'])->named('Account.List');
+    Route::get('/Account-List', [AccountListViewController::class,'ViewAccountList'])->name('Account.List');
+    Route::get('/Account-List-Fetch', [AccountListFetchController::class,'FetchAllAccountsData'])->name('Fetch.AccountList');
+
     Route::get('/Account-Redirect', [RedirectUpdateAccountBtnController::class, 'RedirectToUpdateAccount'])->name('Redirect.UpdateAccount');
     Route::get('/Update-Account', [UpdateAccountController::class, 'UpdateAccount'])->name('Update.Account');
 

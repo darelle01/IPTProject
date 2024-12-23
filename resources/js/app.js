@@ -25,3 +25,6 @@ document.getElementById("QrCodeBtn").onclick = function(){
     });
 }
 
+
+
+

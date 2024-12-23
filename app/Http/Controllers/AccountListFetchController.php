@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Models\AccountsModel;
-use Illuminate\Support\Facades\DB;
 
-class AccountListViewController extends Controller
+
+class AccountListFetchController extends Controller
 {
-    public function ViewAccountList()
-    {
+    public function FetchAllAccountsData(){
+        // for getting all active accounts
         $AllActiveAccounts = AccountsModel::where('Position', 'Staff')
         ->where('Status', 'Active')
         ->orderBy('id')
@@ -38,6 +37,8 @@ class AccountListViewController extends Controller
         return view('AdminPages.AccountList', compact('AllActiveAccounts', 'AllDeactivedAccounts'))
             ->with(['NoAccount' => 'No Accounts']); 
         }
-        return view('AdminPages.AccountList',compact('AllActiveAccounts','AllDeactivedAccounts'));
+
+        return response()->json(['ActiveAccounts' => $AllActiveAccounts,
+                                'DeactivatedAccounts' => $AllDeactivedAccounts]);
     }
 }
