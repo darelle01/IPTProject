@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/UpdateMedicalFile.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/DeleteMedicalFile.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/Sorting.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/Ph-Flag.png') }}">
+
     {{-- Title --}}
     <x-slot:Title>
         Medical Logs
@@ -137,7 +139,7 @@
 
 
                                 {{-- Update Button --}}
-                                <button type="button" class="btn btn-info Update" value="{{ $getAllConsultation }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
+                                <button type="button" class="btn btn-info Update" value="{{e($getAllConsultation)}}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $MedicalLogsValue->id }}">
                                     Update
                                 </button>
                                 {{-- Update Button --}}
@@ -153,22 +155,20 @@
                                         </div>
                                         <div class="modal-body">
                                             <form action="{{ route('Admin.UpdateFile', ['PatientNumber' => $MedicalLogsValue->PatientNumber, 'id' => $MedicalLogsValue->id]) }}" method="POST" class="UpdateForm">
-
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="text" name="PatientNumber" class="PatientNumber" value="{{$MedicalLogsValue->PatientNumber}}" readonly hidden>
                                                 <input type="text" class="id" name="id" value="{{$MedicalLogsValue->id}}" readonly hidden>
                                                 <div class="ConsultationUpdateArea">
                                                     <label class="ConsultationUpdateLabel">Consultation</label>
-                                                    <select name="FilterByConsultation" class="FilterByConsultation2">
-                                                        <option value="">-------- Select Consultation --------</option>
+                                                    <select name="Consultation" class="FilterByConsultation2" required>
+                                                        <option value="{{$MedicalLogsValue->Consultation}}">-- Consultation List --</option>
                                                         @foreach ($getAllConsultation as $consultation)
                                                             <option value="{{ $consultation->ConsultationList }}">
                                                                 {{ $consultation->ConsultationList }}
                                                             </option>
                                                         @endforeach
                                                     </select>
-                                                    
                                                 </div>
                                                 <div class="error">
                                                     @error('Consultation')
@@ -181,7 +181,7 @@
                                                 </div>
                                                 <div class="DateOfConsultationUpdateArea">
                                                     <label class="DateOfConsultationUpdate">Date of Check-up</label>
-                                                    <input type="date" name="DateOfConsultation" class="DateOfConsultation">
+                                                    <input type="date" name="DateOfConsultation" class="DateOfConsultation" required>
                                                 </div>
                                                 <div class="error">
                                                     @error('DateOfConsultation')

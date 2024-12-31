@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Crypt;
 class UpdateFileController extends Controller
 {
     public function UpdateFile(Request $request) {
+        
         $request->validate([
             'PatientNumber' => 'required|string',
             'Consultation' => 'required|string',
@@ -19,7 +20,7 @@ class UpdateFileController extends Controller
             'DateOfUpload' => 'required|date',
             'id' => 'required|numeric',
         ]);
-    
+        
         $PatientNumber = $request->input('PatientNumber');
         $id = $request->input('id');
         $MedicalLogs = patientmedicallog::where('PatientNumber', $PatientNumber)

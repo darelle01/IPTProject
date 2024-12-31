@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountListFetchController;
+use App\Http\Controllers\EditStaffAccountController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -102,13 +103,14 @@ Route::middleware(['auth','AdminOTPMiddle'])->group(function () {
 
     Route::get('/Account-Redirect', [RedirectUpdateAccountBtnController::class, 'RedirectToUpdateAccount'])->name('Redirect.UpdateAccount');
     Route::get('/Update-Account', [UpdateAccountController::class, 'UpdateAccount'])->name('Update.Account');
+    Route::put('/Updating-Staff-Account', [EditStaffAccountController::class, 'EditStaffAccount'])->name('Updating.Staff');
 
     Route::put('/Account-Deactivated',[DeactivateAccountController::class,'DeactivateAcc'])->name('Admin.Deactivated');
     Route::put('/Account-Activate',[ActivateAccountController::class,'ActivateAcc'])->name('Admin.Activated');
     
     Route::get('/Add-New-Program', [ConsultationListController::class,'ConsultationListPage'])->name('Admin.AddProgramView');
-    Route::get('/Add-New-Program', [ConsultationListController::class,'FetchConsultationList'])->name('Admin.AddProgramView');
-    Route::post('/Add-New-Program', [ConsultationListController::class,'ConsultationList'])->name('Admin.AddProgram');
+    Route::post('/Add-Consultation', [ConsultationListController::class,'ConsultationList'])->name('Admin.AddProgram');
+    Route::put('/Edit-Consultation', [ConsultationListController::class,'EditConsultation'])->name('Admin.EditProgram');
     Route::post('/Log-out', [LogOutBtnController::class,'LogoutBtn'])->name('Log-Out');
 });
 

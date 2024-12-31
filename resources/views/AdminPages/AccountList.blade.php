@@ -2,8 +2,8 @@
     {{-- Css --}}
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/ActiveAccountList.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/DeactivatedAccountList.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <script src="{{asset('/javascript/jquery.js')}}" ></script>
     
     <x-slot:Title>
         Account List
@@ -12,7 +12,7 @@
     {{-- Active Account List --}}
     <div class="ActiveAccountArea">
         <div class="TitleArea">
-            <h2>Active Accounts</h2>
+            <h2>Active Accounts</h2>    
         </div>
         <div class="Error">
             @error('')

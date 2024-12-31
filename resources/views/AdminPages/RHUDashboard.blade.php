@@ -1,7 +1,7 @@
 @if(Auth::check() && Auth::user()->Position === 'Admin')
     <x-AdminNavigation>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
-   {{-- Script for Google 3d Pie Chart --}}
+   
+    {{-- Script for Google 3d Pie Chart --}}
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <script type="text/javascript">
        google.charts.load ("current", {packages:["corechart"]});
@@ -27,6 +27,7 @@
          var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
          chart.draw(data, options);
        }
+       google.charts.setOnLoadCallback(drawChart).empty();
        google.charts.setOnLoadCallback(drawChart);       
        setInterval(drawChart, 15000);
     </script>
@@ -37,7 +38,6 @@
    <script type="text/javascript">
      google.charts.load('current', {'packages':['corechart']});
      google.charts.setOnLoadCallback(drawVisualization);
-
      function drawVisualization() {
        
        var data = google.visualization.arrayToDataTable([

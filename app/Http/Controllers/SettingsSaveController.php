@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AccountsModel;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;
 
 class SettingsSaveController extends Controller
 {
@@ -136,6 +134,7 @@ class SettingsSaveController extends Controller
                     'email' => $AccountUpdate['email'],
                     'ContactNumber' => $AccountUpdate['ContactNumber'],
                 ]);
+                $Update->save();
                 return redirect()->route('Settings.View'); 
             }
         }  
