@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConsultationListModel;
 use Illuminate\Support\Facades\Crypt;
 
 class MedicalLogsController extends Controller
@@ -10,7 +11,7 @@ class MedicalLogsController extends Controller
         $ViewFullMedicalLogs = Crypt::decrypt(session('EncryptViewFullMedicalLogs'));
         $MedicalLogs = Crypt::decrypt(session('EncryptMedicalLogs'));
         $PatientConsultation = session('PatientConsultation');
-        $getAllConsultation = session('getAllConsultation');
+        $getAllConsultation = ConsultationListModel::all();
 
         return view('AdminPages.MedicalLogs', compact('ViewFullMedicalLogs','MedicalLogs','getAllConsultation','PatientConsultation'));
     }

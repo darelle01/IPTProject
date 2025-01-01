@@ -16,6 +16,11 @@ class LowestConsultation
             ->orderBy('NumPatient','asc')
             ->first();
          
-            return $LowestRecord->Consultation;
+        if ($LowestRecord === null) {
+            return $LowestRecord = 0;
+        } else {
+            return $LowestRecord->NumPatient;
+        }
+          
     }
 }

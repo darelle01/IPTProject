@@ -13,7 +13,7 @@ class DeleteImageIndexController extends Controller
         $patientLog = patientmedicallog::where('PatientNumber', $request->PatientNumber)
                                             ->where('id', $request->id)
                                             ->firstOrFail();
-    
+        
         $files = json_decode($patientLog->Files, true);
                 
         if (isset($files[$request->imageIndex])) {

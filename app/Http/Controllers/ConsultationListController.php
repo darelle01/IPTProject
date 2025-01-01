@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ConsultationListModel;
+use App\Models\patientmedicallog;
 use Illuminate\Http\Request;
 
 
@@ -34,6 +35,14 @@ class ConsultationListController extends Controller
                 'ConsultationList' => $EditConsultation['EditConsul'],
                
             ]);
+            // Using a loop to update all related patient medical logs
+            $PatientRecords = patientmedicallog::where('Consultation', $EditConsultation['OldConsul'])->get();
+            foreach ($PatientRecords as $PatientRecord) {
+                $PatientRecord->update([
+                    'Consultation' => $EditConsultation['EditConsul'],
+                ]);
+            }
+
         }
 
         return redirect()->route('Admin.AddProgramView')->with('Edit','Adding New Program Success!');

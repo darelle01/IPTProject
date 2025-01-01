@@ -16,8 +16,12 @@ class HighestRecord
             ->orderBy('NumPatient', 'desc')
             ->orderBy('DateOfConsultation', 'asc')
             ->first();
-
-        return $HighestRecord->NumPatient;
+        if ($HighestRecord === null) {
+            return $HighestRecord = 0;
+        } else {
+            return $HighestRecord->NumPatient;
+        }
+        
     }
 
 }

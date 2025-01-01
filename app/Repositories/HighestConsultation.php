@@ -16,7 +16,11 @@ class HIghestConsultation
             ->orderBy('NumPatient','desc')
             ->first();
          
+        if ($HighestRecord === null) {
+            return $HighestRecord = 0;
+        } else {
             return $HighestRecord->Consultation;
+        }
     }
 
 }
