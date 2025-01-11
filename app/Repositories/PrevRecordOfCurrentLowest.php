@@ -15,11 +15,13 @@ class PrevRecordOfCurrentLowest
         ->groupBy('Consultation')
         ->orderBy('NumPatient','asc')
         ->first();
-     
+        if ($CurrentRecord === null) {
+            $CurrentRecord = 'No Data';
+        }
         $PastRecord = DB::table('patientmedicallog')
         ->select(DB::raw('count(distinct PatientNumber) as PastNumPatient'))
         ->whereMonth('DateOfConsultation', now()->subMonths(1)->month)
-        ->where('Consultation',$CurrentRecord->Consultation)
+        ->where('Consultation',$CurrentRecord)
         ->first();
         
 

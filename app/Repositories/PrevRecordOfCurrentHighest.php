@@ -15,14 +15,15 @@ class PrevRecordOfCurrentHighest
         ->groupBy('Consultation')
         ->orderBy('NumPatient','desc')
         ->first();
-     
+        if ($CurrentRecord === null) {
+            $CurrentRecord = 'No Data';
+        }
         $PrevRecord = DB::table('patientmedicallog')
         ->select(DB::raw('count(distinct PatientNumber) as PrevNumPatient'))
         ->whereMonth('DateOfConsultation', now()->subMonths(1)->month)
-        ->where('Consultation',$CurrentRecord->Consultation)
+        ->where('Consultation',$CurrentRecord)
         ->first();
         
-
         return $PrevRecord->PrevNumPatient;
         }
 }

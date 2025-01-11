@@ -124,12 +124,7 @@
                        Patient: {{$CurrentHighestRecord}}  
                    </span>
                </div>
-
-               <div class="HighestConsultationLabel2">  
-                   @if($PreviousRecordofCurrentHighest === 0)
-                   <span class="">
-                      {{$PercentageCurrentLowest}}
-                   </span>    
+  
                    @elseif($CurrentHighestRecord > $PreviousRecordofCurrentHighest)
                    <span class="">
                        There is a {{number_format(abs($PercentageCurrentHighest),2)}}% 

@@ -35,12 +35,13 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50px;
+    width: 275px;
+    height: 55px;
     border-radius: 5px;
     border: 1px solid black;
-    background-image: url('/images/LogoVr1.png');
-    background-size: cover;
+    background-image: url('/images/IDLogo.png');
+    background-size: 270px;
+    background-repeat: no-repeat;
     background-position: center;
     padding-left: 10px;
     padding-right: 10px;
