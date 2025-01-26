@@ -40,7 +40,9 @@ class DeleteFileController extends Controller
 
         session(['EncryptMedicalLogs' => $EncryptMedicalLogs,
                 'getAllConsultation' => $getAllConsultation]);
-        return redirect()->route('Admin.ViewMedicalLogsRecords');                
+                return redirect()->route('Admin.ViewMedicalLogsRecords',[
+                    'data' => urlencode($EncryptMedicalLogs), 
+                    'data2' => urlencode($getAllConsultation)]);            
 
     }
 }

@@ -29,11 +29,11 @@ class AdminMiddleware
             }
         }
         elseif (!Auth::guard($guards)->check()) {
-            return redirect()->route('Login');
+            return redirect()->route('Login')->withErrors(['Session' => 'Session has expired. Please log in again.']);
         }
         else
         {
-            return redirect()->route('Login');
+            return redirect()->route('Login')->withErrors(['Session' => 'Session has expired. Please log in again.']);
         }
         
     }

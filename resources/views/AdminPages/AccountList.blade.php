@@ -2,6 +2,8 @@
     {{-- Css --}}
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/ActiveAccountList.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/DeactivatedAccountList.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script src="{{asset('/javascript/jquery.js')}}" ></script>
     
@@ -66,25 +68,26 @@
             </table>
         </div>
     </div>{{-- Deactivated Account List --}}
-    <script class="">
-        
-$(document).ready(function() {
-    $.ajaxSetup({ 
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } 
-    });
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    function fetchData() {
-        $.ajax({
-            url: '{{ route("Fetch.AccountList") }}',
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                var ActiveListOfAccounts = $('#ActiveAccountsList');
-                var DeActivatedListOFAccounts = $('#DeActivatedAccountsList');
+        function fetchData() {
+            fetch('{{ route("Fetch.AccountList") }}', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken // Include the CSRF token here
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                var ActiveListOfAccounts = document.getElementById('ActiveAccountsList');
+                var DeActivatedListOFAccounts = document.getElementById('DeActivatedAccountsList');
 
-                // Clear any existing rows and prevent to repeating the list
-                ActiveListOfAccounts.empty();
-                DeActivatedListOFAccounts.empty();
+                // Clear any existing rows to prevent repeating the list
+                ActiveListOfAccounts.innerHTML = '';
+                DeActivatedListOFAccounts.innerHTML = '';
 
                 // Populate active accounts
                 data.ActiveAccounts.forEach(function(account) {
@@ -111,7 +114,7 @@ $(document).ready(function() {
                                 </form>
                             </td>
                         </tr>`;
-                    ActiveListOfAccounts.append(row);
+                    ActiveListOfAccounts.insertAdjacentHTML('beforeend', row);
                 });
 
                 // Populate deactivated accounts
@@ -139,21 +142,18 @@ $(document).ready(function() {
                                 </form>
                             </td>
                         </tr>`;
-                    DeActivatedListOFAccounts.append(row);
+                    DeActivatedListOFAccounts.insertAdjacentHTML('beforeend', row);
                 });
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
 
-    // Initial fetch
-    fetchData();
+        // Initial fetch
+        fetchData();
 
-   
-    setInterval(fetchData, 30000);
-});
+        // Fetch data every 30 seconds
+        setInterval(fetchData, 30000);
+    });
     </script>
   
 

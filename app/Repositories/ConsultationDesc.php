@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 class ConsultationDesc
 {
         public function ConsultationDesc(){
+            $DescConsul = [];
             $DescConsul = DB::table('patientmedicallog')
             ->select('Consultation',DB::raw('count(distinct PatientNumber) as NumPatient'))
             ->whereYear('DateOfConsultation', date('Y'))
@@ -14,7 +15,7 @@ class ConsultationDesc
             ->groupBy('Consultation')
             ->orderBy('NumPatient','desc')
             ->get();
-        
             return $DescConsul;
     }
 } 
+// in user

@@ -13,7 +13,8 @@ class TotalPatientThisMonth
             ->whereYear('DateOfConsultation', date('Y'))
             ->whereMonth('DateOfConsultation', date('m'))
             ->first();
-
+            
         return $TotalNumberOfPatients->NumPatient;
     }
 }
+// in user

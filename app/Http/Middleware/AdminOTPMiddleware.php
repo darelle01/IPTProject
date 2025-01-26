@@ -21,7 +21,7 @@ class AdminOTPMiddleware
         if (Auth::check()) {
             $OTPVerified = session('OTPVerified');
             if (Auth::user()->Position !== 'Admin') {
-                return redirect()->back();
+                return redirect()->back()->withErrors(['Session' => 'Session has expired. Please log in again.']);
             }
             if ($OTPVerified === true) {
                 $OTPVerifiedDuration = session('OTPVerifiedDuration');
@@ -38,8 +38,8 @@ class AdminOTPMiddleware
                 session()->forget(['OTPVerified', 'OTPVerifiedDuration']);
                 return redirect()->route('Login')->withErrors(['Session' => 'Session has expired. Please log in again.']);
             }
-            return redirect()->route('Login')->withErrors(['UnAuthenticated' => 'You are not authorized to enter, please login to proceed.']);
+            return redirect()->route('Login')->withErrors(['Session' => 'Session has expired. Please log in again.']);
         }
-        return redirect()->route('Login')->withErrors(['UnAuthenticated' => 'You are not authorized to enter, please login to proceed.']);
+        return redirect()->route('Login')->withErrors(['Session' => 'Session has expired. Please log in again.']);
     }
 }

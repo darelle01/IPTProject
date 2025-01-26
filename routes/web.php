@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\AccountListFetchController;
-use App\Http\Controllers\EditStaffAccountController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -39,8 +37,10 @@ use App\Http\Controllers\PatientFullInfoController;
 use App\Http\Controllers\PatientListViewController;
 use App\Http\Controllers\UploadNewAvatarController;
 use App\Http\Controllers\ViewMedicalLogsController;
+use App\Http\Controllers\AccountListFetchController;
 use App\Http\Controllers\ConsultationListController;
 use App\Http\Controllers\DeleteImageIndexController;
+use App\Http\Controllers\EditStaffAccountController;
 use App\Http\Controllers\SearchResultViewController;
 use App\Http\Controllers\DeactivateAccountController;
 use App\Http\Controllers\EmailOTPSubmitBtnController;
@@ -49,6 +49,7 @@ use App\Http\Controllers\UpdatePasswordBtnController;
 use App\Http\Controllers\ViewMedicalImagesController;
 use App\Http\Controllers\ViewPatientRecordController;
 use App\Http\Controllers\AdminCreateAccountController;
+use App\Http\Controllers\DashboardFetchDataController;
 use App\Http\Controllers\SettingsUpdateViewController;
 use App\Http\Controllers\AdminCreateAccountBtnController;
 use App\Http\Controllers\ViewMedicalLogsImagesController;
@@ -117,6 +118,7 @@ Route::middleware(['auth','AdminOTPMiddle'])->group(function () {
 
 Route::middleware(['auth','CombineMiddle'])->group(function () {  
     Route::get('/RHU-Dashboard', [DashboardController::class, 'ShowDashboard'])->name('Admin.Dashboard');
+    Route::get('/RHU-Dashboard-Fetch', [DashboardFetchDataController::class,'DashboardFetchData'])->name('Dashboard.fetchData');
     Route::get('/New-Patient',[AdminNewPatient::class,'ViewAdminNewPatient'])->name('Admin.New');
     Route::post('/New-Patient',[AdminSaveBtnController::class,'AdminSaveBtn'])->name('Admin.Save');
     
