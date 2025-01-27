@@ -29,27 +29,27 @@ th{
     padding: 15x;
 }
 .Consultation{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
     width: 300px;
     height: fit-content;
-    background-color: rgba(128, 128, 128, 0.3)  ;
+    background-color: #00A3FF;
     border-top-left-radius: 10px;
 }
 .TotalNumberPatient{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
     width: 150px;
     height: fit-content;
     padding: 10px;
-    background-color: rgba(128, 128, 128, 0.3)  ;
+    background-color: #00A3FF;
 }
 .Male{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -58,7 +58,7 @@ th{
     background-color: aqua;
 }
 .SeniorMale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -67,7 +67,7 @@ th{
     background-color: aqua;
 }
 .AdultMale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -76,7 +76,7 @@ th{
     background-color: aqua;
 }
 .TeenMale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -85,7 +85,7 @@ th{
     background-color: aqua;
 }
 .ChildMale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -94,7 +94,7 @@ th{
     background-color: aqua;
 }
 .Female{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -103,7 +103,7 @@ th{
     background-color: pink;
 }
 .SeniorFemale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -112,7 +112,7 @@ th{
     background-color: pink;
 }
 .AdultFemale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -121,7 +121,7 @@ th{
     background-color: pink;
 }
 .TeenFemale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -130,7 +130,7 @@ th{
     background-color: pink;
 }
 .ChildFemale{
-    font-size: small;
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
@@ -144,16 +144,13 @@ th{
     text-align: center;
     padding: 5px;
     font-weight: 700;
-    background-color: rgba(128, 128, 128, 0.3)  ;
-}
-.ConsultationVal{
-    border-bottom-left-radius: 10px ;
+    background-color: #00A3FF;
 }
 .TotalNumberPatientVal{
     text-align: center;
     padding: 5px;
     font-weight: 700;
-    background-color: rgba(128, 128, 128, 0.3)  ;
+    background-color: #00A3FF;
 }
 .TotalCountVal{
     margin-left: auto;
@@ -166,7 +163,7 @@ th{
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    font-size: small;
+    font-size: medium;
 }
 /* male value */
 .MaleVal,.SeniorMaleVal,.AdultMaleVal,.TeenMaleVal,.ChildMaleVal{
@@ -184,7 +181,7 @@ th{
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    font-size: small;
+    font-size: medium;
 }
 /* female value */
 .FemaleVal,.SeniorFemaleVal,.AdultFemaleVal,.TeenFemaleVal,.ChildFemaleVal{
@@ -192,9 +189,6 @@ th{
     padding: 5px;
     font-weight: 700;
     background-color: pink;
-}
-.ChildFemaleVal{
-    border-bottom-right-radius: 10px ;
 }
 .SeniorFemaleCountVal,.AdultFemaleCountVal,.TeenFemaleCountVal,.ChildFemaleCountVal{
     display: flex;
@@ -205,5 +199,5 @@ th{
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    font-size: small;
+    font-size: medium;
 }

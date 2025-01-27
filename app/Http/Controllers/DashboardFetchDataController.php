@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Repositories\PieChart;
 use App\Repositories\MaleCount;
 use App\Repositories\FemaleCount;
+use App\Repositories\TableOutput;
 use App\Repositories\ConsultationAsc;
 use App\Repositories\ConsultationDesc;
 use App\Repositories\TotalPatientThisMonth;
+use Symfony\Component\Console\Helper\Table;
 use App\Repositories\LowestConsultationValue;
 use App\Repositories\HighestConsultationValue;
 use App\Repositories\PrevDataOfCurrentLowestData;
@@ -25,11 +27,12 @@ class DashboardFetchDataController extends Controller
     protected $consultationAsc;
     protected $femaleCount;
     protected $maleCount;
+    protected $tableOutput;
   
     public function __construct(TotalPatientThisMonth $totalPatientThisMonth, PieChart $pieChart, ConsultationDesc $consultationDesc
                                , HighestConsultationValue $highestConsultationValue, PrevDataOfCurrentHighestData $prevDataOfCurrentHighestData,
                                 LowestConsultationValue $lowestConsultationValue, PrevDataOfCurrentLowestData $prevDataOfCurrentLowestData,                             
-                               ConsultationAsc $consultationAsc, FemaleCount $femaleCount, MaleCount $maleCount)
+                               ConsultationAsc $consultationAsc, FemaleCount $femaleCount, MaleCount $maleCount, TableOutput $tableOutput)
     {
         // Total Patient This Month
         $this->totalPatientThisMonth = $totalPatientThisMonth;
@@ -51,6 +54,8 @@ class DashboardFetchDataController extends Controller
         $this->femaleCount = $femaleCount;    
         // male area
         $this->maleCount = $maleCount;
+        // consultation List
+        $this->tableOutput = $tableOutput;
     }
 
     public function DashboardFetchData()
@@ -75,7 +80,8 @@ class DashboardFetchDataController extends Controller
         $TotalFemaleCount = $this->femaleCount->FemaleCount();
         // male area
         $TotalMaleCount = $this->maleCount->MaleCount();
-
+        // consultataion List
+        $Data = $this->tableOutput->TableOutput();
         // Computatation
         // Highset 
         if ($HighestConsultationValue === null) {
@@ -117,7 +123,8 @@ class DashboardFetchDataController extends Controller
             'PrevDataOfCurrentLowestData' => $PrevDataOfCurrentLowestData,
             'LowConsulDiff' => $LowConsulDiff,
             'TotalFemaleCount' => $TotalFemaleCount,
-            'TotalMaleCount' => $TotalMaleCount
+            'TotalMaleCount' => $TotalMaleCount,
+            'Data' => $Data,
         ]);   
     }
 }

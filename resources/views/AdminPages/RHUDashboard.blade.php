@@ -89,26 +89,6 @@
             {{-- Highest Consultation --}}
             <div class="HighestConsultationArea" id="HighestConsultationArea">
 
-
-                {{-- <div class="HighestConsultationLabel2" id="CurrentHighest">  
-                    @if($PreviousRecordofCurrentHighest === 0)
-                    <span class="">
-                       {{$PercentageCurrentLowest}}
-                    </span>    
-                    @elseif($CurrentHighestRecord > $PreviousRecordofCurrentHighest)
-                    <span class="">
-                        There is a {{number_format(abs($PercentageCurrentHighest),2)}}% 
-                        <i class="fa-solid fa-up-long"></i>
-                    </span> 
-                    @elseif($CurrentHighestRecord < $PreviousRecordofCurrentHighest)
-                    <span class="">
-                        There is a {{number_format(abs($PercentageCurrentHighest),2)}}% 
-                        <i class="fa-solid fa-down-long"></i>
-                    </span> 
-                    @else
-                    <span class="">The number of patients is same compare to the past month.</span>
-                    @endif
-                </div> --}}
             </div>{{-- Highest Consultation --}}
 
             {{-- Lowest Consultation --}}
@@ -116,23 +96,7 @@
               
 
                 <div class="LowestConsultationLabel2" id="CurrentLowest">
-                    {{-- @if($PreviousRecordofCurrentLowest === 0)
-                    <span class="">
-                       {{$PercentageCurrentLowest}}
-                    </span>
-                    @elseif($CurrentLowestRecord > $PreviousRecordofCurrentLowest)
-                        <span class="">
-                            There is an increase of {{ number_format(abs($PercentageCurrentLowest), 2) }}% 
-                            <i class="fa-solid fa-up-long"></i>
-                        </span>
-                    @elseif($CurrentLowestRecord < $PreviousRecordofCurrentLowest)
-                        <span class="">
-                            There is a decrease of {{ number_format(abs($PercentageCurrentLowest), 2) }}% 
-                            <i class="fa-solid fa-down-long"></i>
-                        </span>
-                    @else
-                        <span class="">The number of patients is the same as the past month.</span>
-                    @endif --}}
+
                 </div>
             </div>{{-- Lowest Consultation --}}            
 
@@ -142,118 +106,14 @@
             {{-- Table Of Consultation Area --}}
             <div class="TableOfConsultation">
                 <table class="ConsultationTable">
-                    <tr>
-                        <th class="Consultation">Consultation</th>
-                        <th class="TotalNumberPatient">Total Number of Patient</th>
-                        <th class="Male">Male</th>
-                        <th class="SeniorMale">Senior Male</th>
-                        <th class="AdultMale">Adult Male</th>
-                        <th class="TeenMale">Teen Male</th>
-                        <th class="ChildMale">Child Male</th>
-                        <th class="Female">Female</th>
-                        <th class="SeniorFemale">Senior Female</th>
-                        <th class="AdultFemale">Adult Female</th>
-                        <th class="TeenFemale">Teen Female</th>
-                        <th class="ChildFemale">Child Female</th>
-                    </tr>
-                   
-                    <tr>
-                        {{-- Consultation --}}
-                        <td class="ConsultationVal">
-                            {{-- @foreach($ConsultationDescending as $Desc)
-                            <div class="ConsultationCountVal">
-                                {{$Desc->Consultation}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                      
-
-                        {{-- Number of patient per consultation --}}
-                        <td class="TotalNumberPatientVal">
-                            {{-- @foreach($TotalPatientPerConsul as $TotalNumOfPatients)
-                            <div class="TotalCountVal">
-                                    {{$TotalNumOfPatients->NumPatient}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-
-                        {{-- Male --}}
-                        <td class="MaleVal">
-                            {{-- @foreach($TotalMaleCount as $Male)
-                            <div class="AdultMaleCountVal">
-                                    {{$Male->NumMale}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="SeniorMaleVal">
-                            {{-- @foreach($SeniorMaleCountPerConsul as $SeniorMaleCount)
-                            <div class="SeniorMaleCountVal">
-                                    {{$SeniorMaleCount->MaleSenior}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="AdultMaleVal">
-                            {{-- @foreach($AdultMaleCountPerConsul as $AdultMaleCount)
-                            <div class="AdultMaleCountVal">
-                                    {{$AdultMaleCount->MaleAdult}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="TeenMaleVal">
-                            {{-- @foreach($TeenMaleCountPerConsul as $TeenMaleCount)
-                            <div class="TeenMaleCountVal">
-                                    {{$TeenMaleCount->MaleTeen}}
-                            </div>
-                            @endforeach
-                        </td>
-                        <td class="ChildMaleVal">
-                            @foreach($ChildMaleCountPerConsul as $ChildMaleCount)
-                            <div class="ChildMaleCountVal">
-                                    {{$ChildMaleCount->MaleChild}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        {{-- Female --}}
-                        <td class="FemaleVal">
-                            {{-- @foreach($TotalFemaleCount as $Female)
-                            <div class="AdultFemaleCountVal">
-                                    {{$Female->NumFemale}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="SeniorFemaleVal">
-                            {{-- @foreach($SeniorFemaleCountPerConsul as $SeniorFemaleCount)
-                            <div class="SeniorFemaleCountVal">
-                                    {{$SeniorFemaleCount->FemaleSenior}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="AdultFemaleVal">
-                            {{-- @foreach($AdultFemaleCountPerConsul as $AdultFemaleCount)
-                            <div class="AdultFemaleCountVal">
-                                    {{$AdultFemaleCount->FemaleAdult}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="TeenFemaleVal">
-                            {{-- @foreach($TeenFemaleCountPerConsul as $TeenFemaleCount)
-                            <div class="TeenFemaleCountVal">
-                                    {{$TeenFemaleCount->FemaleTeen}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                        <td class="ChildFemaleVal">
-                            {{-- @foreach($ChildFemaleCountPerConsul as $ChildFemaleCount)
-                            <div class="ChildFemaleCountVal">
-                                    {{$ChildFemaleCount->FemaleChild}}
-                            </div>
-                            @endforeach --}}
-                        </td>
-                    </tr>
-            
+                    <thead id="BreakDownLabel">
+                  
+                    </thead>
+                    <tbody id="BreakDown">
+                    
+                    </tbody>
                 </table>
             </div>{{-- Table Of Consultation Area --}} 
-
         </div>{{-- Second Area --}}
         {{-- Third Area --}}
         <div class="ThirdArea">

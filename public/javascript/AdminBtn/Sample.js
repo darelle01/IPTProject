@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Pie Chart                      
             const pieChartDataArray = [['Consultation', 'NumPatient']];
-            data.Pie.forEach(item => {
-                pieChartDataArray.push([item.Consultation, item.NumPatient]);
+            data.Pie.forEach(Value => {
+                pieChartDataArray.push([Value.Consultation, Value.NumPatient]);
             });
             const pieChartData = google.visualization.arrayToDataTable(pieChartDataArray);
      
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 `);
             }
             // Compare Current Lowest To Past Record
-            console.log(data.PrevDataOfCurrentLowestData);  
+            // console.log(data.PrevDataOfCurrentLowestData);  
             if (data.PrevDataOfCurrentLowestData === 0) {
                 LowestConsultationArea.insertAdjacentHTML('beforeend', `
                <div class="LowestConsultationLabel2" id="CurrentLowest">  
@@ -212,10 +212,109 @@ document.addEventListener('DOMContentLoaded', function() {
             `);
             }
 
+        // Table Area Label
+        const BreakDownLabel = document.getElementById('BreakDownLabel');
+        BreakDownLabel.innerHTML = '';
+            var row = `
+              <tr>
+                <th class="Consultation">Consultation</th>
+                <th class="TotalNumberPatient">Total Number of Patient</th>
+                <th class="Male">Male</th>
+                <th class="SeniorMale">Senior Male</th>
+                <th class="AdultMale">Adult Male</th>
+                <th class="TeenMale">Teen Male</th>
+                <th class="ChildMale">Child Male</th>
+                <th class="Female">Female</th>
+                <th class="SeniorFemale">Senior Female</th>
+                <th class="AdultFemale">Adult Female</th>
+                <th class="TeenFemale">Teen Female</th>
+                <th class="ChildFemale">Child Female</th>
+            </tr>
+            `;
+        BreakDownLabel.innerHTML = row;
+        // Table Area Value
+        console.log(data)
+        const BreakDown = document.getElementById('BreakDown');
+        BreakDown.innerHTML = '';
+            data.Data.forEach(function(List){
+                var row = `
+                <tr>
+                <td class="ConsultationVal"
+                    <div class="ConsultationCountVal">
+                        ${List.Consultation}
+                    </div>
+                </td>
+                <td class="TotalNumberPatientVal">
+                    <div class="TotalCountVal">
+                        ${List.NumPatient}
+                    </div>
+                </td> 
 
 
+
+                <td class="MaleVal">
+                    <div class="Male">
+                        ${List.NumMale}
+                    </div>
+                </td>   
+                <td class="SeniorMaleVal">
+                    <div class="SeniorMaleCountVal">
+                        ${List.NumSeniorMale}
+                    </div>
+                </td>
+                <td class="AdultMaleVal">
+                    <div class="AdultMaleCountVal">
+                        ${List.NumAdultMale}
+                    </div>
+                </td>                
+                <td class="TeenMaleVal">
+                    <div class="TeenMaleCountVal">
+                        ${List.NumTeenMale}
+                    </div>
+                </td>
+                <td class="ChildMaleVal">
+                    <div class="ChildMaleCountVal">
+                        ${List.NumChildMale}
+                    </div>
+                </td>
+
+                
+
+
+                <td class="FemaleVal">
+                    <div class="Female">
+                        ${List.NumFemale}
+                    </div>
+                </td>
+                <td class="SeniorFemaleVal">
+                    <div class="SeniorFemaleCountVal">
+                        ${List.NumSeniorFemale}
+                    </div>
+                </td>
+                <td class="AdultFemaleVal">
+                    <div class="AdultFemaleCountVal">
+                        ${List.NumAdultFemale}
+                    </div>
+                </td>
+                <td class="TeenFemaleVal">
+                    <div class="TeenFemaleCountVal">
+                        ${List.NumTeenFemale}
+                    </div>
+                </td>
+                <td class="ChildFemaleVal">
+                    <div class="ChildFemaleCountVal">
+                        ${List.NumChildFemale}
+                    </div>
+                </td>
+                `;
+                BreakDown.innerHTML += row;
+        
+        
+            // Google Chart  
             
-        })
+            
+            });
+    })
         .catch(error => console.error(error));
     }
              
