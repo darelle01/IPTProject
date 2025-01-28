@@ -9,33 +9,12 @@
     {{-- Script for Google 3d Pie Chart --}}
 
     {{-- Script for Google Chart --}}
-    {{-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+      google.charts.setOnLoadCallback(fetchDashboardData);
 
-      function drawVisualization() {   
-        var data = google.visualization.arrayToDataTable([
-            ['month', 'TotalPerMonth'],
-              @foreach ($NumberOfConsultationPerMonth as $data)
-              ['{{ $data->month }}', {{ $data->TotalPerMonth }}],
-              @endforeach 
-        ]);
-
-        var options = {
-          title : 'Number of patients for each month.',
-          vAxis: {title: 'Patients'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}},
-          chartArea: { left: '6%', top: '30%', width: '100%', height: '50%' }
-        };
-
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-        console.log('show');
-      }
-    </script> --}}
+    </script>
     {{-- Script for Google Chart --}}
   
     {{-- CSS --}}

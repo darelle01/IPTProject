@@ -7,6 +7,7 @@ use App\Repositories\MaleCount;
 use App\Repositories\FemaleCount;
 use App\Repositories\TableOutput;
 use App\Repositories\ConsultationAsc;
+use App\Repositories\CurrentYearData;
 use App\Repositories\ConsultationDesc;
 use App\Repositories\TotalPatientThisMonth;
 use Symfony\Component\Console\Helper\Table;
@@ -28,11 +29,13 @@ class DashboardFetchDataController extends Controller
     protected $femaleCount;
     protected $maleCount;
     protected $tableOutput;
+    protected $currentYearData;
   
-    public function __construct(TotalPatientThisMonth $totalPatientThisMonth, PieChart $pieChart, ConsultationDesc $consultationDesc
-                               , HighestConsultationValue $highestConsultationValue, PrevDataOfCurrentHighestData $prevDataOfCurrentHighestData,
+    public function __construct(TotalPatientThisMonth $totalPatientThisMonth, PieChart $pieChart, ConsultationDesc $consultationDesc,
+                                HighestConsultationValue $highestConsultationValue, PrevDataOfCurrentHighestData $prevDataOfCurrentHighestData,
                                 LowestConsultationValue $lowestConsultationValue, PrevDataOfCurrentLowestData $prevDataOfCurrentLowestData,                             
-                               ConsultationAsc $consultationAsc, FemaleCount $femaleCount, MaleCount $maleCount, TableOutput $tableOutput)
+                                ConsultationAsc $consultationAsc, FemaleCount $femaleCount, MaleCount $maleCount, TableOutput $tableOutput,
+                                CurrentYearData $currentYearData)
     {
         // Total Patient This Month
         $this->totalPatientThisMonth = $totalPatientThisMonth;
@@ -56,6 +59,8 @@ class DashboardFetchDataController extends Controller
         $this->maleCount = $maleCount;
         // consultation List
         $this->tableOutput = $tableOutput;
+        // current year data
+        $this->currentYearData = $currentYearData;
     }
 
     public function DashboardFetchData()
@@ -82,6 +87,8 @@ class DashboardFetchDataController extends Controller
         $TotalMaleCount = $this->maleCount->MaleCount();
         // consultataion List
         $Data = $this->tableOutput->TableOutput();
+        // current year data
+        $CurrentYearData = $this->currentYearData->CurrentYearData();
         // Computatation
         // Highset 
         if ($HighestConsultationValue === null) {
@@ -125,6 +132,7 @@ class DashboardFetchDataController extends Controller
             'TotalFemaleCount' => $TotalFemaleCount,
             'TotalMaleCount' => $TotalMaleCount,
             'Data' => $Data,
+            'CurrentYearData' => $CurrentYearData,
         ]);   
     }
 }

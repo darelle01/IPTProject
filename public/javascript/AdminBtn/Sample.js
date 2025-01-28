@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         BreakDownLabel.innerHTML = row;
         // Table Area Value
-        console.log(data)
+        // console.log(data)
         const BreakDown = document.getElementById('BreakDown');
         BreakDown.innerHTML = '';
             data.Data.forEach(function(List){
@@ -311,8 +311,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
             // Google Chart  
-            
-            
+            console.log(data.CurrentYearData);
+            const ChartColumn = [['Month', 'NumPatient']];
+            data.CurrentYearData.forEach(Value => {
+                ChartColumn.push([Value.Month, Value.NumPatient]);
+            });
+            const ChartColumnData = google.visualization.arrayToDataTable(ChartColumn);
+            var options = {
+                title : 'Number of patients for each month.',
+                vAxis: {title: 'Patients'},
+                hAxis: {title: 'Month'},
+                seriesType: 'bars',
+                series: {5: {type: 'line'}},
+                chartArea: { left: '6%', top: '30%', width: '100%', height: '50%' }
+              };
+      
+              var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+              chart.draw(ChartColumnData, options);
             });
     })
         .catch(error => console.error(error));
