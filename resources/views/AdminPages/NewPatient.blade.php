@@ -202,7 +202,7 @@
                 <div class="ContactNumberInputArea">
                     <span class="PhCode"></span>
                     <span class="Code">+63</span>
-                    <input type="text" name="ContactNumber" class="ContactNumber" maxlength="10" minlength="10" placeholder="Mobile Number *">
+                    <input type="text" id="MyNumber" name="ContactNumber" class="ContactNumber" maxlength="13" minlength="10" placeholder="Mobile Number *">
                 </div>
                 <div class="ContactNumberErrorArea">
                     @error('ContactNumber')
@@ -246,6 +246,7 @@
             <button type="submit" class="Save bg-info">Save</button>
         </div>{{-- Save Btn --}}
     </form>
+    <script src="{{asset('/javascript/AdminBtn/NewPatientPhoneNumber.js')}}"></script>
 </x-AdminNavigation>
 @else
     <x-StaffNavigation>
@@ -451,7 +452,7 @@
                 <div class="ContactNumberInputArea">
                     <span class="PhCode"></span>
                     <span class="Code">+63</span>
-                    <input type="text" name="ContactNumber" class="ContactNumber" maxlength="10" minlength="10" placeholder="Mobile Number *">
+                    <input type="text" id="MyNumber" name="ContactNumber" class="ContactNumber" maxlength="10" minlength="10" placeholder="Mobile Number *">
                 </div>
                 <div class="ContactNumberErrorArea">
                     @error('ContactNumber')
@@ -495,5 +496,6 @@
             <button type="submit" class="Save bg-info">Save</button>
         </div>{{-- Save Btn --}}
     </form>
+    <script src="{{asset('/javascript/AdminBtn/NewPatientPhoneNumber.js')}}"></script>
     </x-StaffNavigation>
 @endif

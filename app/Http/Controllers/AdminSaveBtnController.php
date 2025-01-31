@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\patientrecord;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\patientrecord;
 
 class AdminSaveBtnController extends Controller
 {
@@ -25,6 +26,9 @@ class AdminSaveBtnController extends Controller
             'email' => 'nullable|email|unique:patientrecord,email,',
             'PhilhealthNumber' => 'nullable|string|unique:patientrecord,PhilhealthNumber,',
         ]);
+        if (Str::startsWith($validatedPatientInfo['ContactNumber'], '+63')) {
+            $validatedPatientInfo['ContactNumber'] = substr($validatedPatientInfo['ContactNumber'], 3);
+        }
         $validatedPatientInfo['Stamp_Token'] = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'), 0, 10);
         patientrecord::create($validatedPatientInfo);
             

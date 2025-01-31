@@ -71,7 +71,6 @@ Route::get('/Forgot-Password-Page',[ForgotPasswordController::class,'ForgotPassw
 Route::post('/Forgot-Password-Confirm',[ConfirmEmailController::class,'ConfirmEmail'])->name('ForgotPassword.Confirm');
 // Forgot Password page
 });
-
 Route::middleware(['ForgotPasswordMiddle'])->group(function () {
     Route::get('/Forgot-Password-OTP',[EmailOTPController::class,'EmailOTP'])->name('ForgotPassword.OTP');
     Route::post('/Forgot-Password-OTP',[EmailOTPSubmitBtnController::class,'EmailOTPSubmitBtn'])->name('ForgotPassword.Verfication');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\AccountsModel;
 use Illuminate\Support\Facades\Hash;
@@ -24,11 +25,15 @@ class AdminCreateAccountBtnController extends Controller
             'Municipality' => 'required|string',
             'Province' => 'required|string',
             'email' => 'required|email|unique:accounts,email',
-            'ContactNumber' => 'string|regex:/^\d{10}$/',
+            'ContactNumber' => 'string|max:20',
             'username' => 'required|string|unique:accounts,username',
             'password' => 'required|string|min:8|regex:/[0-9]/|regex:/[@$!%*?&#]/|regex:/[A-Z]/',       
             'profile_picture' => 'nullable|image|max:4096',
         ]);
+       
+        if (Str::startsWith($AccountDetails['ContactNumber'], '+63')) {
+            $AccountDetails['ContactNumber'] = substr($AccountDetails['ContactNumber'], 3);
+        } 
         // Handle image upload   
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');

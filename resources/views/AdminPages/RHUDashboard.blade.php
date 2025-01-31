@@ -104,7 +104,7 @@
     </div> {{-- Dashboard Area --}} 
     {{-- Script --}}
     <script src="{{asset('/javascript/Date.js')}}" ></script>
-    <script src="{{asset ('javascript/AdminBtn/Sample.js')}}"></script>
+    <script src="{{asset ('javascript/AdminBtn/DashboardOutput.js')}}"></script>
 </x-AdminNavigation>
 
 @else
@@ -213,7 +213,7 @@
     </div> {{-- Dashboard Area --}} 
     {{-- Script --}}
     <script src="{{asset('/javascript/Date.js')}}" ></script>
-    <script src="{{asset ('javascript/AdminBtn/Sample.js')}}"></script>
+    <script src="{{asset ('javascript/AdminBtn/DashboardOutput.js')}}"></script>
     </x-StaffNavigation>
 @endif
 

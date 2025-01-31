@@ -4,7 +4,19 @@ body{
     background-image: url(/images/NewBg1.jpg);
     background-repeat: no-repeat;
     background-position: top;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     flex-direction: column;
+}
+@media (max-width: 2560px){
+    body{
+        margin: 0;
+        padding: 0;
+        background-image: url(/images/NewBg1.jpg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 }

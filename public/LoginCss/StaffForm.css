@@ -1,5 +1,5 @@
 .StaffLoginForm{
-    margin-top: -300px;
+    margin-top: -325px;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
@@ -11,8 +11,6 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(20px);
 }
-
-
 .StaffFormName{
     margin-top: 20px;
     margin-left: auto;
@@ -96,4 +94,48 @@
 .StaffOpen-popup {
     visibility: visible;
     transform: scale(1);
+}
+
+@media(max-width: 1440px){
+    .StaffFormName{
+        margin-top: 10px;
+        font-size: 25px;
+    }
+    .StaffLoginForm{
+        margin-top: -263px;
+        width: 80%;
+        height: 30vh;
+    }
+}
+@media(max-width: 620px){
+    .StaffInputArea{
+        align-items: center;
+    }
+    .StaffUsername,.StaffPassword{
+        width: 70%;
+        height: 32px;
+        font-size: 20px;
+    }
+    .StaffLoginBtn{
+        margin-top: 10px;
+        width: 20%;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+@media(max-width: 530px){
+    .StaffLoginBtn{
+        margin-top: 10px;
+        width: 20%;
+        height: 35px;
+        font-size: small;
+    }
+}
+@media (max-width: 320px) {
+    .StaffLoginBtn{
+        margin-top: 10px;
+        width: 30%;
+        height: 35px;
+        font-size: smaller;
+    }
 }

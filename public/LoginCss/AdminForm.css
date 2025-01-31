@@ -2,7 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    height: 330px;
+    height: 34vh;
     background-color: rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
@@ -107,4 +107,74 @@
 .AdminOpen-popup {
     visibility: visible;
     transform: scale(1);
+}
+@media(max-width: 1440px){
+    .AdminFormName{
+        margin-top: 10px;
+        font-size: 25px;
+    }
+    .AdminLoginForm{
+        width: 80%;
+        height: 30vh;
+    }
+}
+@media(max-width: 620px){
+    .AdminInputArea{
+        align-items: center;
+    }
+    .AdminUsername,.AdminPassword{
+        width: 70%;
+        height: 32px;
+        font-size: 20px;
+    }
+    .AdminLoginBtn{
+        margin-top: 10px;
+        width: 20%;
+        height: 35px;
+        font-size: 1rem;
+    }
+    .ForgotPassword{
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+}
+@media(max-width: 530px){  
+    .AdminLoginBtn{
+        margin-top: 10px;
+        width: 20%;
+        height: 35px;
+        font-size: small;
+    }
+    .ForgotPassword{
+        margin-top: 20px;
+        font-size: small;
+    }
+}
+@media(max-width: 425px){  
+    .AdminLoginBtn{
+        margin-top: 10px;
+        width: 22%;
+        height: 35px;
+        font-size: small;
+    }
+    .ForgotPassword{
+        margin-top: 20px;
+        font-size: small;
+    }
+}
+@media(max-width: 425px){  
+    .AdminLoginBtn{
+        margin-top: 10px;
+        width: 25%;
+        height: 35px;
+        font-size: smaller;
+    }
+}
+@media (max-width: 320px) {
+    .AdminLoginBtn{
+        margin-top: 10px;
+        width: 30%;
+        height: 35px;
+        font-size: smaller;
+    }
 }

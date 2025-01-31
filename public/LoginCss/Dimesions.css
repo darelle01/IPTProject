@@ -9,7 +9,7 @@
     flex-direction: row;
 }
 .LeftSide{
-    width: 100px;
+    width: 10%;
     height: 100%;
 }
 .Mid{
@@ -20,7 +20,7 @@
 }
 
 .RightSide{
-    width: 100px;
+    width: 10%;
     height: 100%;
 }
 .BottomArea{

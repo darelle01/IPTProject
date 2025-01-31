@@ -192,7 +192,7 @@
                 <div class="ContactInputArea">
                     <span class="PhCode"></span>
                     <span class="Code">+63</span>
-                    <input type="text" name="ContactNumber" class="ContactNumber" maxlength="10" minlength="10" placeholder="Mobile Number *">
+                    <input type="text" id="MyNumber" name="ContactNumber" class="ContactNumber" maxlength="13" minlength="13" placeholder="Mobile Number *">
                 </div>
                 <div class="ContactErrorArea">
                     @error('ContactNumber')
@@ -266,5 +266,5 @@
         </div>{{-- Create Btn --}}     
     </form>
     {{-- Javascript Area --}}
-    <script src="{{asset ('javascript/PhoneNumber.js')}}"></script>
+    <script src="{{asset('/javascript/AdminBtn/NewPatientPhoneNumber.js')}}"></script>
 </x-AdminNavigation>            
