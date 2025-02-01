@@ -118,8 +118,8 @@
 
         {{-- Mid --}}
         <div class="Mid">
-{{-- 
-            {{$slot}} --}}
+
+            {{$slot}}
 
         </div>{{-- Mid --}}
 
