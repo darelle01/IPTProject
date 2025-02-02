@@ -1,4 +1,10 @@
+document.getElementById("MyBirthDate").addEventListener('input', function() {
+    var birthDateValue = new Date(this.value);
+    var currentDate = new Date();
+    
+    var ageDifferenceMilliseconds = currentDate - birthDateValue;
+    var ageDate = new Date(ageDifferenceMilliseconds);
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById() 
-})
+    var ageYears = ageDate.getUTCFullYear() - 1970; 
+    document.getElementById("MyAge").value = ageYears;
+});

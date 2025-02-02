@@ -26,6 +26,7 @@ class AdminSaveBtnController extends Controller
             'email' => 'nullable|email|unique:patientrecord,email,',
             'PhilhealthNumber' => 'nullable|string|unique:patientrecord,PhilhealthNumber,',
         ]);
+       
         if (Str::startsWith($validatedPatientInfo['ContactNumber'], '+63')) {
             $validatedPatientInfo['ContactNumber'] = substr($validatedPatientInfo['ContactNumber'], 3);
         }

@@ -70,7 +70,7 @@
             <div class="BirthdateArea">
                 <div class="BirthdateInput">
                     <span class="BirthdateLabel">Birthdate :</span>
-                    <input type="date" name="Birthdate" class="Birthdate">
+                    <input type="date" id="MyBirthDate" name="Birthdate" class="Birthdate">
                 </div>
                 <div class="BirthdateErrorArea">
                     @error('Birthdate')
@@ -82,7 +82,7 @@
             {{-- Age --}}
             <div class="AgeArea">
                 <div class="AgeInputArea">
-                    <input type="number" name="Age" class="Age" min="1" placeholder="Age *">
+                    <input type="number" id="MyAge" name="Age" class="Age" min="1" placeholder="Age *">
                 </div>
                 <div class="AgeErrorArea">
                     @error('Age')
@@ -267,4 +267,5 @@
     </form>
     {{-- Javascript Area --}}
     <script src="{{asset('/javascript/AdminBtn/NewPatientPhoneNumber.js')}}"></script>
+    <script src="{{asset('/javascript/AdminBtn/Age.js')}}"></script>
 </x-AdminNavigation>            
