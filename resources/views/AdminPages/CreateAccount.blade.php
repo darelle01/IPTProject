@@ -7,7 +7,7 @@
     <form action="{{route('Admin.Store')}}" method="POST" class="CreateAccountForm" enctype="multipart/form-data">
         @csrf
         <div class="FormNameArea">
-            <h2>Create Account</h2>
+            <label>Create Account</label>
         </div>
         @if (session('Create'))
         <div class="alert alert-success">
@@ -238,8 +238,9 @@
             <div class="passwordArea">
                  <div class="passwordInputArea">
                     <input type="password" name="password" class="password" minlength="8" placeholder="Password *">
+                    <span class="direction">Use atleast 8 characters one upper, one lower,one number. </span>
                 </div>
-                <span class="direction">Use atleast 8 characters one upper, one lower,one number and special characters. </span>
+                
                 <div class="passwordErrorArea">
                     @error('password')
                     <div class="password-error">{{ $message }}</div>
@@ -252,17 +253,18 @@
                 <div class="profile_pictureInputArea">
                     <input type="file" name="profile_picture" class="profile_picture" accept="image/*" placeholder="Upload Profile Picture *">
                 </div>
+                <div class="profile_pictureErrorArea">
+                    @error('profile_picture')
+                    <div class="profile_picture-error">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>{{-- profile_picture --}}
-            <div class="profile_pictureErrorArea">
-                @error('profile_picture')
-                <div class="profile_picture-error">{{ $message }}</div>
-                @enderror
-            </div>
-            </div>{{-- Account Information --}}            
+        
+        </div>{{-- Account Information --}}            
             
         {{-- Create Btn --}}
         <div class="CreateBtnArea">
-            <button type="submit" class="Create bg-info">Create</button>
+            <button type="submit" class="Create btn btn-info">Create</button>
         </div>{{-- Create Btn --}}     
     </form>
     {{-- Javascript Area --}}

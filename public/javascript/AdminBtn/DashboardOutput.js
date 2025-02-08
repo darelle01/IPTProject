@@ -22,25 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const TotalCount = data.TotalForThisMonth;
             Total.innerText = TotalCount;
 
-            // Pie Chart                      
-            const pieChartDataArray = [['Consultation', 'NumPatient']];
-            data.Pie.forEach(Value => {
-                pieChartDataArray.push([Value.Consultation, Value.NumPatient]);
-            });
-            const pieChartData = google.visualization.arrayToDataTable(pieChartDataArray);
-     
-            const options = {
-                is3D: true,
-                backgroundColor: { fill: 'transparent' },
-                legend: 'none',
-                pieStartAngle: 90,
-                chartArea: { left: '5%', top: '0', width: '90%', height: '80%' },
-                titleTextStyle: { color: 'black', fontName: 'Arial', fontSize: 18, italic: true, bold: true }
-            };
-
-            const chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            chart.draw(pieChartData, options);
-
             // Display Highest Consultation and its Number of Patients
             const HighestConsultationArea = document.getElementById('HighestConsultationArea');
             HighestConsultationArea.innerHTML = '';
@@ -308,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </td>
                 `;
                 BreakDown.innerHTML += row;
-        
+            
         
             // Google Chart  
             console.log(data.CurrentYearData);
@@ -329,6 +310,24 @@ document.addEventListener('DOMContentLoaded', function() {
               var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
               chart.draw(ChartColumnData, options);
             });
+            // Pie Chart                      
+            const pieChartDataArray = [['Consultation', 'NumPatient']];
+            data.Pie.forEach(Value => {
+                pieChartDataArray.push([Value.Consultation, Value.NumPatient]);
+            });
+            const pieChartData = google.visualization.arrayToDataTable(pieChartDataArray);
+     
+            const options = {
+                is3D: true,
+                backgroundColor: { fill: 'transparent' },
+                legend: 'none',
+                pieStartAngle: 90,
+                chartArea: { left: '5%', top: '0', width: '90%', height: '80%' },
+                titleTextStyle: { color: 'black', fontName: 'Arial', fontSize: 18, italic: true, bold: true }
+            };
+
+            const chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(pieChartData, options);
     })
         .catch(error => console.error(error));
     }

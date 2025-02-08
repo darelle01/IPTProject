@@ -46,14 +46,14 @@
                 
             </div>
             <div class="ProfilePictureArea1">
-                @if (Auth::user()->profile_picture)
+                {{-- @if (Auth::user()->profile_picture)
                 <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                @else
-                
-                @endif
+                @else --}}
+                <img src="{{ asset('/images/Ph-Flag.png') }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
+                {{-- @endif --}}
             </div>
             <div class="NameArea">
-                <p>{{  Auth::user()->FirstName }}</p>
+                {{-- <p>{{  Auth::user()->FirstName }}</p> --}}
             </div>
 
             <div class="DashboardArea">
@@ -79,7 +79,7 @@
                 <form action="{{route ('RedirectTo.Settings')}}" method="GET" class="SettingsArea">
                     @csrf
                     @method('GET')
-                    <input type="text" class="" name="SettingsPage"  value="{{Auth::user()->username}}" hidden>
+                    {{-- <input type="text" class="" name="SettingsPage"  value="{{Auth::user()->username}}" hidden> --}}
                     <button type="submit" class="Settings"> 
                         <i class="fa-solid fa-gear"></i>
                         <span class="ButtonName">Setting</span>

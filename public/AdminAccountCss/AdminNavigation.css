@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 10vh;
+    height: 6vh;
+    min-height: fit-content;
+    padding: 10px;
     background: linear-gradient(90deg, #0075FF
     , #42D87E);
 }
@@ -16,11 +18,11 @@
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 5%;
-    width: 80px;
-    height: 60px;
+    width: 60px;
+    height: 40px;
     border-radius: 100px;
     border: none;
-    font-size: 32px;
+    font-size: 1.7rem;
     background-color: transparent;
     transition: 0.4s ease-in-out;
     color: white;
@@ -67,23 +69,33 @@
     border: none;
     border-radius: 0 5px 5px 0;
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 @media (max-width: 425px) {   
     .TopArea{
         width: 100%;
-        height: 7vh;
+        height: fit-content;
+        padding: 10px;
     }
     .SearchBox{
         padding-left: 15px;
         width: 50%;
-        height: 40px;
+        height: 30px;
+    }
+    .SearchBox::placeholder{
+        font-size: 1rem;
+    }
+    .SearchBtn{
+        height: 30px;
+    }
+    .MenuBtn{
+        height: 30px;
+        font-size: 1.4rem;
     }
 }
 @media (max-width: 320px) {   
     .SearchBox{
         padding-left: 15px;
         width: 60%;
-        height: 40px;
     }
 }

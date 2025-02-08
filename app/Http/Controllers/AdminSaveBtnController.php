@@ -22,7 +22,7 @@ class AdminSaveBtnController extends Controller
             'Barangay' => 'required|string|max:255',
             'Municipality' => 'required|string|max:255',
             'Province' => 'required|string|max:255',
-            'ContactNumber' => 'nullable|string|max:20',
+            'ContactNumber' => 'required|string|max:20',
             'email' => 'nullable|email|unique:patientrecord,email,',
             'PhilhealthNumber' => 'nullable|string|unique:patientrecord,PhilhealthNumber,',
         ]);

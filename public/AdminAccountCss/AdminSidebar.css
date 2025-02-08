@@ -1,6 +1,7 @@
 .LeftSide{
     width: 250px;
     height: 100%;
+    min-height: fit-content;
     background: linear-gradient(to bottom, #0075FF
     , #42D87E);
     border: 1px solid black;
@@ -27,18 +28,19 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 200px;
+    width: 88%;
+    height: 20vh;
     border-radius: 100px;
     border: 1px solid black;
 }
 .profilepicture1{
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 20vh;
     border-radius: 100px;
     border: 1px solid black;
+    background-image: url('/images/Ph-Flag.png');
 }
 .NameArea{
     display: flex;
@@ -369,43 +371,96 @@
 ::-webkit-scrollbar-thumb:hover {
     background: black;
 }
-@media (max-width: 1024px) {
+@media (max-width: 2560px) {
     #NavBarArea{
         margin-top: 1px;
-        width: 200px;
+        width: fit-content;
         height: 100vh;
         overflow: auto;
         transition: 0.1s ease-in-out;
         visibility: visible;
     }
+    .ProfilePictureArea1{
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 88%;
+        height: 200px;
+        border-radius: 100px;
+        border: 1px solid black;
+    }
+    .profilepicture1{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        border: 1px solid black;
+        background-image: url('/images/Ph-Flag.png');
+    }
+}
+@media (max-width: 1440px) {
+    #NavBarArea{
+        margin-top: 1px;
+        width: fit-content;
+        height: 100vh;
+        overflow: auto;
+        transition: 0.1s ease-in-out;
+        visibility: visible;
+        font-size: 1rem;
+    }
+    .ProfilePictureArea1{
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        height: 160px;
+        border-radius: 100px;
+        border: 1px solid black;
+    }
+    .profilepicture1{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        border: 1px solid black;
+        background-image: url('/images/Ph-Flag.png');
+    }
+}
+@media (max-width: 1226px) {    
     .LogoArea {
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 98%;
+        width: 180px;
         height: 50px;
         border-radius: 5px;
         border: 1px solid black;
         background-image: url('/images/LogoVr1.png');
-        background-repeat: no-repeat;
         background-size: 100% 100%;
+        background-repeat: no-repeat;
         background-position: center;
     }
-    .ProfilePictureArea1{   
-        width: 80%;
-        height: 18vh;
+    .ProfilePictureArea1{
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        height: 140px;
         border-radius: 100px;
+        border: 1px solid black;
     }
     .profilepicture1{
+        margin-left: auto;
+        margin-right: auto;
         width: 100%;
-        height: 18vh;
+        height: 100%;
+        border-radius: 100px;
+        border: 1px solid black;
+        background-image: url('/images/Ph-Flag.png');
     }
-    .NameArea{
-        font-size: 1.1rem;
-    }
-    .Dashboard,.CreateAccount,.AccountList,.NewPatient,.PatientTable,.AddConsultation,.Settings,.Logout{
-        width: 200px;
-        height: 40px;
+    .ButtonName{
         font-size: 1rem;
     }
 }
@@ -441,4 +496,23 @@
             margin-right: auto;
         }
     }
+}
+@media (max-width: 425px) {
+    #NavBarArea{
+        width: 50px;
+        .LogoArea{
+            width: 30px;
+            height: 30px;
+        }
+        .fa-chart-line,.fa-user-plus,
+        .fa-users-rectangle,.fa-user-injured,
+        .fa-hospital-user,.fa-gear,
+        .fa-right-from-bracket,.fa-book-medical{
+            font-size: 1.4rem;
+        }
+    } 
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
 }

@@ -13,7 +13,7 @@
 
     {{-- Active Account List --}}
     <div class="ActiveAccountArea">
-        <div class="TitleArea">
+        <div class="ActiveTitleArea">
             <h2>Active Accounts</h2>    
         </div>
         <div class="Error">
@@ -25,11 +25,11 @@
             <table class="AccountsTable">
                 <thead>
                 <tr>
-                    <th class="">Name</th>
-                    <th class="">Username</th>
-                    <th class="">Position</th>
-                    <th class="">Status</th>
-                    <th class="">Actions</th>
+                    <th class="NameLabel">Name</th>
+                    <th class="UsernameLabel">Username</th>
+                    <th class="PositionLabel">Position</th>
+                    <th class="StatusLabel">Status</th>
+                    <th class="ActionsLabel">Actions</th>
                 </tr>
             </thead>
 
@@ -56,11 +56,11 @@
             <table class="AccountsTable">
                 <thead>
                 <tr>
-                    <th class="">Name</th>
-                    <th class="">Username</th>
-                    <th class="">Position</th>
-                    <th class="">Status</th>
-                    <th class="">Actions</th>
+                    <th class="NameLabel">Name</th>
+                    <th class="UsernameLabel">Username</th>
+                    <th class="PositionLabel">Position</th>
+                    <th class="StatusLabel">Status</th>
+                    <th class="ActionsLabel">Actions</th>
                 </tr>
                 </thead>
                 <tbody id="DeActivatedAccountsList">
@@ -93,9 +93,9 @@
                 data.ActiveAccounts.forEach(function(account) {
                     var row = `
                         <tr>
-                            <td>${account.FirstName} ${account.MiddleName} ${account.LastName}</td>
-                            <td>${account.username}</td>
-                            <td>${account.Position}</td>
+                            <td class="Name">${account.FirstName} ${account.MiddleName} ${account.LastName}</td>
+                            <td class="Username">${account.username}</td>
+                            <td class="Position">${account.Position}</td>
                             <td class="${account.ActivityStatus === 'Online' ? '' : 'offline'}">
                                 ${account.ActivityStatus === 'Online' ? 
                                 '<div class="OnlineArea"><span class="Online">Online</span><div class="bg-success bg-gradient circle1"></div></div>' : 
@@ -120,10 +120,11 @@
                 // Populate deactivated accounts
                 data.DeactivatedAccounts.forEach(function(account) {
                     var row = `
+                        
                         <tr>
-                            <td>${account.FirstName} ${account.MiddleName} ${account.LastName}</td>
-                            <td>${account.username}</td>
-                            <td>${account.Position}</td>
+                            <td class="Name">${account.FirstName} ${account.MiddleName} ${account.LastName}</td>
+                            <td class="Username">${account.username}</td>
+                            <td class="Position">${account.Position}</td>
                             <td class="${account.ActivityStatus === 'Online' ? '' : 'offline'}">
                                 ${account.ActivityStatus === 'Online' ? 
                                 '<div class="OnlineArea"><span class="Online">Online</span><div class="bg-success bg-gradient circle1"></div></div>' : 
@@ -143,6 +144,7 @@
                             </td>
                         </tr>`;
                     DeActivatedListOFAccounts.insertAdjacentHTML('beforeend', row);
+                    
                 });
             })
             .catch(error => console.error('Error fetching data:', error));

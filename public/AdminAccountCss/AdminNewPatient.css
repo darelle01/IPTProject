@@ -5,622 +5,321 @@
     justify-content: center;
 }
 .NewPatientForm{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    width: 1050px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
     height: fit-content;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid black;
-    border-radius: 10px;
+    max-height: 90%;
+    background-color: white;
+    border-radius: 20px;
 }
 .FormNameArea{
     display: flex;
-    flex-direction: column;
+    text-align: start;
     width: 100%;
-    height: 60px;
-    border-radius: 10px 10px 0 0;
+    height: fit-content;
+    border-radius: 20px 20px 0 0;
     background-color: #00A3FF;
 }
-h2{
-    margin-left: 50px;
-    color: white;
+h1{ 
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 3%;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     font-style: italic;
-    font-weight: bold;
+    color: white;
 }
-/* Patient ID */
-.PatientIDArea{
-    display: flex;
-    flex-direction: row;
+/* Patient Number and Philhealth Number Area */
+.PatientNumberPhilhealthArea{
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 100%;
-    height: 60px;
-}
-.PatientID{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-/* error area */
-.PatientIDerrorArea{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-    width: 100%;
-    height: 33px;
-}
-.PatientID-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-    color: red;
-
-}
-/* Title Area */
-.BasicInfoArea,.AddressAndContactArea,.PhilhealthArea{
-    margin-bottom: 10px;
-    display: flex;
-    width: 100%;
-    height: 60px;
-    background-color: rgba(93, 214, 56, 0.671);
-}
-.BasicInfoLabel,.AddressAndContactLabel,.PhilhealthLabel{
-    display: flex;
+    height: fit-content;
+    background-color: #00a2ff6f;
 }
 h3{
-    margin-left: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
+    font-size: 2rem;
+    margin-left: 3%;
 }
-/* Basic Information 1 */
-.BasicInfoInputArea,.AddressAndContactInputArea.PhilhealthNumberInputArea{
+.PhilHealthAndPatientNumberArea{
     width: 100%;
-    height: 80px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    padding: 5px;
+    margin-left: 5%;
 }
-/* Last Name Area */
-.LastNameArea{
-    margin-top: auto;
-    margin-bottom: auto;
+.PatientIDArea,.PhilhealthNumberInputArea{
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
 }
-.LastNameInputArea{
+.PatientID,.PhilhealthNumber{
+    width: 50%;
+    min-width: 250px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.PatientIDerrorArea,.PhilhealthNumberErrorArea{
     width: 100%;
-    height: 50px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.LastName{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.LastName::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.LastNameErrorArea{
+.PatientID-error,.PhilhealthNumber-error{
     width: 100%;
-    height: 30px;
-    display: flex;
-}
-.LastName-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+    font-size: 1rem;
     color: red;
 }
-/* First Name Area */
-.FirstNameArea{
-    margin-top: auto;
-    margin-bottom: auto;
+/* Basic Info Area */
+.BasicInfoArea{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    height: fit-content;
+    background-color: #00a2ff6f;
+}  
+h3{
+    font-size: 2rem;
+    margin-left: 3%;
+}
+.BasicInfoInputArea{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 5px;
+}
+.LastNameArea,.FirstNameArea,.MiddleNameArea{
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
+    margin-left: 5%;
 }
-.FirstNameInputArea{
+.LastNameInputArea,.FirstNameInputArea,.MiddleNameInputArea{
     width: 100%;
-    height: 50px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
+    background-color: white;
 }
-.FirstName{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+.LastName,.FirstName,.MiddleName{
+    width: 50%;
+    min-width: 250px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.FirstName::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.FirstNameErrorArea{
+.LastNameErrorArea,.FirstNameErrorArea,.MiddleNameErrorArea{
     width: 100%;
-    height: 30px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.FirstName-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+.LastName-error,.FirstName-error,.MiddleName-error{
+    width: 100%;
+    font-size: 1rem;
     color: red;
 }
-/* Middle Name Area */
-.MiddleNameArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.MiddleNameInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
-.MiddleName{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.MiddleName::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.MiddleNameErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.MiddleName-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-/* Basic Information 2 */
+/* Birthdate, Age and Gender Area */
 .BasicInfoInputArea2{
     width: 100%;
-    height: 80px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    padding: 5px;
 }
-/* Birthdate Area */
-.BirthdateArea{
-    margin-top: auto;
-    margin-bottom: auto;
+.BirthdateArea,.AgeArea,.GenderArea{
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
+    margin-left: 5%;
 }
-.BirthdateInput{
-    display: flex;
-    flex-direction: row;
+.BirthdateInput,.AgeInputArea,.GenderInputArea{
     width: 100%;
-    height: 50px;
+    height: fit-content;
+    padding: 2px;
+    background-color: white;
 }
 .BirthdateLabel{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    margin-right: 10px;
-    font-size: 23px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-size: 20px;
     font-style: italic;
 }
 .Birthdate{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    width: 150px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.BirthdateMiddleNameErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.Birthdate-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-/* Age Area */
-.AgeArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    height: 80px;
-}
-.AgeInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
+    padding-left: 5px;
+    width: fit-content;
+    height: auto;
+    font-size: 20px;
+    text-align: start;
 }
 .Age{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 100px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.Age::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.AgeErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.Age-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-/* Gender Area */
-.GenderArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.GenderInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
+    width: 25%;
+    height: auto;
+    font-size: 20px;
+    text-align: center;
 }
 .Gender{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 130px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 45%;
+    height: auto;
+    font-size: 20px;
+    text-align: center;
 }
-.Gender::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.GenderErrorArea{
+.BirthdateErrorArea,.AgeErrorArea,.GenderErrorArea{
     width: 100%;
-    height: 30px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.Gender-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+.Birthdate-error,.Age-error,.Gender-error{
+    width: 100%;
+    font-size: 1rem;
     color: red;
 }
-/* Address and Contacts Input Area */
+/* Address and Contacts Area */
+.AddressAndContactArea{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    height: fit-content;
+    background-color: #00a2ff6f;
+}
+h3{
+    font-size: 2rem;
+    margin-left: 3%;
+}
+/* Address Input Area */
 .AddressAndContactInputArea{
     width: 100%;
-    height: 80px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    padding: 5px;
 }
-/* House Number Area */
-.HouseNumberArea{
-    margin-top: auto;
-    margin-bottom: auto;
+.HouseNumberArea,.StreetArea,.BarangayArea{
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
+    margin-left: 5%;
 }
-.HouseNumberInputArea{
+.HouseNumberInputArea,.StreetInputArea,.BarangayInputArea{
     width: 100%;
-    height: 50px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
+    background-color: white;
 }
-.HouseNumber{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+.HouseNumber,.Street,.Barangay{
+    width: 50%;
+    min-width: 250px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.HouseNumber::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.HouseNumberErrorArea{
+.HouseNumberErrorArea,.StreetErrorArea,.BarangayErrorArea{
     width: 100%;
-    height: 30px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.HouseNumber-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+.HouseNumber-error,.Street-error,.Barangay-error{
+    width: 100%;
+    font-size: 1rem;
     color: red;
 }
-
-/* Street Area */
-.StreetArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.StreetInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
-.Street{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.Street::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.StreetErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.Street-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-
-/* Barangay Area */
-.BarangayArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.BarangayInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
-.Barangay{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.Barangay::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.BarangayErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.Barangay-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-/* Address and Contacts Input Area 2*/
+/* Address Input Area */
 .AddressAndContactInputArea2{
     width: 100%;
-    height: 80px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    padding: 5px;
 }
-/* Municipality Area */
-.MunicipalityArea{
-    margin-top: auto;
-    margin-bottom: auto;
+.MunicipalityArea,.ProvinceArea{
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
+    margin-left: 5%;
 }
-.MunicipalityInputArea{
+.MunicipalityInputArea,.ProvinceInputArea{
     width: 100%;
-    height: 50px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
+    background-color: white;
 }
-.Municipality{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+.Municipality,.Province{
+    width: 50%;
+    min-width: 250px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.Municipality::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.MunicipalityErrorArea{
+.MunicipalityErrorArea,.ProvinceErrorArea{
     width: 100%;
-    height: 30px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.Municipality-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+.Municipality-error,.Province-error{
+    width: 100%;
+    font-size: 1rem;
     color: red;
 }
-
-/* Province Area */
-.ProvinceArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.ProvinceInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
-.Province{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.Province::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.ProvinceErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.Province-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-/* Address and Contacts Input Area 3*/
+/* Address Input Area */
 .AddressAndContactInputArea3{
     width: 100%;
-    height: 80px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    padding: 5px;
 }
-/* Contact Area */
-.ContactNumberArea{
-    margin-top: auto;
-    margin-bottom: auto;
+.ContactNumberArea,.emailArea {
+    width: 33.33%;
+    height: fit-content;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 80px;
+    margin-left: 5%;
+
 }
-.ContactNumberInputArea{
+.ContactNumberInputArea,.emailInputArea{
     width: 100%;
-    height: 50px;
+    height: fit-content;
+    padding: 2px;
+    background-color: white;
     display: flex;
 }
-.ContactNumber{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 0;
-    width: 175px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius:0 5px 5px 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    visibility: visible;
-}
-.ContactNumber:focus{
-    outline: none;
+.ContactInputArea{
+    display: flex;
 }
 .PhCode{
     margin-top: auto;   
     margin-bottom: auto;
-    margin-left: 50px;
     padding-left: 5px;
-    width: 33px;
-    height: 33px;
+    width: 30px;
+    height: 35px;
     border: 1px solid black ;
     border-right: none;
     border-radius: 5px 0 0 5px;   
     background: url('/images/Ph-Flag.png') no-repeat center;
-    background-size: 23px 20px;
+    background-size: 20px 20px;
     background-color: white;
 }
 .Code{
@@ -629,149 +328,149 @@ h3{
     border-left: none;
     padding-top: 3px;
     padding-left: 5px;
+    padding-right: 5px;
     margin-top: auto;
     margin-bottom: auto;
-    width: 42px;
-    height: 33px;
+    width: fit-content;
+    height: 35px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     visibility: visible;
     background-color: white;
 }
-.ContactNumber::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
+.ContactNumber{
+    width: 50%;
+    min-width: 180px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid black;
 }
-.ContactNumberErrorArea{
-    width: 100%;
-    height: 30px;
-    display: flex;
-}
-.ContactNumber-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: red;
-}
-
-/* email Area */
-.emailArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.emailInputArea{
-    width: 100%;
-    height: 50px;
-    display: flex;
+.ContactNumber:focus{
+    outline: none;
 }
 .email{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 70%;
+    min-width: 250px;
+    height: auto;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.email::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-.emailErrorArea{
+.ContactNumberErrorArea,.emailErrorArea{
     width: 100%;
-    height: 30px;
-    display: flex;
+    height: fit-content;
+    padding: 2px;
 }
-.email-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
+.ContactNumber-error,.email-error{
+    width: 100%;
+    font-size: 1rem;
     color: red;
 }
-/* PhilHealth Area */
-.PhilhealthNumberArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 80px;
-}
-.PhilhealthNumberInputArea{
+/* Save Button Area */
+
+.SaveBtnArea{
     width: 100%;
-    height: 50px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
-}
-.PhilhealthNumber{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    width: 250px;
-    height: 33px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.PhilhealthNumber::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-/* error area */
-.PhilhealthNumberErrorArea{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-    width: 100%;
-    height: 33px;
-}
-.PhilhealthNumber-error{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-    color: red;
-
-}
-/* Save Btn Area */
-.SaveBtnArea{
-    display: flex;
-    width: 100%;
-    height: 60px;
     justify-content: center;
+    padding: 10px;
 }
 .Save{
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 150px;
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 25px;
-    color: black;
-    transition: 0.4s ease-in-out;
+    width: 100px;
 }
-.Save:hover{
-    transform: scale(1.1);
-    color: white;
+/* Media Queries Area */
+@media (max-width: 1415px) {
+    .BirthdateLabel{
+        display: none;
+    }
 }
-.alert-success{
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+@media (max-width: 1304px) {
+    .PatientID,.PhilhealthNumber{
+        min-width: 220px;
+    }
+    .LastName,.FirstName,.MiddleName{
+        min-width: 220px;
+    }
+    .HouseNumber,.Street,.Barangay{
+        min-width: 220px;
+    }
+}
+@media (max-width: 1156px) {
+    .PatientID,.PhilhealthNumber{
+        min-width: 180px;
+        font-size: 1rem;
+    }
+    .LastName,.FirstName,.MiddleName{
+        min-width: 180px;
+        font-size: 1rem;
+    }
+    .Birthdate,.Age,.Gender{
+        font-size: 1rem;
+    }
+    .Age{
+        width: 80px;
+        min-width: 50px;
+    }
+    .Gender{
+        width: 110px;
+        min-width: 90px;
+        height: 30px;
+    }
+    .HouseNumber,.Street,.Barangay{
+        min-width: 180px;
+        font-size: 1rem;
+    }
+    .Municipality,.Province{
+        min-width: 180px;
+        font-size: 1rem;
+    }
+    .email{
+        min-width: 220px;
+        font-size: 1rem;
+    }
+    .ContactNumber{
+        min-width: 180px;
+        font-size: 1rem;
+    }
+    .PhCode{
+        min-width: 30px;
+        height: 30px;
+    }
+    .Code{
+        font-size: 1rem;
+        height: 30px;
+    }
+}
+@media (max-width: 968px) {
+    .NewPatientForm{
+        overflow-y: auto;
+    }
+    h3{
+        font-size: 1.5rem;
+    }
+    .PhilHealthAndPatientNumberArea{
+        flex-direction: column;
+    }
+    .BasicInfoInputArea,.BasicInfoInputArea2{
+        flex-direction: column;
+    }
+    .AddressAndContactInputArea,.AddressAndContactInputArea2,.AddressAndContactInputArea3{
+        flex-direction: column;
+    }
+    .ContactNumber{
+        min-width: 150px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    h1{
+        margin-left: 10%;
+        font-size: 1.3rem;
+    }
+    h3{
+        font-size: 1.2rem;
+    }
 }

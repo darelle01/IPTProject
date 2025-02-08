@@ -23,7 +23,7 @@
     <div class="TopArea">
 
         <div class="MenuBtnArea" id="MenuBtnArea1">
-            <button class="MenuBtn" onclick="toggleMenu()">
+            <button class="MenuBtn" id="Menu" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -46,14 +46,14 @@
                 
             </div>
             <div class="ProfilePictureArea1">
-                @if (Auth::user()->profile_picture)
+                {{-- @if (Auth::user()->profile_picture)
                     <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                @else
-                   
-                @endif
+                @else --}}
+                <img src="{{ asset('/images/Ph-Flag.png') }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
+                {{-- @endif --}}
             </div>            
             <div class="NameArea">
-                <p>{{  Auth::user()->FirstName }}</p>
+                {{-- <p>{{  Auth::user()->FirstName }}</p> --}}
             </div>
 
             <div class="DashboardArea">
@@ -95,14 +95,14 @@
                 </button>
             </div>
             <div class="contain">
-                <form action="{{route ('RedirectTo.Settings')}}" method="GET" class="SettingsArea">
+                <div class="SettingsArea">
                     @csrf
                     @method('GET')
-                    <button type="submit" class="Settings" name="SettingsPage" value="{{Auth::user()->username}}"> 
+                    <button type="submit" class="Settings" name="SettingsPage"> 
                         <i class="fa-solid fa-gear"></i>
                         <span class="ButtonName">Setting</span>
                     </button>
-                </form>  
+                </div>  
                 <div class="LogoutArea">
                     <form action="{{route('Log-Out')}}" method="POST" class="LogoutArea">
                         @csrf
