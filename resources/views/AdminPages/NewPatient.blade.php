@@ -8,20 +8,40 @@
     <form action="{{route('Admin.Save')}}" method="POST" class="NewPatientForm">
         @csrf
         <div class="FormNameArea">
-            <h2>New Patient</h2>
+            <h1>New Patient</h1>
         </div>
         @if (session('Update'))
         <div class="alert alert-success">
             {{ session('Update') }}
         </div>
         @endif
-        <div class="PatientIDArea">
-            <input type="text" name="PatientID" class="PatientID" placeholder="Patient ID *">
-            <div class="PatientIDerrorArea">
-                @error('PatientID')
-                <div class="PatientID-error">{{ $message }}</div>
-                @enderror
+        {{-- Patient Number and Philhealth --}}
+        <div class="PatientNumberPhilhealthArea">
+            <div class="PatientNumberPhilhealthLabel">
+                <h3>Patient Number and Philhealth</h3>
             </div>
+        </div>{{-- Patient Number and Philhealth --}}
+
+        {{-- Patient Number and Philhealth Area --}}
+        <div class="PhilHealthAndPatientNumberArea">
+            {{-- Patient Number Area --}}
+            <div class="PatientIDArea">
+                <input type="text" name="PatientID" class="PatientID" placeholder="Patient ID *">
+                <div class="PatientIDerrorArea">
+                    @error('PatientID')
+                    <div class="PatientID-error">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>{{-- Patient Number Area --}}
+            {{-- Philhealth Area --}}
+            <div class="PhilhealthNumberInputArea">
+                <input type="text" name="PhilhealthNumber" class="PhilhealthNumber" placeholder="Philhealth Number *">   
+                <div class="PhilhealthNumberErrorArea">
+                    @error('PhilhealthNumber')
+                    <div class="PhilhealthNumber-error">{{ $message }}</div>
+                    @enderror
+                </div>     
+            </div>{{-- Philhealth Area --}} 
         </div>
 
         {{-- Basic Information Label --}}
@@ -92,7 +112,7 @@
             {{-- Age --}}
             <div class="AgeArea">
                 <div class="AgeInputArea">
-                    <input type="number" id="MyAge" name="Age" class="Age" min="1" placeholder="Age *" readonly>
+                    <input type="number" id="MyAge" name="Age" class="Age" min="1" placeholder="Age *">
                 </div>
                 <div class="AgeErrorArea">
                     @error('Age')
@@ -202,7 +222,7 @@
                 <div class="ContactNumberInputArea">
                     <span class="PhCode"></span>
                     <span class="Code">+63</span>
-                    <input type="text" id="MyNumber" name="ContactNumber" class="ContactNumber" maxlength="13" minlength="10" placeholder="Mobile Number *">
+                    <input type="text" id="MyNumber" name="ContactNumber" class="ContactNumber" maxlength="10" minlength="10" placeholder="Mobile Number *">
                 </div>
                 <div class="ContactNumberErrorArea">
                     @error('ContactNumber')
@@ -212,8 +232,8 @@
             </div>{{-- Contact --}}
     
             {{-- email --}}
-            <div class="ProvinceArea">
-                 <div class="ProvinceInputArea">
+            <div class="emailArea">
+                 <div class="emailInputArea">
                     <input type="email" name="email" class="email" placeholder="Email - Address ( if - any) *">
                 </div>
                 <div class="emailErrorArea">
@@ -224,28 +244,14 @@
             </div>{{-- email --}}
             </div>{{-- Address And Contact Input Area 3 --}}  
 {{-- ------------------------------------------------------------------------------------- --}}
-        {{-- Philhealth --}}
-        <div class="PhilhealthArea">
-            <div class="PhilhealthLabel">
-                <h3>Philhealth</h3>
-            </div>
-        </div>{{-- Philhealth --}}
-        {{-- Philhealth Input Area --}}
 
-        <div class="PhilhealthNumberInputArea">
-            <input type="text" name="PhilhealthNumber" class="PhilhealthNumber" placeholder="Philhealth Number *">   
-            <div class="PhilhealthNumberErrorArea">
-                @error('PhilhealthNumber')
-                <div class="PhilhealthNumber-error">{{ $message }}</div>
-                @enderror
-            </div>     
-        </div>{{-- Philhealth Input Area --}}
         
         {{-- Save Btn --}}
         <div class="SaveBtnArea">
-            <button type="submit" class="Save bg-info">Save</button>
+            <button type="submit" class="Save btn btn-info">Save</button>
         </div>{{-- Save Btn --}}
     </form>
+
     <script src="{{asset('/javascript/AdminBtn/NewPatientPhoneNumber.js')}}"></script>
     <script src="{{asset('/javascript/AdminBtn/Age.js')}}"></script>
 </x-AdminNavigation>

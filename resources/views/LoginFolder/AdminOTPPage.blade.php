@@ -11,7 +11,6 @@
     {{-- <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script> --}}
     {{-- Css --}}
     <link rel="stylesheet" href="{{asset('LoginCss/Background.css')}}">
-    <link rel="stylesheet" href="{{asset('LoginCss/Dimesions.css')}}" >
     <link rel="stylesheet" href="{{asset('LoginCss/OTP.css')}}" >
     <title>OTP Confirmation</title>
 </head>

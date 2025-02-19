@@ -15,8 +15,6 @@ class DeleteAvatarController extends Controller
         $user = AccountsModel::where('username' , $Image['targetAcc'])->first();
         $user->profile_pictures;
         Storage::disk('public')->delete($user->profile_picture);
-        $user->profile_picture = null;
-        $user->save();
         return redirect()->route('Settings.View');
     }
 }

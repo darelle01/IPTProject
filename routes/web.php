@@ -94,7 +94,7 @@ Route::middleware(['auth','StaffMiddle:Staff'])->group(function () {
 });
 
 // Admin Only Pages 
-// Route::middleware(['auth','AdminOTPMiddle'])->group(function () {                                                                                                                                                                                                        
+Route::middleware(['auth','AdminOTPMiddle'])->group(function () {                                                                                                                                                                                                        
     Route::get('/Create-Account',[AdminCreateAccountController::class,'ViewAdminCreateAccount'])->name('Admin.Create');
     Route::post('/Create-Account',[AdminCreateAccountBtnController::class,'CreateAccountBtn'])->name('Admin.Store');
 
@@ -112,10 +112,10 @@ Route::middleware(['auth','StaffMiddle:Staff'])->group(function () {
     Route::post('/Add-Consultation', [ConsultationListController::class,'ConsultationList'])->name('Admin.AddProgram');
     Route::put('/Edit-Consultation', [ConsultationListController::class,'EditConsultation'])->name('Admin.EditProgram');
     Route::post('/Log-out', [LogOutBtnController::class,'LogoutBtn'])->name('Log-Out');
-// });
+});
 
 
-// Route::middleware(['auth','CombineMiddle'])->group(function () {  
+Route::middleware(['auth','CombineMiddle'])->group(function () {  
     Route::get('/RHU-Dashboard', [DashboardController::class, 'ShowDashboard'])->name('Admin.Dashboard');
     Route::get('/RHU-Dashboard-Fetch', [DashboardFetchDataController::class,'DashboardFetchData'])->name('Dashboard.fetchData');
     Route::get('/New-Patient',[AdminNewPatient::class,'ViewAdminNewPatient'])->name('Admin.New');
@@ -168,11 +168,11 @@ Route::middleware(['auth','StaffMiddle:Staff'])->group(function () {
     Route::delete('/Settings-Delete-Avatar', [DeleteAvatarController::class,'DeleteAvatar'])->name('Delete.Avatar');
     
     Route::post('/Log-out', [LogOutBtnController::class,'LogoutBtn'])->name('Log-Out');
-// });
+});
 
 
 
-
+   
     
 // web.php
 Route::get('/db-check', function () {

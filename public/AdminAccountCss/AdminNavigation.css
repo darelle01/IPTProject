@@ -93,9 +93,17 @@
         font-size: 1.4rem;
     }
 }
+@media (max-width: 348px) {
+    .TopArea{
+        width: 100%;
+    }
+}
 @media (max-width: 320px) {   
     .SearchBox{
         padding-left: 15px;
         width: 60%;
+    }
+    .TopArea{
+        width: 105%;
     }
 }

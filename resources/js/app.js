@@ -6,6 +6,8 @@ import html2canvas from 'html2canvas';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import '../css/app.css'; // Ensure Tailwind is included
+
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

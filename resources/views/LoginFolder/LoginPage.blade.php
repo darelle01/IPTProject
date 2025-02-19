@@ -45,10 +45,10 @@
 
                 {{-- Form Btns --}}
                 <div class="BtnArea">
-                 <button class="AdminFormBtn" onclick="openAdminPopup()">
+                 <button class="AdminFormBtn bg-white" onclick="openAdminPopup()">
                     <i class="fa-solid fa-user-tie"></i>
                  </button>
-                 <button class="UserFormBtn" onclick="openStaffPopup()">
+                 <button class="UserFormBtn bg-white" onclick="openStaffPopup()">
                     <i class="fa-solid fa-users"></i>
                  </button>
                 </div>{{-- Form Btns --}}

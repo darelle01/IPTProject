@@ -1,4 +1,4 @@
-.FirstArea{
+/* .FirstArea{
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -8,11 +8,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    overflow-y: auto;
 }
 .ThisMonthPatientCount{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 20%;
     height: 100%;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.7);
@@ -85,7 +86,7 @@
 }
 .PieChartLabelArea{
     margin-left: 10px;
-    width: 271px;
+    width: 20%;
     height: 100%;
     border-radius: 20px 0 0 20px;
     box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.7);
@@ -107,6 +108,7 @@
     font-size: 18px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -133,7 +135,7 @@
     color: black;
 }
 .PieChartFigure{
-    width: 380px;
+    width: 20%;
     height: 100%;
     border-radius: 0 20px 20px 0;
     box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.7);
@@ -144,7 +146,7 @@
 }
 .HighestConsultationArea{
     margin-left: 10px;
-    width: fit-content;
+    width: 20%;
     height: 100%;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.7);
@@ -172,7 +174,7 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 290px;
+    width: 100%;
     min-height: 135px;
     height: fit-content;
     border-radius: 10px;
@@ -183,10 +185,13 @@
     text-align: center;
 }
 .HighestConsultation{
-    font-size: 19px;
+    font-size: 18px;
     margin-left: auto;
     margin-right: auto;
-    height: 70px;
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -209,7 +214,9 @@
     margin-left: auto;
     margin-right: auto;
     font-style: normal;
-    height: 70px;
+    height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: black;
@@ -221,7 +228,7 @@
 
 .LowestConsultationArea{
     margin-left: 10px;
-    width: fit-content;
+    width: 20%;
     height: 100%;
     border-radius: 20px;    
     box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.7);
@@ -249,7 +256,7 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 290px;
+    width: 100%;
     min-height: 135px;
     height: fit-content;
     border-radius: 10px;
@@ -260,10 +267,13 @@
     text-align: center;
 }
 .LowestConsultation{
-    font-size: 19px;
+    font-size: 18px;
     margin-left: auto;
     margin-right: auto;
-    height: 70px;
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-style: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -286,7 +296,9 @@
     margin-left: auto;
     margin-right: auto;
     font-style: normal;
-    height: 70px;
+    height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: black;
@@ -295,3 +307,137 @@
     display: flex;
     flex-direction: column;
 }
+#piechart_3d{
+    margin-top: auto !important
+    margin-left: auto !important;
+    margin-right: auto !important;
+} */
+/*  Media Queries Area */
+/* @media (max-width: 1995px) {
+    .PieChartFigure{
+        padding-right: 20%;
+    }
+}
+@media (max-width: 1902px) {
+    .PieChartFigure{
+        padding-right: 22%;
+    }
+}
+@media (max-width: 1820px) {
+    .ThisMonthPatientCount{
+        min-width: 259px;
+    }
+    .PieChartFigure{
+        min-width: 300px;
+    }
+    #piechart_3d{
+        margin-top: 50px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 280px !important;
+        height: 280px !important;
+    }
+    .PieChartLabelArea{
+        min-width: 200px;
+    }
+    .HighestConsultationArea,.LowestConsultationArea{
+        min-width: 205px;
+    }
+}
+@media (max-width: 1510px) {
+    .ThisMonthPatientCount{
+        height: 282px;
+        min-width: 233px;
+    }
+    .ThisMonth{
+        font-size: 1.3rem;
+    }
+    .FinalCountThisMonth{
+        font-size: 4.5rem;
+    }
+    .Totalnumber{
+        font-size: 1rem;
+    }
+
+    .PieChartLabelArea{
+        height: 282px;
+        min-width: 175px;
+    }
+    .ThisMonthPieChart{
+        font-size: 1.3rem;
+    }
+    #Month,#Year{
+        font-size: 2rem;
+    }
+    .PieChartFigure{
+        height: 282px;
+        min-width: 200px;
+    }
+    #piechart_3d{
+        width: 210px !important;
+        height: 210px !important;
+    }
+    .HighestConsultationArea,.LowestConsultationArea{
+        height: 282px;
+    }
+
+} */
+ @media (min-width: 320px) {
+    #piechart_3d {
+        margin-top: 20px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 150px !important;
+        height: 100px !important;
+    }
+}
+
+@media (min-width: 375px) {
+    #piechart_3d {
+        margin-top: 30px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+
+@media (min-width: 425px) {
+    #piechart_3d {
+        margin-top: 40px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+@media (min-width: 768px) {
+    #piechart_3d {
+        margin-top: 60px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 220px !important;
+        height: 220px !important;
+    }
+}
+@media (min-width: 1000px) {
+    #piechart_3d {
+        margin-top: 60px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 250px !important;
+        height: 250px !important;
+    }
+}
+@media (min-width: 1440px) {
+    #piechart_3d {
+        margin-top: 60px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 350px !important;
+        height: 350px !important;
+    }
+}
+svg{
+}
+

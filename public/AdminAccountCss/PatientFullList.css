@@ -22,6 +22,9 @@
     flex-direction: column;
     width: 100%;
     height: 80px;
+    justify-content: start;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 10px 10px 0 0;
     background-color: #00A3FF;
 }
@@ -38,20 +41,30 @@ h3{
 /* Filter Area */
 .PatientListFilter{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-right: auto;
     margin-left: auto;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 98%;
-    height: 80px;
+    height: fit-content;
+    padding: 10px;
     border-radius: 5px;
     background-color: #E5E5E5;
+    justify-content: start;
+}
+.Filter{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row  ;
+    justify-content: center;
+    padding: 5px;
 }
 /* Filter name area */
 .FilterName{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 120px;
     height: 100%;
 }
@@ -68,6 +81,8 @@ h4{
     width: 330px;
     height: 100%;
     justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .FilterConsultationValue{
     display: flex;
@@ -91,6 +106,9 @@ h4{
     justify-content: center;
     width: 250px;
     height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
 }
 .SortByValue{
     margin-top: auto;
@@ -110,6 +128,9 @@ h4{
     justify-content: center;
     width: 250px;
     height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
 }
 .FilterByGender{
     margin-top: auto;
@@ -129,6 +150,9 @@ h4{
     justify-content: center;
     width: 230px;
     height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
 }
 .AgeBracket{
     margin-top: auto;
@@ -144,16 +168,17 @@ h4{
 }
 /* Apply Btn Area */
 .ApplyBtnArea{
-    display: flex;
-    justify-content: center;
-    width: 150px;
+    display: flex;  
+    justify-content: start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
     height: 100%;
 }
 .Apply{
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20px;
     display: flex;
     width: fit-content;
     height: fit-content;

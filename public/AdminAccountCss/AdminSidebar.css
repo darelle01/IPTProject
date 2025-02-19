@@ -1,5 +1,5 @@
 .LeftSide{
-    width: 250px;
+    width: 100%;
     height: 100%;
     min-height: fit-content;
     background: linear-gradient(to bottom, #0075FF
@@ -10,16 +10,16 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 230px;
+    width: 90%;
     height: 50px;
     border-radius: 5px;
     border: 1px solid black;
     background-image: url('/images/LogoVr1.png');
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
 }
 .logo{
-    width: 230px;
+    width: 90%;
     height: 50px;
     border-radius: 5px;
     border: 1px solid black;
@@ -28,8 +28,8 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 88%;
-    height: 20vh;
+    width: 180px;
+    height: 180px;
     border-radius: 100px;
     border: 1px solid black;
 }
@@ -37,10 +37,9 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    height: 20vh;
+    height: 100%;
     border-radius: 100px;
-    border: 1px solid black;
-    background-image: url('/images/Ph-Flag.png');
+    border: 1px solid black
 }
 .NameArea{
     display: flex;
@@ -317,8 +316,7 @@
     margin-right: 10px;
 }
 /* SideBar popup */
-#NavBarArea{
-    margin-top: 1px;
+#NavBarArea{    
     width: 250px;
     height: 100vh;
     overflow: auto;
@@ -333,7 +331,7 @@
         display: none;
     } 
     .LogoArea{
-        margin-bottom: -50px;
+        margin-bottom: -10px;
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -346,7 +344,7 @@
         display: none;
     }
     .DashboardArea{
-        margin-top: 300px;
+        margin-top: 50px;
     }
     .fa-chart-line,.fa-user-plus,
     .fa-users-rectangle,.fa-user-injured,
@@ -371,109 +369,32 @@
 ::-webkit-scrollbar-thumb:hover {
     background: black;
 }
-@media (max-width: 2560px) {
-    #NavBarArea{
-        margin-top: 1px;
-        width: fit-content;
+/* Media Queries Area */
+@media (max-width: 1840px) {
+    .ProfilePictureArea1{
+        width: 150px;
+        height: 150px;
+    }
+}
+@media (max-width: 1820px) {
+    #NavBarArea{    
+        width: 250px;
+        min-width: 200px;
         height: 100vh;
         overflow: auto;
         transition: 0.1s ease-in-out;
         visibility: visible;
     }
-    .ProfilePictureArea1{
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 88%;
-        height: 200px;
-        border-radius: 100px;
-        border: 1px solid black;
-    }
-    .profilepicture1{
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-        border: 1px solid black;
-        background-image: url('/images/Ph-Flag.png');
-    }
-}
-@media (max-width: 1440px) {
-    #NavBarArea{
-        margin-top: 1px;
-        width: fit-content;
-        height: 100vh;
-        overflow: auto;
-        transition: 0.1s ease-in-out;
-        visibility: visible;
-        font-size: 1rem;
-    }
-    .ProfilePictureArea1{
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-        height: 160px;
-        border-radius: 100px;
-        border: 1px solid black;
-    }
-    .profilepicture1{
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-        border: 1px solid black;
-        background-image: url('/images/Ph-Flag.png');
-    }
-}
-@media (max-width: 1226px) {    
-    .LogoArea {
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 180px;
-        height: 50px;
-        border-radius: 5px;
-        border: 1px solid black;
-        background-image: url('/images/LogoVr1.png');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    .ProfilePictureArea1{
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-        height: 140px;
-        border-radius: 100px;
-        border: 1px solid black;
-    }
-    .profilepicture1{
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-        border: 1px solid black;
-        background-image: url('/images/Ph-Flag.png');
-    }
-    .ButtonName{
-        font-size: 1rem;
-    }
-}
-@media (max-width: 768px) {
-    #NavBarArea{
+    #NavBarArea.active{
         visibility: visible;
         width: 100px;
+        min-width: 100px;
         height: 100vh;
         .ProfilePictureArea1,.NameArea{
             display: none;
         } 
         .LogoArea{
-            margin-bottom: -50px;
+            margin-bottom: -10px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -486,7 +407,43 @@
             display: none;
         }
         .DashboardArea{
-            margin-top: 300px;
+            margin-top: 50px;
+        }
+        .fa-chart-line,.fa-user-plus,
+        .fa-users-rectangle,.fa-user-injured,
+        .fa-hospital-user,.fa-gear,
+        .fa-right-from-bracket,.fa-book-medical{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+    }
+}
+@media (max-width: 768px) {
+    #NavBarArea{
+        width: 80px;
+        min-width: 80px;
+        height: 100vh;
+        overflow: auto;
+        transition: 0.1s ease-in-out;
+        visibility: visible;
+        .LogoArea{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid black;
+            background-image: url('/images/baliwag logo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .ProfilePictureArea1{
+            display: none;
+        }
+        .NameArea{
+            display: none;
+        }
+        .ButtonName{
+            display: none !important;
         }
         .fa-chart-line,.fa-user-plus,
         .fa-users-rectangle,.fa-user-injured,
@@ -496,23 +453,4 @@
             margin-right: auto;
         }
     }
-}
-@media (max-width: 425px) {
-    #NavBarArea{
-        width: 50px;
-        .LogoArea{
-            width: 30px;
-            height: 30px;
-        }
-        .fa-chart-line,.fa-user-plus,
-        .fa-users-rectangle,.fa-user-injured,
-        .fa-hospital-user,.fa-gear,
-        .fa-right-from-bracket,.fa-book-medical{
-            font-size: 1.4rem;
-        }
-    } 
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-    
 }

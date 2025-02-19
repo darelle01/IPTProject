@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">    
     @vite(['resources/sass/app.scss','resources/js/app.js'])
     {{-- Bootstrap --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     {{-- Fontawesome --}}
     {{-- <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script> --}}
     {{-- Css --}}
@@ -30,8 +30,8 @@
 
         <form action="{{route('Admin.Result')}}" method="GET" class="SearchBarArea">
             @csrf
-            <input type="text" name="Search" class="SearchBox" placeholder="Search" autocomplete="on">
-            <button type="submit" class="SearchBtn">
+            <input type="text" name="Search" class="SearchBox border border-black border-y-1" placeholder="Search" autocomplete="on">
+            <button type="submit" class="SearchBtn  bg-white border border-black border-y-1">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
@@ -45,15 +45,15 @@
             <div class="LogoArea">
                 
             </div>
-            <div class="ProfilePictureArea1">
-                {{-- @if (Auth::user()->profile_picture)
-                    <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                @else --}}
-                <img src="{{ asset('/images/Ph-Flag.png') }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                {{-- @endif --}}
-            </div>            
+                <div class="ProfilePictureArea1">
+                    @if (Auth::user()->profile_picture)
+                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
+                    @else
+                        <img src="{{ asset('images/DefaultImage.webp') }}" alt="No Profile Picture" class="img-thumbnail profilepicture1">
+                    @endif
+                </div>            
             <div class="NameArea">
-                {{-- <p>{{  Auth::user()->FirstName }}</p> --}}
+                <p>{{  Auth::user()->FirstName }}</p>
             </div>
 
             <div class="DashboardArea">
@@ -95,15 +95,15 @@
                 </button>
             </div>
             <div class="contain">
-                <div class="SettingsArea">
+                <form action="{{route ('RedirectTo.Settings')}}" method="GET" class="SettingsArea">
                     @csrf
                     @method('GET')
-                    <button type="submit" class="Settings" name="SettingsPage"> 
+                    <input type="text" class="" name="SettingsPage"  value="{{Auth::user()->username}}" hidden>
+                    <button type="submit" class="Settings"> 
                         <i class="fa-solid fa-gear"></i>
                         <span class="ButtonName">Setting</span>
                     </button>
-                </div>  
-                <div class="LogoutArea">
+                </form>                 <div class="LogoutArea">
                     <form action="{{route('Log-Out')}}" method="POST" class="LogoutArea">
                         @csrf
                         @method('POST')

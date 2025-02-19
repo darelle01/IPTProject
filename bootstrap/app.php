@@ -23,7 +23,6 @@ return Application::configure(basePath: dirname(__DIR__))
             'AdminMiddle' => AdminMiddleware::class,
             'AdminOTPMiddle' => AdminOTPMiddleware::class,
             'StaffMiddle' => StaffMiddleware::class,
-            'StaffOTPMiddle' => StaffOTPMiddleware::class,
             'CombineMiddle' => CombineMiddleware::class,
             'ForgotPasswordMiddle' => ForgotPasswordMiddleware::class,
             'GuestMiddleware' => GuestMiddleware::class,

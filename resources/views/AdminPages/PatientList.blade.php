@@ -18,44 +18,47 @@
                 <div class="FilterName">
                     <h4>Filter</h4>
                 </div>
-                <div class="FilterConsultationArea">
-                    <select name="FilterConsultationValue" class="FilterConsultationValue">
-                        <option value="">-- Select Consultation --</option>
-                        @if(isset($getAllConsultation) && count($getAllConsultation) > 0)
-                            @foreach ($getAllConsultation as $AllConsultation)
-                                <option value="{{ $AllConsultation->ConsultationList }}">
-                                    {{ $AllConsultation->ConsultationList }}
-                                </option>
-                            @endforeach
-                        @else
-                            <option value="">No consultations found</option>
-                        @endif
-                    </select>
+                <div class="Filter">
+                    <div class="FilterConsultationArea">
+                        <select name="FilterConsultationValue" class="FilterConsultationValue">
+                            <option value="">-- Select Consultation --</option>
+                            @if(isset($getAllConsultation) && count($getAllConsultation) > 0)
+                                @foreach ($getAllConsultation as $AllConsultation)
+                                    <option value="{{ $AllConsultation->ConsultationList }}">
+                                        {{ $AllConsultation->ConsultationList }}
+                                    </option>
+                                @endforeach
+                            @else
+                                <option value="">No consultations found</option>
+                            @endif
+                        </select>
+                    </div>
+                    <div class="SortByArea">
+                        <select name="SortByValue" class="SortByValue">
+                            <option value="" selected>- - Sort by * - -</option>
+                            <option value="PatientNumber" {{ request('SortByValue') == 'PatientNumber' ? 'selected' : '' }}>Patient Number</option>
+                            <option value="Alphabetical" {{ request('SortByValue') == 'Alphabetical' ? 'selected' : '' }}>Alphabetical</option>
+                            <option value="Age" {{ request('SortByValue') == 'Age' ? 'selected' : '' }}>Age</option>
+                        </select>
+                    </div>
+                    <div class="FilterByGenderArea">
+                        <select name="FilterByGender" class="FilterByGender">
+                            <option value="" selected>Select Gender *</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="AgeBracketArea">
+                        <select name="AgeBracket" class="AgeBracket">
+                            <option value="" selected>Select Age Bracket *</option>
+                            <option value="Senior" {{ request('AgeBracket') == 'Senior' ? 'selected' : '' }}>Senior</option>
+                            <option value="Adult" {{ request('AgeBracket') == 'Adult' ? 'selected' : '' }}>Adult</option>
+                            <option value="Teen" {{ request('AgeBracket') == 'Teen' ? 'selected' : '' }}>Teen</option>
+                            <option value="Children" {{ request('AgeBracket') == 'Children' ? 'selected' : '' }}>Children</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="SortByArea">
-                    <select name="SortByValue" class="SortByValue">
-                        <option value="" selected>- - Sort by * - -</option>
-                        <option value="PatientNumber" {{ request('SortByValue') == 'PatientNumber' ? 'selected' : '' }}>Patient Number</option>
-                        <option value="Alphabetical" {{ request('SortByValue') == 'Alphabetical' ? 'selected' : '' }}>Alphabetical</option>
-                        <option value="Age" {{ request('SortByValue') == 'Age' ? 'selected' : '' }}>Age</option>
-                    </select>
-                </div>
-                <div class="FilterByGenderArea">
-                    <select name="FilterByGender" class="FilterByGender">
-                        <option value="" selected>Select Gender *</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-                <div class="AgeBracketArea">
-                    <select name="AgeBracket" class="AgeBracket">
-                        <option value="" selected>Select Age Bracket *</option>
-                        <option value="Senior" {{ request('AgeBracket') == 'Senior' ? 'selected' : '' }}>Senior</option>
-                        <option value="Adult" {{ request('AgeBracket') == 'Adult' ? 'selected' : '' }}>Adult</option>
-                        <option value="Teen" {{ request('AgeBracket') == 'Teen' ? 'selected' : '' }}>Teen</option>
-                        <option value="Children" {{ request('AgeBracket') == 'Children' ? 'selected' : '' }}>Children</option>
-                    </select>
-                </div>
+
                 <div class="ApplyBtnArea">
                     <button type="submit" class="btn btn-info Apply">Apply</button>
                 </div>

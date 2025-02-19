@@ -4,578 +4,127 @@
     height: 100vh;
     justify-content: center;
 }
-.CreateAccountForm{
-    margin-top: 2%;
-    width: 95%;
-    height: auto;
-    max-height: fit-content;
-    border-radius: 20px;
-    background-color: white;
-    overflow-y: auto;
-}
-/* Title Area */
-.FormNameArea{
-    display: flex;
-    text-align: start;
-    width: 100%;
-    height: fit-content;
-    border-radius: 20px 20px 0 0;
-    background-color: #00A3FF;
-}
-label{
-    margin-left: 3%;
-    font-size: 2.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    color: white;
-}
-/* Basic Info Area */
-.BasicInfoArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}
-h3{
-    font-size: 2em;
-    margin-left: 3%;
-}
-/* Basic Info Input Area */
-.BasicInfoInputArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.LastNameArea,.FirstNameArea,.MiddleNameArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.LastNameInputArea,.FirstNameInputArea,.MiddleNameInputArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.LastName,.FirstName,.MiddleName{
-    width: 100%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-}
-.LastNameErrorArea,.FirstNameErrorArea,.MiddleNameErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.LastName-error,.FirstName-error,.MiddleName-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-
-/* Birthdate, Age and Gender Area */
-.BasicInfoInputArea2{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.BirthdateArea,.AgeArea,.GenderArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.BirthdateInput,.AgeInputArea,.GenderInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.BirthdateLabel{
-    font-size: 20px;
-    font-style: italic;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-.Birthdate{
-    width: fit-content;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-
-}
-.Age{
-    width: 30%;
-    min-width: 60px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-
-}
-.Gender{
-    width: 30%;
-    min-width: 105px;
-    height: 35px;
-    font-size: 20px;
-    padding-left: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-
-}
-.BirthdateErrorArea,.AgeErrorArea,.GenderErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.Birthdate-error,.Age-error,.Gender-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address and Contacts Area */
-.AddressAndContactArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}
-h3{
-    font-size: 2em;
-    margin-left: 3%;
-}
-/* Address Input Area */
-.AddressAndContactInputArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.HouseNumberArea,.StreetArea,.BarangayArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.HouseNumberInputArea,.StreetInputArea,.BarangayInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.HouseNumber,.Street,.Barangay{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.HouseNumberErrorArea,.StreetErrorArea,.BarangayErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.HouseNumber-error,.Street-error,.Barangay-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address Input Area */
-.AddressAndContactInputArea2{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.MunicipalityArea,.ProvinceArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.MunicipalityInputArea,.ProvinceInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.Municipality,.Province{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.MunicipalityErrorArea,.ProvinceErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.Municipality-error,.Province-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address Input Area */
-.AddressAndContactInputArea3{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.ContactArea,.emailArea {
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.ContactInputArea,.emailInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.ContactInputArea{
-    display: flex;
-}
-.PhCode{
-    margin-top: auto;   
-    margin-bottom: auto;
-    padding-left: 6%;
-    width: 30px;
-    height: 35px;
-    border: 1px solid black ;
-    border-right: none;
-    border-radius: 5px 0 0 5px;   
-    background: url('/images/Ph-Flag.png') no-repeat center;
-    background-size: 20px 20px;
-    background-color: white;
-}
-.Code{
-    border: 1px solid black;
-    border-right: none;
-    border-left: none;
-    padding-top: 3px;
-    padding-left: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 50px;
-    height: 35px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    visibility: visible;
-    background-color: white;
-}
-.ContactNumber{
-    width: 50%;
-    min-width: 180px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 1px solid black;
-}
-.ContactNumber:focus{
-    outline: none;
-}
-.email{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.ContactErrorArea,.emailErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.ContactNumber-error,.email-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Account Area */
-.AccountInformationArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}
-h3{
-    font-size: 2em;
-    margin-left: 3%;
-}
-/* Account Input Area */
-.AccountInformationInputArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.usernameArea,.passwordArea,.profile_pictureArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.username,.password{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.profile_picture{
-    width: 80%;
-    height: auto;
-    font-size: 20px;
-    padding-right: 5px;
-    background-color: white;
-    border: 1px solid black;
-}
-.passwordInputArea{
-    display: flex;
-    flex-direction: column;
-}
-.direction{
-    padding-left: 5px;
-    font-size: 0.7rem;
-}
-.usernameErrorArea,.passwordErrorArea,.profile_pictureErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.username-error,.password-error,.profile_picture-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Create Button Area */
-.CreateBtnArea{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-}
-.Create{
-    width: 10%;
-    min-width: 10%;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-/* Media Queries Area*/
-@media (max-width: 2560px) {
-    .Gender{
-        width: 135px;
+@media (max-width: 768px) {
+    .CreateAccountForm{
+        height: 98%;
+        width: 98%;
+        margin-right: 2px;
+        margin-left: 1px;
+    }
+    .code,.flag{
+        width: 35px;
+        min-width: 30px;
+        height: 40px;
+    }
+    .LastName,.FirstName,.MiddleName{
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }
+    .LastName::placeholder{
+        font-size: medium;
+    }
+    .FirstName::placeholder{
+        font-size: medium;
+    }
+    .MiddleName::placeholder{
+        font-size: medium;
+    }
+    .Birthdate{
+        font-size: medium;
+        height: 40px;
+        width: 150px;
     }
     .Age{
-        width: 25%;
+        font-size: medium;
+        height: 40px;
     }
-}
-@media (max-width: 1440px) {
-    .LastName,.FirstName,.MiddleName{
-        min-width: 150px;
-        font-size: 1rem;
+    .Gender{
+        font-size: medium;
+        height: 40px;
+        padding-top: 4px;
     }
-    .BirthdateLabel,.Birthdate,.Age,.Gender{
-        font-size: 1rem;
+    .Birthdate::placeholder{
+        font-size: medium;
     }
-    .Age,.Gender{
-        height: 30px;
+    .Age::placeholder{
+        font-size: medium;
     }
-    .HouseNumber,.Street,.Barangay{
-        min-width: 185px;
-        font-size: 1rem;
+    .Gender::placeholder{
+        font-size: medium;
+    }
+    .HouseNumber{
+        font-size: medium;
+        height: 40px;
+    }
+    .Street,.Barangay{
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }
+    .HouseNumber::placeholder{
+        font-size: medium;
+    }
+    .Street::placeholder{
+        font-size: medium;
+    }
+    .Barangay::placeholder{
+        font-size: medium;
     }
     .Municipality,.Province{
-        min-width: 185px;
-        font-size: 1rem;
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }.Municipality::placeholder{
+        font-size: medium;
     }
-    .ContactNumber,.email{
-        font-size: 1rem;
-    }
-    .PhCode,.Code{
-        height: 30px;
-        font-size: 1rem;
-    }
-    .username,.password,.profile_picture{
-        min-width: 185px;
-        font-size: 1rem;
-    }
-}
-@media (max-width: 1147px) {
-    .BirthdateLabel{
-        display: none;
-    }
-}
-@media (max-width: 1024px) {
-    .Code{
-        min-width: 50px;
-        padding-right: 5px;
-    }
-    .PhCode{
-        min-width: 30px;
-        padding-left: 5px;
-    }
-}
-@media (max-width: 962px) {
-    .BasicInfoInputArea,.AddressAndContactInputArea,.AccountInformationInputArea{
-        flex-direction: column;
-    }
-    .AddressAndContactInputArea2,.AddressAndContactInputArea3{
-        flex-direction: column;
-    }
-    .LastName,.FirstName,.MiddleName{
-        min-width: 300px;
-        font-size: 1rem;
-    }
-    .HouseNumber,.Street,.Barangay{
-        min-width: 300px;
-        font-size: 1rem;
-    }
-    .username,.password,.profile_picture{
-        min-width: 300px;
-        font-size: 1rem;
-    }
-    .direction{
-        min-width: 300px;
-    }
-    .LastName-error,.FirstName-error,.MiddleName-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .Birthdate-error,.Age-error,.Gender-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .HouseNumber-error,.Street-error,.Barangay-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .Municipality-error,.Province-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .ContactNumber-error,.email-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .username-error,.password-error,.profile_picture-error{
-        min-width: 300px;
-        font-size: 0.7rem;
-    }
-    .Create{
-        min-width: 80px;
-    }
-}
-@media (max-width: 768px) {
-    label{
-        margin-left: 10%;
-        font-size: 1.3rem;
-    }
-    h3{
-        font-size: 1.3rem;
-    }
-}
-@media (max-width: 604px) {
-    .BasicInfoInputArea2{
-        flex-direction: column;
-    }
-    .LastName,.FirstName,.MiddleName{
-        min-width: 200px;
-        font-size: 1rem;
-    }
-    .HouseNumber,.Street,.Barangay{
-        min-width: 200px;
-        font-size: 1rem;
-    }
-    .username,.password,.profile_picture{
-        min-width: 200px;
-        font-size: 1rem;
-    }
-    .direction{
-        min-width: 200px;
-    }
-    .LastName-error,.FirstName-error,.MiddleName-error{
-        min-width: 200px;
-    }
-    .Birthdate-error,.Age-error,.Gender-error{
-        min-width: 200px;
-    }
-    .HouseNumber-error,.Street-error,.Barangay-error{
-        min-width: 200px;
-    }
-    .Municipality-error,.Province-error{
-        min-width: 200px;
-    }
-    .ContactNumber-error,.email-error{
-        min-width: 200px;
-    }
-    .username-error,.password-error,.profile_picture-error{
-        min-width: 200px;
-    }
-}
-@media (max-width: 425px) {
-    .Code{
-        min-width: 40px;
+    .Province::placeholder{
+        font-size: medium;
     }
     .ContactNumber{
-        min-width: 140px;
+        font-size: medium;
+        height: 40px;
+        width: 150px;
+    }
+    .ContactNumber::placeholder{
+        font-size: medium;
+    }
+    .flagImage{
+        height: 1rem;
+    }
+    .code{
+        font-size: 0.9rem;
     }
     .email{
-        min-width: 200px;
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }
+    .email::placeholder{
+        font-size: medium;
+    }
+    .username{
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }
+    .username::placeholder{
+        font-size: medium;
+    }
+    .password{
+        font-size: medium;
+        height: 40px;
+        width: 200px;
+    }
+    .password::placeholder{
+        font-size: medium;
+    }
+    .profile_picture{
+        font-size: medium;
+        height: 35px;
+        width: 200px;
+    }
+    .profile_picture::placeholder{
+        font-size: medium;
     }
 }
