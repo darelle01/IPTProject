@@ -33,7 +33,7 @@
                             @if (Auth::user()->profile_picture)
                             <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="profilepicture">
                             @else
-                            
+                            <img src="{{ asset('images/DefaultImage.webp') }}" alt="" class="img-thumbnail profilepicture1 bg-white">
                             @endif
                         </div>
                         <div class="ProfilePicBtns">
@@ -226,7 +226,7 @@
                             @if (Auth::user()->profile_picture)
                             <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="profilepicture">
                             @else
-                            {{-- <p>No profile picture available.</p> --}}
+                            <img src="{{ asset('images/DefaultImage.webp') }}" alt="" class="img-thumbnail profilepicture1 bg-white">
                             @endif
                         </div>
                         <div class="ProfilePicBtns">

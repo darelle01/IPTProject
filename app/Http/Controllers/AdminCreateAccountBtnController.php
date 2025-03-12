@@ -25,7 +25,7 @@ class AdminCreateAccountBtnController extends Controller
             'Municipality' => 'required|string',
             'Province' => 'required|string',
             'email' => 'required|email|unique:accounts,email',
-            'ContactNumber' => 'string|max:20',
+            'ContactNumber' => 'required|string|size:13|regex:/^\+?[0-9]+$/',
             'username' => 'required|string|unique:accounts,username',
             'password' => 'required|string|min:8|regex:/[0-9]/|regex:/[@$!%*?&#]/|regex:/[A-Z]/',       
             'profile_picture' => 'nullable|image|max:4096',
@@ -34,6 +34,7 @@ class AdminCreateAccountBtnController extends Controller
         if (Str::startsWith($AccountDetails['ContactNumber'], '+63')) {
             $AccountDetails['ContactNumber'] = substr($AccountDetails['ContactNumber'], 3);
         } 
+      
         // Handle image upload   
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');

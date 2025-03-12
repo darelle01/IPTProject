@@ -22,14 +22,14 @@ class AdminSaveBtnController extends Controller
             'Barangay' => 'required|string|max:255',
             'Municipality' => 'required|string|max:255',
             'Province' => 'required|string|max:255',
-            'ContactNumber' => 'required|string|max:20',
+            'ContactNumber' => 'required|string|size:13|regex:/^\+?[0-9]+$/',
             'email' => 'nullable|email|unique:patientrecord,email,',
             'PhilhealthNumber' => 'nullable|string|unique:patientrecord,PhilhealthNumber,',
         ]);
-       
         if (Str::startsWith($validatedPatientInfo['ContactNumber'], '+63')) {
             $validatedPatientInfo['ContactNumber'] = substr($validatedPatientInfo['ContactNumber'], 3);
         }
+ 
         $validatedPatientInfo['Stamp_Token'] = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'), 0, 10);
         patientrecord::create($validatedPatientInfo);
             

@@ -103,9 +103,8 @@ class EditStaffAccountController extends Controller
                         'username' => $EditStaffAccounts['username'],
                     ]);
                 }
-                $Update->ActivityStatus = 'Offline';
                 $Update->save();
-                return redirect()->route('Update.Account')->with(['Success' => 'Updating Account Successfully']);
+                return redirect()->route('Account.List')->with(['Success' => 'Updating Account Successfully']);
             }
         }
     }

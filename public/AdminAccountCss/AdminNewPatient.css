@@ -1,476 +1,55 @@
 .Mid{
     display: flex;
-    width: 80%;
-    height: 99vh;
-    justify-content: center;
-}
-.NewPatientForm{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: fit-content;
-    max-height: 90%;
-    background-color: white;
-    border-radius: 20px;
-}
-.FormNameArea{
-    display: flex;
-    text-align: start;
     width: 100%;
-    height: fit-content;
-    border-radius: 20px 20px 0 0;
-    background-color: #00A3FF;
+    height: 100vh;
 }
-h1{ 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 3%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    color: white;
-}
-/* Patient Number and Philhealth Number Area */
-.PatientNumberPhilhealthArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}
-h3{
-    font-size: 2rem;
-    margin-left: 3%;
-}
-.PhilHealthAndPatientNumberArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-    margin-left: 5%;
-}
-.PatientIDArea,.PhilhealthNumberInputArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-}
-.PatientID,.PhilhealthNumber{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.PatientIDerrorArea,.PhilhealthNumberErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.PatientID-error,.PhilhealthNumber-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Basic Info Area */
-.BasicInfoArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}  
-h3{
-    font-size: 2rem;
-    margin-left: 3%;
-}
-.BasicInfoInputArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.LastNameArea,.FirstNameArea,.MiddleNameArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.LastNameInputArea,.FirstNameInputArea,.MiddleNameInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.LastName,.FirstName,.MiddleName{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.LastNameErrorArea,.FirstNameErrorArea,.MiddleNameErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.LastName-error,.FirstName-error,.MiddleName-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Birthdate, Age and Gender Area */
-.BasicInfoInputArea2{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.BirthdateArea,.AgeArea,.GenderArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.BirthdateInput,.AgeInputArea,.GenderInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.BirthdateLabel{
-    font-size: 20px;
-    font-style: italic;
-}
-.Birthdate{
-    padding-left: 5px;
-    width: fit-content;
-    height: auto;
-    font-size: 20px;
-    text-align: start;
-}
-.Age{
-    width: 25%;
-    height: auto;
-    font-size: 20px;
-    text-align: center;
-}
-.Gender{
-    width: 45%;
-    height: auto;
-    font-size: 20px;
-    text-align: center;
-}
-.BirthdateErrorArea,.AgeErrorArea,.GenderErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.Birthdate-error,.Age-error,.Gender-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address and Contacts Area */
-.AddressAndContactArea{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    height: fit-content;
-    background-color: #00a2ff6f;
-}
-h3{
-    font-size: 2rem;
-    margin-left: 3%;
-}
-/* Address Input Area */
-.AddressAndContactInputArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.HouseNumberArea,.StreetArea,.BarangayArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.HouseNumberInputArea,.StreetInputArea,.BarangayInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.HouseNumber,.Street,.Barangay{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.HouseNumberErrorArea,.StreetErrorArea,.BarangayErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.HouseNumber-error,.Street-error,.Barangay-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address Input Area */
-.AddressAndContactInputArea2{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.MunicipalityArea,.ProvinceArea{
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-}
-.MunicipalityInputArea,.ProvinceInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-}
-.Municipality,.Province{
-    width: 50%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.MunicipalityErrorArea,.ProvinceErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.Municipality-error,.Province-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Address Input Area */
-.AddressAndContactInputArea3{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    padding: 5px;
-}
-.ContactNumberArea,.emailArea {
-    width: 33.33%;
-    height: fit-content;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-
-}
-.ContactNumberInputArea,.emailInputArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-    background-color: white;
-    display: flex;
-}
-.ContactInputArea{
-    display: flex;
-}
-.PhCode{
-    margin-top: auto;   
-    margin-bottom: auto;
-    padding-left: 5px;
-    width: 30px;
-    height: 35px;
-    border: 1px solid black ;
-    border-right: none;
-    border-radius: 5px 0 0 5px;   
-    background: url('/images/Ph-Flag.png') no-repeat center;
-    background-size: 20px 20px;
-    background-color: white;
-}
-.Code{
-    border: 1px solid black;
-    border-right: none;
-    border-left: none;
-    padding-top: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: fit-content;
-    height: 35px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    visibility: visible;
-    background-color: white;
-}
-.ContactNumber{
-    width: 50%;
-    min-width: 180px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 1px solid black;
-}
-.ContactNumber:focus{
-    outline: none;
-}
-.email{
-    width: 70%;
-    min-width: 250px;
-    height: auto;
-    font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-.ContactNumberErrorArea,.emailErrorArea{
-    width: 100%;
-    height: fit-content;
-    padding: 2px;
-}
-.ContactNumber-error,.email-error{
-    width: 100%;
-    font-size: 1rem;
-    color: red;
-}
-/* Save Button Area */
-
-.SaveBtnArea{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-}
-.Save{
-    width: 100px;
-}
-/* Media Queries Area */
-@media (max-width: 1415px) {
-    .BirthdateLabel{
-        display: none;
+@media (max-width: 2961px) {
+    .NewPatientForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }
-@media (max-width: 1304px) {
-    .PatientID,.PhilhealthNumber{
-        min-width: 220px;
-    }
-    .LastName,.FirstName,.MiddleName{
-        min-width: 220px;
-    }
-    .HouseNumber,.Street,.Barangay{
-        min-width: 220px;
-    }
-}
-@media (max-width: 1156px) {
-    .PatientID,.PhilhealthNumber{
-        min-width: 180px;
-        font-size: 1rem;
-    }
-    .LastName,.FirstName,.MiddleName{
-        min-width: 180px;
-        font-size: 1rem;
-    }
-    .Birthdate,.Age,.Gender{
-        font-size: 1rem;
-    }
-    .Age{
-        width: 80px;
-        min-width: 50px;
-    }
-    .Gender{
-        width: 110px;
-        min-width: 90px;
-        height: 30px;
-    }
-    .HouseNumber,.Street,.Barangay{
-        min-width: 180px;
-        font-size: 1rem;
-    }
-    .Municipality,.Province{
-        min-width: 180px;
-        font-size: 1rem;
-    }
-    .email{
-        min-width: 220px;
-        font-size: 1rem;
-    }
-    .ContactNumber{
-        min-width: 180px;
-        font-size: 1rem;
-    }
-    .PhCode{
-        min-width: 30px;
-        height: 30px;
-    }
-    .Code{
-        font-size: 1rem;
-        height: 30px;
+@media (max-width: 2560px) {
+    .NewPatientForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }
-@media (max-width: 968px) {
-    .NewPatientForm{
-        overflow-y: auto;
-    }
-    h3{
-        font-size: 1.5rem;
-    }
-    .PhilHealthAndPatientNumberArea{
-        flex-direction: column;
-    }
-    .BasicInfoInputArea,.BasicInfoInputArea2{
-        flex-direction: column;
-    }
-    .AddressAndContactInputArea,.AddressAndContactInputArea2,.AddressAndContactInputArea3{
-        flex-direction: column;
-    }
-    .ContactNumber{
-        min-width: 150px;
-        font-size: 1rem;
+@media (max-width: 1440px) {
+    .NewPatientForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }
-@media (max-width: 768px) {
-    h1{
-        margin-left: 10%;
-        font-size: 1.3rem;
+@media (max-width: 1024px) {
+    .NewPatientForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 850px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
-    h3{
-        font-size: 1.2rem;
+}
+@media (max-width: 768px) and (min-width: 480px) {
+    .NewPatientForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 650px;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }

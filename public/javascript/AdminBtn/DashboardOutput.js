@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.HighestConsul && data.HighestConsul.length > 0 && data.HighestConsul[0].Consultation && data.HighestConsultationValue && data.HighestConsultationValue !== 0) {
                 HighestConsultationArea.insertAdjacentHTML('beforeend', `
                   
-                        <span class="HighestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-lg">Current Highest</span>
+                        <span class="HighestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-lg md:text-lg">Current Highest</span>
                     
     
                     
-                        <span class="HighestConsultation  us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="HighestConsultation  us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             ${data.HighestConsul[0].Consultation}
                         </span>
-                        <span class="HighestConsultationPercentage  us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="HighestConsultationPercentage  us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             Patients: ${data.HighestConsultationValue}        
                         </span>
                  
@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 HighestConsultationArea.insertAdjacentHTML('beforeend', `
 
-                        <span class="HighestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-lg">Current Highest</span>
+                        <span class="HighestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-lg md:text-lg">Current Highest</span>
                  
     
 
-                        <span class="HighestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="HighestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             No Data
                         </span>
-                        <span class="HighestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="HighestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             Patients: 0  
                         </span>
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // console.log(data.HighestConsultationValue);  
             if (data.PrevDataOfCurrentHighestData === 0) {
                 HighestConsultationArea.insertAdjacentHTML('beforeend', `
-                    <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                    <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                       No Data
                     </span>    
                
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentHighestData < data.HighestConsultationValue) {
             HighestConsultationArea.insertAdjacentHTML('beforeend', `
            
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                    There is an increase in case
                    ${Number(Math.abs(data.HighConsulDiff)).toFixed(0)}%
                 </span>    
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentHighestData > data.HighestConsultationValue) {
             HighestConsultationArea.insertAdjacentHTML('beforeend', `
             
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     There is decrease in case
                      ${Number(Math.abs(data.HighConsulDiff)).toFixed(0)}%
                 </span>    
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentHighestData === data.HighestConsultationValue) {
             HighestConsultationArea.insertAdjacentHTML('beforeend', `
             
-                 <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                 <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                    There is no increase or decrease in cases.
                  </span>    
             
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.HighestConsultationValue === 0) {
             HighestConsultationArea.insertAdjacentHTML('beforeend', `
             
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     No Data
                 </span>    
            
@@ -114,14 +114,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.LowestConsul && data.LowestConsul.length > 0 && data.LowestConsul[0].Consultation && data.LowestConsultationValue && data.LowestConsultationValue !== 0) {
                 LowestConsultationArea.insertAdjacentHTML('beforeend', `
                     
-                        <span class="LowestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-lg">Current Lowest</span>
+                        <span class="LowestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-lg md:text-lg">Current Lowest</span>
                    
     
                     
-                        <span class="LowestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="LowestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             ${data.LowestConsul[0].Consultation}
                         </span>
-                        <span class="LowestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="LowestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             Patients: ${data.LowestConsultationValue}        
                         </span>
                     
@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 LowestConsultationArea.insertAdjacentHTML('beforeend', `
                    
-                        <span class="LowestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-lg">Current Lowest</span>
+                        <span class="LowestConsultation us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-lg md:text-lg">Current Lowest</span>
                    
 
                   
-                        <span class="LowestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="LowestConsultation us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             No Data
                         </span>
-                        <span class="LowestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 md:text-2xl">
+                        <span class="LowestConsultationPercentage us:text-md us:font-semibold font-font-Arial us:mx-2 x:text-2xl md:text-2xl">
                             Patients: 0
                         </span>
                  
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.PrevDataOfCurrentLowestData === 0) {
                 LowestConsultationArea.insertAdjacentHTML('beforeend', `
               
-                    <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                    <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                       No Data
                     </span>    
 
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentLowestData < data.LowestConsultationValue) {
                 LowestConsultationArea.insertAdjacentHTML('beforeend', `
         
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                    There is an increase in case
                    ${Number(Math.abs(data.LowConsulDiff)).toFixed(0)}%
                 </span>    
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentLowestData > data.LowestConsultationValue) {
             LowestConsultationArea.insertAdjacentHTML('beforeend', `
              
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     There is decrease in case
                      ${Number(Math.abs(data.LowConsulDiff)).toFixed(0)}%
                 </span>    
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.PrevDataOfCurrentLowestData === data.LowestConsultationValue) {
             LowestConsultationArea.insertAdjacentHTML('beforeend', `
            
-                 <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                 <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                    There is no increase or decrease in cases.
                  </span>    
             
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (data.LowestConsultationValue === 0) {
             LowestConsultationArea.insertAdjacentHTML('beforeend', `
 
-                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <span class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     No Data
                 </span>    
             `);
@@ -196,18 +196,18 @@ document.addEventListener('DOMContentLoaded', function() {
         BreakDownLabel.innerHTML = '';
             var row = `
               <tr class="">
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Consultation</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Total Number of Patient</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Male</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Senior Male</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Adult Male</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Teen Male</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Child Male</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Female</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Senior Female</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Adult Female</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Teen Female</th>
-                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">Child Female</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Consultation</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Total Number of Patient</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Male</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Senior Male</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Adult Male</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Teen Male</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Child Male</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Female</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Senior Female</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Adult Female</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Teen Female</th>
+                <th class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">Child Female</th>
             </tr>
             `;
         BreakDownLabel.innerHTML = row;
@@ -218,12 +218,12 @@ document.addEventListener('DOMContentLoaded', function() {
             data.Data.forEach(function(List){
                 var row = `
                 <tr>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2  md:text-sm"
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2  x:text-sm md:text-sm"
                     <div class="">
                         ${List.Consultation}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class="">
                         ${List.NumPatient}
                     </div>
@@ -231,27 +231,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class="">
                         ${List.NumMale}
                     </div>
                 </td>   
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumSeniorMale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumAdultMale}
                     </div>
                 </td>                
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumTeenMale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumChildMale}
                     </div>
@@ -260,27 +260,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 
 
 
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumFemale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumSeniorFemale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumAdultFemale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumTeenFemale}
                     </div>
                 </td>
-                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 md:text-sm">
+                <td class=" us:text-tiny us:font-semibold font-font-Arial us:m-2 x:text-sm md:text-sm">
                     <div class=" ">
                         ${List.NumChildFemale}
                     </div>

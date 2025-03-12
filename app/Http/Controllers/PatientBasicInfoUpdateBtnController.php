@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\patientrecord;
 use App\Models\ConsultationListModel;
@@ -23,33 +24,36 @@ class PatientBasicInfoUpdateBtnController extends Controller
             'Barangay' => 'string|max:255',
             'Municipality' => 'string|max:255',
             'Province' => 'string|max:255',
-            'ContactNumber' => 'nullable|string|max:20',
+            'ContactNumber' => 'string|size:13|regex:/^\+?[0-9]+$/',
             'email' => 'nullable|email',
             'PhilhealthNumber' => 'nullable|string',
         ]);
-        $Prefix = '+63';
-        $UpdatePatientInfo['ContactNumber'] = $Prefix . ltrim($UpdatePatientInfo['ContactNumber'], '0');
+        // Remove +63 if present
+        if (Str::startsWith($UpdatePatientInfo['ContactNumber'], '+63')) {
+            $UpdatePatientInfo['ContactNumber'] = substr($UpdatePatientInfo['ContactNumber'], 3);
+        }
+        
         $PatientID = $UpdatePatientInfo['PatientID'];
         $PBasicInfoUpdate = patientrecord::where('PatientID', $PatientID)->first();
        
         if ($PBasicInfoUpdate) {
-            $PBasicInfoUpdate->LastName = $request->input('LastName');
-            $PBasicInfoUpdate->FirstName = $request->input('FirstName');
-            $PBasicInfoUpdate->MiddleName = $request->input('MiddleName');
+            $PBasicInfoUpdate->LastName = $UpdatePatientInfo['LastName'];
+            $PBasicInfoUpdate->FirstName = $UpdatePatientInfo['FirstName'];
+            $PBasicInfoUpdate->MiddleName = $UpdatePatientInfo['MiddleName'];
 
-            $PBasicInfoUpdate->Birthdate = $request->input('Birthdate');
-            $PBasicInfoUpdate->Age = $request->input('Age');
-            $PBasicInfoUpdate->Gender = $request->input('Gender');
+            $PBasicInfoUpdate->Birthdate = $UpdatePatientInfo['Birthdate'];
+            $PBasicInfoUpdate->Age = $UpdatePatientInfo['Age'];
+            $PBasicInfoUpdate->Gender = $UpdatePatientInfo['Gender'];
 
-            $PBasicInfoUpdate->HouseNumber = $request->input('HouseNumber');
-            $PBasicInfoUpdate->Street = $request->input('Street');
-            $PBasicInfoUpdate->Barangay = $request->input('Barangay');
-            $PBasicInfoUpdate->Municipality = $request->input('Municipality');
-            $PBasicInfoUpdate->Province = $request->input('Province');
+            $PBasicInfoUpdate->HouseNumber = $UpdatePatientInfo['HouseNumber'];
+            $PBasicInfoUpdate->Street = $UpdatePatientInfo['Street'];
+            $PBasicInfoUpdate->Barangay = $UpdatePatientInfo['Barangay'];
+            $PBasicInfoUpdate->Municipality = $UpdatePatientInfo['Municipality'];
+            $PBasicInfoUpdate->Province = $UpdatePatientInfo['Province'];
 
-            $PBasicInfoUpdate->ContactNumber = $request->input('ContactNumber');
-            $PBasicInfoUpdate->email = $request->input('email');
-            $PBasicInfoUpdate->PhilhealthNumber = $request->input('PhilhealthNumber');
+            $PBasicInfoUpdate->ContactNumber = $UpdatePatientInfo['ContactNumber'];
+            $PBasicInfoUpdate->email = $UpdatePatientInfo['email'];
+            $PBasicInfoUpdate->PhilhealthNumber = $UpdatePatientInfo['PhilhealthNumber'];
 
             $PBasicInfoUpdate->save();
             

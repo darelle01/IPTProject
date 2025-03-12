@@ -1,14 +1,19 @@
-document.getElementById("MyNumber").addEventListener('input', function() {
-    let PhoneValue = this.value;
+document.getElementById("MyNumber").addEventListener('input', function () {
+    let PhoneValue = this.value.replace(/[^0-9+]/g, '');
     
-    if (PhoneValue.startsWith('9')||PhoneValue.startsWith('8')||PhoneValue.startsWith('7')||PhoneValue.startsWith('6')
-    ||PhoneValue.startsWith('5')||PhoneValue.startsWith('4')||PhoneValue.startsWith('3')||PhoneValue.startsWith('2')||
-    PhoneValue.startsWith('1')) {
-        PhoneValue = '+63' + PhoneValue.substring(0);
-    } else if(PhoneValue.startsWith('0')){
-        PhoneValue = '+63' + PhoneValue.substring(1);
+    // Ensure only one "+" at the start
+    if (PhoneValue.includes('+')) {
+        PhoneValue = '+' + PhoneValue.replace(/\+/g, ''); 
     }
-        this.value = PhoneValue;
-        console.log(PhoneValue);
-        displayDOM(PhoneValue);
+
+    // Ensure it starts with +63
+    if (PhoneValue.startsWith('0')) {
+        PhoneValue = '63' + PhoneValue.substring(1); 
+    }
+    
+    if (!PhoneValue.startsWith('63') && !PhoneValue.startsWith('+63')) {
+        PhoneValue = '63' + PhoneValue.replace(/^\+/, ''); 
+    }
+
+    this.value = '+' + PhoneValue.replace(/^\+*/, '');
 });

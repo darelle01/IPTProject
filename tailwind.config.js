@@ -23,6 +23,8 @@ export default {
         },
         screens: {
             ...defaultTheme.screens,
+            'll': '1440px',
+            'x': '480px',
             'xs': '425px',
             'xxs': '375px',
             'us': '320px', 

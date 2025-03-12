@@ -2,231 +2,70 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 99vh;
+    height: 100vh;
 }
-.ActiveAccountArea{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    min-width: 70%;
-    height: fit-content;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 10px;
-    overflow-y: auto;
-}
-.ActiveTitleArea{
-    display: flex;
-    width: 100%;
-    height: 60px;
-    border-radius: 10px 10px 0 0;
-    background-color: #00A3FF;
-    margin-bottom: 5px;
-}
-h2{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-}
-/* Table Area */
-.AccountsTable{
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 99%;
-    height: fit-content;
-}
-th{
-    background-color: #00A3FF;
-}
-td{
-    background-color: white;
-}
+
 th,td{
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 5px;
-    padding-bottom: 3px;
+    width: 300px;
     text-align: center;
-    width: fit-content;
-    height: fit-content;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
 }
-.Update,.Deactivate{
-    height: fit-content;
-}
-.OnlineArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-    height: fit-content;
-}
-.Online{
-    margin-right: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.circle1{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-
-}
-.OfflineArea{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-    height: fit-content;
-}
-.Offline{
-    margin-right: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.circle2{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    border-radius: 100%;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.9);
-    width: 20px;
-    height: 20px;
-}
-.BtnArea{
-    width: 100%;
-    justify-content: space-evenly;
-    display: flex;
-    flex-direction: row;
-}
-
-.Notice{
-    width: 100%;
-}
-/* Media Queries Area */
-@media (max-width: 1440px) {
-    td{
-        font-size: 0.8rem;
-    }
-    .Update,.Deactivate{
-        font-size: 0.8rem;
-    }
-    .circle1{
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 10px;
-        border-radius: 100%;
-        width: 15px;
-        height: 15px;
-    }
-    .circle2{
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 10px;
-        border-radius: 100%;
-        width: 15px;
-        height: 15px;
-    }
-}
-@media (max-width: 1200px) {
-    .BtnArea{
+@media (max-width: 2560px) {
+    .Mid{
         display: flex;
+        width: calc(100% - 200px);
+        height: 110vh;
         flex-direction: column;
-        justify-content: space-between;
     }
-    .Update,.Activate{
-        margin: 2px;
+    .ActiveAccountArea,.DeactivatedAccountArea{
+        width: calc(100% - 20px);
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (max-width: 1440px) {
+    .Mid{
+        display: flex;
+        width: calc(100% - 200px);
+        height: 110vh;
+        flex-direction: column;
+    }
+    .ActiveAccountArea,.DeactivatedAccountArea{
+        width: calc(100% - 20px);
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media (max-width: 1024px) {
-    .ActiveAccountArea{
-        width: 98%;
+    .Mid{
+        display: flex;
+        width: calc(100% - 200px);
+        height: 110vh;
+        flex-direction: column;
     }
-    th{
-        font-size: 0.8rem;
+    .ActiveAccountArea,.DeactivatedAccountArea{
+        width: calc(100% - 20px);
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
-    .Online{
-        display: none;
-    }
-    .Offline{
-        display: none;
-    }
+    
 }
 @media (max-width: 768px) {
-    h2{
-        font-size: 1.5rem;
+    .Mid{
+        display: flex;
+        width: calc(100% - 80px);
+        height: 100vh;
+        flex-direction: column;
     }
-    th{
-        font-size: 0.8rem;
-    }
-    .ActiveAccountArea{
-        width: 98%;
-        overflow-y: auto;
-    }
-    .ActiveAccountArea{
-        margin-left: 10px;
-    }
+
 }
-@media (max-width: 763px) {
-    .UsernameLabel,.Username{
-        display: none;
-    }
-}
-@media (max-width: 598px) {
-    .PositionLabel,.Position{
-        display: none;
-    }
-}
-@media (max-width: 425px) {
-    .ActiveAccountArea{
-        overflow-y: auto;
-        justify-content: center;
-    }
-    .ActiveTitleArea{
-        width: 100%;
-        height: 30px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-    }
-    h2{
-        text-align: center;
-        font-size: 0.7rem;
-    }
-    th{
-        padding-left: 0;
-        padding-right: 0;
-        font-size: 0.7rem;
-    }
-    td{
-        padding-left: 0;
-        padding-right: 0;
-        font-size: 0.5rem; 
-    }
-    .Update,.Deactivate{
-        font-size: 0.5rem;
-    }
-    .circle1,.circle2{
-        width: 10px;
-        height: 10px;
+@media (max-width: 480px) {
+    .Mid{
+        display: flex;
+        width: calc(100% - 80px);
+        height: 100vh;
+        flex-direction: column;
     }
 }

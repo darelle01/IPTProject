@@ -47,14 +47,14 @@
                 
             </div>
             <div class="ProfilePictureArea1">
-                {{-- @if (Auth::user()->profile_picture)
-                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                @else --}}
-                <img src="{{ asset('/images/Ph-Flag.png') }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
-                {{-- @endif --}}
-            </div>
+                @if (Auth::user()->profile_picture)
+                    <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture1">
+                @else
+                    <img src="{{ asset('images/DefaultImage.webp') }}" alt="No Profile Picture" class="img-thumbnail profilepicture1">
+                @endif
+            </div>            
             <div class="NameArea">
-                {{-- <p>{{  Auth::user()->FirstName }}</p> --}}
+                <p>{{  Auth::user()->FirstName }}</p>
             </div>
 
             <div class="DashboardArea">

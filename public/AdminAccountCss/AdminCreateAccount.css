@@ -1,130 +1,51 @@
 .Mid{
     display: flex;
-    width: 80%;
+    width: 100%;
     height: 100vh;
-    justify-content: center;
 }
-@media (max-width: 768px) {
-    .CreateAccountForm{
-        height: 98%;
-        width: 98%;
-        margin-right: 2px;
-        margin-left: 1px;
-    }
-    .code,.flag{
-        width: 35px;
-        min-width: 30px;
-        height: 40px;
-    }
-    .LastName,.FirstName,.MiddleName{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }
-    .LastName::placeholder{
-        font-size: medium;
-    }
-    .FirstName::placeholder{
-        font-size: medium;
-    }
-    .MiddleName::placeholder{
-        font-size: medium;
-    }
-    .Birthdate{
-        font-size: medium;
-        height: 40px;
-        width: 150px;
-    }
-    .Age{
-        font-size: medium;
-        height: 40px;
-    }
-    .Gender{
-        font-size: medium;
-        height: 40px;
-        padding-top: 4px;
-    }
-    .Birthdate::placeholder{
-        font-size: medium;
-    }
-    .Age::placeholder{
-        font-size: medium;
-    }
-    .Gender::placeholder{
-        font-size: medium;
-    }
-    .HouseNumber{
-        font-size: medium;
-        height: 40px;
-    }
-    .Street,.Barangay{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }
-    .HouseNumber::placeholder{
-        font-size: medium;
-    }
-    .Street::placeholder{
-        font-size: medium;
-    }
-    .Barangay::placeholder{
-        font-size: medium;
-    }
-    .Municipality,.Province{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }.Municipality::placeholder{
-        font-size: medium;
-    }
-    .Province::placeholder{
-        font-size: medium;
-    }
-    .ContactNumber{
-        font-size: medium;
-        height: 40px;
-        width: 150px;
-    }
-    .ContactNumber::placeholder{
-        font-size: medium;
-    }
-    .flagImage{
-        height: 1rem;
-    }
-    .code{
-        font-size: 0.9rem;
-    }
-    .email{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }
-    .email::placeholder{
-        font-size: medium;
-    }
-    .username{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }
-    .username::placeholder{
-        font-size: medium;
-    }
-    .password{
-        font-size: medium;
-        height: 40px;
-        width: 200px;
-    }
-    .password::placeholder{
-        font-size: medium;
-    }
-    .profile_picture{
-        font-size: medium;
-        height: 35px;
-        width: 200px;
-    }
-    .profile_picture::placeholder{
-        font-size: medium;
+@media (max-width: 2961px) {
+    .CreateAccountForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }
+@media (max-width: 2560px) {
+    .CreateAccountForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
+}
+@media (max-width: 1440px) {
+    .CreateAccountForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 950px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
+}
+@media (max-width: 1024px) {
+    .CreateAccountForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
+}
+@media (max-width: 768px) and (min-width: 480px) {
+    .CreateAccountForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
+}
+

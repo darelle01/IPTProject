@@ -15,5 +15,13 @@
         height: auto !important;
         overflow: hidden !important;
       }
-       
+}
+@media (min-width: 1440px) {
+    #chart_div {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+      }
 }

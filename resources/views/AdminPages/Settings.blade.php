@@ -32,9 +32,9 @@
 
                             <div class="ProfilePictureArea">
                                 @if (Auth::user()->profile_picture)
-                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture">
+                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="" class="img-thumbnail profilepicture">
                                 @else
-                                
+                                <img src="{{ asset('images/DefaultImage.webp') }}" alt="" class="img-thumbnail profilepicture1 bg-white">
                                 @endif
                             </div>
                             <div class="ProfilePicBtns">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="SecondRow2">
                         <label class="Username">{{$User->username}}</label>
-                        <label type="password" class="Password">{{ str_repeat('*', 20 )}}</label>
+                        <label type="password" class="Password w-fit border-none bg-transparent">{{ str_repeat('*', 20 )}}</label>
                     </div>
                 </div>
             </div>{{-- Account Info --}} 
@@ -157,9 +157,9 @@
 
                             <div class="ProfilePictureArea">
                                 @if (Auth::user()->profile_picture)
-                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="Profile Picture" class="img-thumbnail profilepicture">
+                                <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}" alt="" class="img-thumbnail profilepicture">
                                 @else
-                                
+                                <img src="{{ asset('images/DefaultImage.webp') }}" alt="" class="img-thumbnail profilepicture1 bg-white">
                                 @endif
                             </div>
                             <div class="ProfilePicBtns">
@@ -231,7 +231,7 @@
                     </div>
                     <div class="SecondRow2">
                         <label class="Username">{{$User->username}}</label>
-                        <label type="password" class="Password">{{ str_repeat('*', 20 )}}</label>
+                        <label type="password" class="Password w-fit border-none bg-transparent">{{ str_repeat('*', 20 )}}</label>
                     </div>
                 </div>
             </div>{{-- Account Info --}} 
