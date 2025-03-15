@@ -25,7 +25,7 @@
     </div>{{-- Top Area --}}
 
     {{-- Main Area --}}
-    <div class="MainArea">
+    <div class="MainArea"> 
 
         {{-- Left Side --}}
         <div class="LeftSide">
