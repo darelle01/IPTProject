@@ -8,6 +8,8 @@
     .ImageViewForm {
         width: calc(100% - 25px); /* Adjusting width dynamically */
         max-width: 950px;
+        max-height: 70%;
+        height: fit-content;
         margin-left: auto;
         margin-right: auto;
         min-width: auto; /* Remove forced min-width to allow fluid resizing */

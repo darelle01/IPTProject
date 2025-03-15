@@ -11,7 +11,7 @@
     {{-- Patient Images Area --}}
     
     {{-- Image Viewer --}}
-    <div class="ImageViewForm us:bg-white us:mt-5 us:rounded-md us:flex us:flex-col us:-h-4/5 md:max-h-[700px] ll:max-h-auto">
+    <div class="ImageViewForm us:bg-white us:mt-5 us:rounded-md us:flex us:flex-col us:h-4/5 us:max-h-[700px] md:max-h-[700px] ll:max-h-auto">
 
         {{-- Form Title --}}
         <div class="FormTitle us:bg-blue-500 us:rounded-t-md us:flex xs:flex">
@@ -36,7 +36,7 @@
                     <div class="ViewAndDeleteBtn us:flex us:flex-col">
                         <!-- Image Preview -->
                         <button type="button" class="btn btn-bg-light p-3 border-light md:mx-auto md:h-[200px] md:w-[200px]" data-bs-toggle="modal" data-bs-target="#exampleModalView{{ $index }}">
-                            <span class=""><img src="{{ asset('storage/' . $filePath) }}" alt="Image" class="ImageLog"/></span>
+                            <span class=""><img src="{{ asset('storage/' . $filePath) }}" alt="Image" class="ImageLog us:h-full"/></span>
                         </button>
         
                         <!-- Delete Button -->
@@ -155,36 +155,36 @@
     {{-- Patient Images Area --}}
     
     {{-- Image Viewer --}}
-    <div class="ImageViewForm">
+    <div class="ImageViewForm us:bg-white us:mt-5 us:rounded-md us:flex us:flex-col us:h-4/5 us:max-h-[700px] md:max-h-[700px] ll:max-h-auto">
 
         {{-- Form Title --}}
-        <div class="FormTitle">
-            <label class="">Patient {{$PatientNumber}} Files</label>
+        <div class="FormTitle us:bg-blue-500 us:rounded-t-md us:flex xs:flex">
+            <label class="us:text-white us:font-semibold us:font-font-Arial us:italic us:text-xl us:text-center us:mx-1 us:py-1 x:text-2xl x:py-1 xs:mx-auto">Patient {{$PatientNumber}} Files</label>
         </div>{{-- Form Title --}}
-        <div class="AlertArea">
+        <div class="AlertArea us:flex">
             @if (session('Upload'))
-            <div class="alert alert-success">
+            <div class="alert alert-success us:w-full us:text-center us:m-1">
                 {{ session('Upload') }}
             </div>
             @endif
             @if (session('Delete'))
-            <div class="alert alert-success">
+            <div class="alert alert-success us:w-full us:text-center us:m-1">
                 {{ session('Delete') }}
             </div>
             @endif
         </div>
         {{-- Images Area --}}
-        <div class="ImageArea">
+        <div class="ImageArea us:border-b us:border-solid us:h-auto us:overflow-y-auto us:mb-2 us:flex us:flex-col md:grid md:grid-cols-3 ll:grid ll:grid-cols-4 2xl:grid 2xl:grid-cols-6 ll:h-full">
             @if(!empty($filePaths))
                 @foreach($filePaths as $index => $filePath)
-                    <div class="ViewAndDeleteBtn">
+                    <div class="ViewAndDeleteBtn us:flex us:flex-col">
                         <!-- Image Preview -->
-                        <button type="button" class="btn btn-bg-light p-3 border-light" data-bs-toggle="modal" data-bs-target="#exampleModalView{{ $index }}">
-                            <span><img src="{{ asset('storage/' . $filePath) }}" alt="Image" class="ImageLog"/></span>
+                        <button type="button" class="btn btn-bg-light p-3 border-light md:mx-auto md:h-[200px] md:w-[200px]" data-bs-toggle="modal" data-bs-target="#exampleModalView{{ $index }}">
+                            <span class=""><img src="{{ asset('storage/' . $filePath) }}" alt="Image" class="ImageLog us:h-full"/></span>
                         </button>
         
                         <!-- Delete Button -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalDelete{{ $index }}">
+                        <button type="button" class="btn btn-danger us:mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModalDelete{{ $index }}">
                             Delete
                         </button>
         
@@ -196,15 +196,15 @@
                                         <h1 class="modal-title fs-5" id="exampleModalLabelDelete{{ $index }}">Are you sure you want to delete this image permanently?</h1>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('Admin.DeleteIndex') }}" method="POST" class="Deletion">
+                                        <form action="{{ route('Admin.DeleteIndex') }}" method="POST" class="Deletion us:flex">
                                             @csrf
                                             @method('PATCH')
                                             <input type="hidden" name="PatientNumber" value="{{ $PatientNumber }}">
                                             <input type="hidden" name="id" value="{{ $id }}">
                                             <input type="hidden" name="imageIndex" value="{{ $index }}">
                                             <input type="hidden" name="filePath" value="{{ $filePath }}">
-                                            <button class="DeleteImages bg-primary">Yes</button>
-                                            <button type="button" class="btn btn-secondary bg-primary NoBtn" data-bs-dismiss="modal">No</button>
+                                            <button class="DeleteImages btn bg-danger us:mx-auto us:text-black">Yes</button>
+                                            <button type="button" class="btn btn bg-secondary NoBtn us:mx-auto us:text-black" data-bs-dismiss="modal">No</button>
                                         </form>
                                     </div>
                                     <div class="modal-footer"></div>
@@ -239,15 +239,15 @@
         </div>{{-- Images Area --}}
 
 
-        <div class="BtnArea">
-            <form action="{{ route('Admin.BackBtn') }}" method="GET" class="BackBtnForm">
+        <div class="BtnArea us:flex us:flex-col">
+            <form action="{{ route('Admin.BackBtn') }}" method="GET" class="BackBtnForm us:flex">
                 <input type="text" class="BackBtnValue" name="PatientNumber" value="{{$PatientNumber}}" hidden>
-                <button class="BackBtn bg-primary">Back</button>
+                <button class="BackBtn btn bg-info us:w-[145px] us:mx-auto us:mt-2">Back</button>
             </form>
             <p class="d-inline-flex gap-1">
 
             {{-- modal for Add New Images --}}
-            <button type="button" class="btn btn-primary Updload" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="btn btn-success Updload us:mx-auto us:mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Add New Images
             </button>{{-- modal for Add New Images --}}
             </p>
@@ -267,7 +267,7 @@
                             <div class="mb-3">
                                 <input type="text" class="PN" name="PatientNumber" value="{{$PatientNumber}}" hidden readonly>
                                 <input type="text" class="ID" name="id" value="{{$id}}" hidden readonly>
-                                <input class="form-control" type="file" id="formFile" accept="image/*" name="Files[]" multiple>
+                                <input class="form-control" type="file" id="formFile" accept="image/*" name="Files[]" multiple required>
                               </div>
                         </div>
                         <div class="modal-footer">

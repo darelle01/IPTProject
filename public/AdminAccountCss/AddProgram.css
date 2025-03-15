@@ -1,154 +1,55 @@
 .Mid{
     display: flex;
-    width: 80%;
-    height: 99vh;
-    justify-content: center;
-}
-.AddProgramForm{
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    border-radius: 10px;
-    width: 1000px;
-    min-height: 100px;
-    height: fit-content;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(20px);
-}
-.TitleArea{
-    display: flex;
     width: 100%;
-    height: 60px;
-    border-radius: 10px 10px 0 0;
-    background-color: #00A3FF;
-    margin-bottom: 5px;
+    height: 100vh;
 }
-h2{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 50px;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
+th,td{
+    width: 50%;
+    border:1px solid black;
 }
-.InputArea{
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    width: 99%;
-    height: fit-content;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(50px);
+@media (max-width: 2961px) {
+    .AddProgramForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
 }
-.ConsultationInput{
-    margin-bottom: auto;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    height: 50px;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 23px;
+@media (max-width: 2560px) {
+    .AddProgramForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 800px;
+        max-height: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
 }
-.ConsultationInput::placeholder{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 23px;
+@media (max-width: 1440px) {
+    .AddProgramForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
 }
-.AddProgramBtn{
-    margin-bottom: auto;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    height: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.4s ease-in-out;
-    color: black;
+@media (max-width: 1024px) {
+    .AddProgramForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
 }
-.AddProgramBtn:hover{
-    transform: scale(1.1);
-    color: white;
-}
-/* Consultation List Area */
-.ProgramListArea{
-    margin: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    width: 99%;
-    border-radius: 20px;
-    height: fit-content;
-    max-height: 500px;
-    overflow-y: auto;
-
-}
-
-.List{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    height: fit-content;
-    max-height: 500px;    
-    border-radius: 10px;
-    background-color: white;
-    overflow-y: auto;
-    font-size: larger;
-    font-weight: bold;
-}
-/* .alert-success,.LastName-error{
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 5px;
-    margin-right: 5px;
-    text-align: center;
-} */
- .ConsultationListLabelArea{
-    border: 1px solid black;
-    width: 700px;
-    text-align: center;
-    height: 40px; 
-}
- .ConsultationListArea{
-    padding-left: 50px;
-    padding-right: 50px;
-    border: 1px solid black;
-    width: 700px;
-    height: 40px;
- }
- .ActionLabelArea,.ActionArea{
-    padding: 5px;
-    height: 40px;
-    border: 1px solid black;
-    width: 200px;
-    text-align: center;
- }
- .Edit{
-    height: fit-content;
-    width: 150px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
- }
- .modal-backdrop {
-    display: none !important;
+@media (max-width: 768px) and (min-width: 480px) {
+    .AddProgramForm {
+        width: calc(100% - 25px); /* Adjusting width dynamically */
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: auto; /* Remove forced min-width to allow fluid resizing */
+    }
 }

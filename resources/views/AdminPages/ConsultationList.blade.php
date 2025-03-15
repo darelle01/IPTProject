@@ -5,9 +5,9 @@
         Add Program
     </x-slot:Title>
 
-    <div class="AddProgramForm">
-        <div class="TitleArea">
-            <h2 class="">Add Consultation</h2>
+    <div class="AddProgramForm us:bg-white us:ml-3 us:mt-3 us:w-[240px] us:max-h-[700px] us:h-fit us:rounded-md md:max-h-[800px]">
+        <div class="TitleArea us:bg-blue-500 us:w-full us:flex us:rounded-t-md">
+            <label class=" us:text-white us:font-semibold us:font-font-Arial us:italic us:text-xl us:mx-auto us:py-1 x:text-2xl x:py-1">Add Consultation</label>
         </div>
 
         @if (session('Add'))
@@ -24,31 +24,31 @@
         <div class="alert alert-danger LastName-error">{{ $message }}</div>
         @enderror
 
-        <form action="{{route ('Admin.AddProgram')}}" method="POST" class="InputArea">
+        <form action="{{route ('Admin.AddProgram')}}" method="POST" class="InputArea us:m-2 us:flex us:flex-col xs:flex xs:flex-row us:mb-5">
             @csrf
-            <input type="text" class="ConsultationInput" name="ConsultationList" placeholder="Enter new Consultation *">
-            <button type="submit" class="btn btn-info AddProgramBtn">Add</button>
+            <input type="text" class="ConsultationInput  us:max-w-[190px] us:mx-auto us:text-sm us:font-font-Arial us:placeholder:italic us:placeholder:font-semibold us:py-1 us:px-3 x:text-lg x:max-w-[480px]" name="ConsultationList" placeholder="Enter new Consultation">
+            <button type="submit" class="btn btn-info AddProgramBtn us:w-fit us:mx-auto us:my-1">Add</button>
         </form>
 
 
-        <div  class="ProgramListArea">
+        <div class="ProgramListArea us:overflow-y-auto us:overflow-hidden us:max-h-[475px] us:rounded-md us:m-1 x:max-h-[530px] md:max-h-[600px]">
             <div class="List">
-                <table class="">
-                    <thead class="">
-                        <tr class="">
-                            <th class="ConsultationListLabelArea">Consultation List</td>
-                            <th class="ActionLabelArea">Action</td>
+                <table class=" us:table-auto x:mx-auto">
+                    <thead class=" ">
+                        <tr class=" ">
+                            <th class="ConsultationListLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Consultation List</td>
+                            <th class="ActionLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Action</td>
                         </tr>
                     </thead>
                     <tbody class="">
    		             @foreach($getAllConsultation as $AllConsultation)
                         <tr class="">
-                            <td class="ConsultationListArea">
+                            <td class="ConsultationListArea us:text-center us:p-2 x:text-xl us:font-font-Arial">
                                 {{$AllConsultation->ConsultationList}}
                             </td>
-                            <td class="ActionArea">
+                            <td class="ActionArea us:text-center us:p-2 ">
                                 <span>
-                                    <button type="button" value="{{e($AllConsultation->ConsultationList)}}" class="Edit btn btn-info"  data-bs-toggle="modal" data-bs-target="#exampleModal{{$AllConsultation->id}}">
+                                    <button type="button" value="{{e($AllConsultation->ConsultationList)}}" class="Edit btn btn-info  us:font-font-Arial x:text-xl"  data-bs-toggle="modal" data-bs-target="#exampleModal{{$AllConsultation->id}}">
                                         Edit
                                     </button>
                                     {{-- Modal Area --}}

@@ -260,16 +260,13 @@
     <x-StaffNavigation>
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('AdminAccountCss/AdminMedicalLogs.css') }}">
-    <link rel="stylesheet" href="{{ asset('AdminAccountCss/UpdateMedicalFile.css') }}">
-    <link rel="stylesheet" href="{{ asset('AdminAccountCss/DeleteMedicalFile.css') }}">
-    <link rel="stylesheet" href="{{ asset('AdminAccountCss/Sorting.css') }}">
     {{-- Title --}}
     <x-slot:Title>
         Medical Logs
     </x-slot:Title>
 
     {{-- Medical Logs --}}
-    <div class="MedicalLogsArea us:bg-white us:fit us:mt-5 us:h-fit us:rounded-md us:mx-1 us:w-[300px]">
+    <div class="MedicalLogsArea us:bg-white us:fit us:mt-5 us:h-fit us:rounded-md us:mx-1 us:w-[400px]">
 
         {{-- Medical Logs Title --}}
         <div class="MedicalLogsTitleArea us:bg-blue-500 us:w-full us:flex us:rounded-t-md">
@@ -508,8 +505,8 @@
                     </tbody>
                 </table>{{-- Table --}}
             @else
-                <div class="NoResultArea">
-                    <p class="NoResult">No medical logs found for this patient.</p>
+                <div class="NoResultArea us:flex">
+                    <p class="NoResult us:mx-auto us:font-semibold us:font-font-Arial">No medical logs found for this patient.</p>
                 </div>
             @endif
         </div>{{-- Medical Logs Table Area --}}

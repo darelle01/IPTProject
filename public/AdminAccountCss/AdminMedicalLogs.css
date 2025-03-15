@@ -11,7 +11,7 @@ td{
     .MedicalLogsArea {
         width: calc(100% - 25px);
         max-width: 90%;
-        max-height: 70%;
+        max-height: 75%;
         margin-left: auto;
         margin-right: auto;
         min-width: auto;
@@ -35,7 +35,7 @@ td{
     .MedicalLogsArea {
         width: calc(100% - 25px);
         max-width: 90%;
-        max-height: 70%;
+        max-height: 75%;
         margin-left: auto;
         margin-right: auto;
         min-width: auto;
@@ -59,7 +59,7 @@ td{
     .MedicalLogsArea {
         width: calc(100% - 25px);
         max-width: 90%;
-        max-height: 70%;
+        max-height: 75%;
         margin-left: auto;
         margin-right: auto;
         min-width: auto;
@@ -83,8 +83,8 @@ td{
     }
     .MedicalLogsArea {
         width: calc(100% - 25px);
-        max-width: 90%;
-        max-height: 70%;
+        max-width: 100%;
+        max-height: 75%;
         margin-left: auto;
         margin-right: auto;
         min-width: auto;
@@ -104,7 +104,6 @@ td{
         display: flex;
         width: calc(100% - 70px);
         height: 100vh;
-        display: flex;
     }
     .MedicalLogsArea {
         width: calc(100% - 25px);
