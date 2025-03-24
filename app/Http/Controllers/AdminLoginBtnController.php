@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\Crypt;
 class AdminLoginBtnController extends Controller
 {
     public function AdminLoginBtn(Request $request)
-    {
+    { 
         // Validate login credentials
         $AccountDetails = $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
-        
+      
         if (Auth::attempt($AccountDetails)) {
             $user = Auth::user();
             if ($user->Status === 'Deactivated') {

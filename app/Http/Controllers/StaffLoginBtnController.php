@@ -17,7 +17,7 @@ class StaffLoginBtnController extends Controller
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
-        
+      
         if (Auth::attempt($AccountDetails)) {
             $user = Auth::user();
             if ($user->Status === 'Deactivated') {

@@ -11,30 +11,13 @@
     {{-- <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script> --}}
     {{-- Css --}}
     <link rel="stylesheet" href="{{asset('LoginCss/Background.css')}}">
-    <link rel="stylesheet" href="{{asset('LoginCss/Dimesions.css')}}" >
-    <link rel="stylesheet" href="{{asset('LoginCss/ForgotPasswordOTP.css')}}" >
+    
     <title>Forgot Passowrd OTP Verification</title>
 </head>
 <body>
 
-    {{-- Top Area --}}
-    <div class="TopArea">
-
-    </div>{{-- Top Area --}}
-
-    {{-- Main Area --}}
-    <div class="MainArea">
-
-        {{-- Left Side --}}
-        <div class="LeftSide">
-
-        </div>{{-- Left Side --}}
-
-        {{-- Mid --}}
-        <div class="Mid">
-
             {{-- Forgot Password Container --}}
-            <div class="ForgotPasswordContainer">
+            <div class="ForgotPasswordContainer us:bg-black us:w-fit us:h-fit us:mt-20 us:rounded-md us:mx-2 xxs:mx-auto">
 
                 {{-- Forgot Password OTP Form --}}
                 {{-- form for inputing the OTP to verifying --}}
@@ -42,39 +25,25 @@
                     @csrf
                     @method('POST')
 
-                    <div class="TitleArea">
-                        <h3 class="ForgotPasswordOTPTitle">
+                    <div class="TitleArea us:flex us:pt-3 us:w-full us:h-fit us:text-center">
+                        <span class="ForgotPasswordOTPTitle us:font-semibold us:font-font-Arial us:text-2xl x:text-3xl us:text-white xxs:mx-4 x:mx-6">
                             Enter the Verification Code
-                        </h3>
+                        </span>
                     </div>
-                    <div class="InputVerificationCodeArea">
-                        <input type="text" name="EmailCode" class="InputVerificationCode">
+                    <div class="InputVerificationCodeArea us:flex">
+                        <input type="text" name="EmailCode" class="InputVerificationCode us:w-full us:mx-4 us:my-2 us:rounded-md">
                     </div>
                     <div class="Errors">
                         @error('EmailCode')
                         <span class="alert alert-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="SubmitBtnArea">
-                        <button type="submit" class="btn btn-primary SubmitBtn">Submit</button>
+                    <div class="SubmitBtnArea us:flex us:my-2">
+                        <button type="submit" class="btn btn-primary SubmitBtn us:mx-auto us:mb-2">Submit</button>
                     </div>
                 </form>{{-- Forgot Password OTP Form --}}
 
             </div>{{-- Forgot Password Container --}}
-
-        </div>{{-- Mid --}}
-
-        {{-- Right Side --}}
-        <div class="RightSide">
-
-        </div>{{-- Right Side --}}
-        
-    </div>{{-- Main Area --}}
-
-    {{-- Bottom Area --}}
-    <div class="BottomArea">
-
-    </div>{{-- Bottom Area --}}
 
 </body>
     {{-- Javascript --}}

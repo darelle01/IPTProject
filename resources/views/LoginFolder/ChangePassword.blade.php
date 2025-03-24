@@ -11,37 +11,19 @@
     {{-- <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script> --}}
     {{-- Css --}}
     <link rel="stylesheet" href="{{asset('LoginCss/Background.css')}}">
-    <link rel="stylesheet" href="{{asset('LoginCss/Dimesions.css')}}" >
-    <link rel="stylesheet" href="{{asset('LoginCss/UpdatePassword.css')}}" >
     <title>Update Password</title>
 </head>
 <body>
 
-    {{-- Top Area --}}
-    <div class="TopArea">
-
-    </div>{{-- Top Area --}}
-
-    {{-- Main Area --}}
-    <div class="MainArea">
-
-        {{-- Left Side --}}
-        <div class="LeftSide">
-
-        </div>{{-- Left Side --}}
-
-        {{-- Mid --}}
-        <div class="Mid">
-
             {{-- Update Password Container --}}
-            <div class="ForgotPasswordContainer">
+            <div class="ForgotPasswordContainer us:bg-black us:w-fit us:h-fit us:mt-20 us:rounded-md us:mx-2 xxs:mx-auto">
 
                 {{-- Update Password Form --}}
                 <form action="{{route('Update.NewPassword')}}" method="POST" class="UpdatePasswordForm">
                     @csrf
                     @method('POST')
-                    <div class="TitleArea">
-                        <h2 class="TitleForm">Update Password</h2>
+                    <div class="TitleArea us:flex us:pt-3 us:w-full us:h-fit">
+                        <span class="TitleForm  us:text-lg us:col-start-2 us:px-2 us:text-center us:ml-1 us:mt-3 us:font-semibold us:font-font-Arial x:mx-4 x:text-xl us:text-white">Update Password</span>
                     </div>
                     <div class="InputPasswordArea">
                         <input type="password" name="UpdatePassword" class="InputPassword" placeholder="Password *">
@@ -58,20 +40,6 @@
                 </form>{{-- Update Password Form --}}
 
             </div>{{-- Update Password Container --}}
-
-        </div>{{-- Mid --}}
-
-        {{-- Right Side --}}
-        <div class="RightSide">
-
-        </div>{{-- Right Side --}}
-        
-    </div>{{-- Main Area --}}
-
-    {{-- Bottom Area --}}
-    <div class="BottomArea">
-
-    </div>{{-- Bottom Area --}}
 
 </body>
     {{-- Javascript --}}
