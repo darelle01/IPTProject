@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -9,7 +8,10 @@ use App\Http\Controllers\BackBtnController;
 use App\Http\Controllers\OTPPageController;
 use App\Http\Controllers\SaveBtnController;
 use App\Http\Controllers\EmailOTPController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginPageController;
 use App\Http\Controllers\LogOutBtnController;
@@ -72,13 +74,13 @@ Route::get('/Forgot-Password-Page',[ForgotPasswordController::class,'ForgotPassw
 Route::post('/Forgot-Password-Confirm',[ConfirmEmailController::class,'ConfirmEmail'])->name('ForgotPassword.Confirm');
 // Forgot Password page
 });
-// Route::middleware(['ForgotPasswordMiddle'])->group(function () {
+Route::middleware(['ForgotPasswordMiddle'])->group(function () {
     Route::get('/Forgot-Password-OTP',[EmailOTPController::class,'EmailOTP'])->name('ForgotPassword.OTP');
     Route::post('/Forgot-Password-OTP',[EmailOTPSubmitBtnController::class,'EmailOTPSubmitBtn'])->name('ForgotPassword.Verfication');
     //  OTP Forgot Password
     Route::get('/Update-Password', [UpdatePasswordController::class,'UpdatePasswordView'])->name('Update.Password');
     Route::post('/Update-New-Password', [UpdatePasswordBtnController::class,'UpdatePasswordBtn'])->name('Update.NewPassword');
-// });
+});
 
 
 // OTP for Admin Only
@@ -172,8 +174,9 @@ Route::middleware(['auth','CombineMiddle'])->group(function () {
 });
 
 // Public Pages
-    Route::get('/Barangay-SanJose-Rural-Health-UnitIII', [HomePageController::class,'HomePage'])->name('Home');
-
+    Route::get('/Barangay-SanJose-Rural-Health-UnitIII', [HomePageController::class,'HomePage'])->name('HomePage');
+    Route::get('/Barangay-SanJose-Rural-Health-UnitIII/ContactUs', [ContactUsController::class,'ContactUs'])->name('ContactUs');
+    Route::get('/Barangay-SanJose-Rural-Health-UnitIII/Schedule', [ScheduleController::class,'Schedule'])->name('Schedule');
    
     
 // web.php

@@ -15,64 +15,34 @@
     <title>OTP Confirmation</title>
 </head>
 <body>
+    
+    {{-- OTP Container --}}
+    <div class="OTPContainer us:bg-black us:w-full us:max-w-[250px] us:h-full us:max-h-[700px] us:mt-10 us:mx-auto us:rounded-md x:max-w-[400px]">
 
-    {{-- Top Area --}}
-    <div class="TopArea">
+        {{-- OTP Form --}}
+        <div class="OTPForm">
+        {{-- form for inputing the OTP to verifying --}}
+        <form action="{{route('StaffOTP.Confirm')}}" method="POST" class="">
+            @csrf
+            @method('POST')
+            <div class="OTPLabelArea us:flex">
+                <h2 class="OTPLAbel us:text-lg us:mx-auto us:my-3 us:text-white us:font-font-Arial us:font-semibold us:text-center x:text-2xl">Enter the OTP for verification.</h2>
+            </div>
+            <div class="OTPInput us:flex">
+                <input type="text" name="OTPcode" class="OTPValue us:mx-auto us:my-2">
+            </div>
+            <div class="OTPerror">
+                @error('OTPcode')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+            </div>
 
-    </div>{{-- Top Area --}}
-
-    {{-- Main Area --}}
-    <div class="MainArea">
-
-        {{-- Left Side --}}
-        <div class="LeftSide">
-
-        </div>{{-- Left Side --}}
-
-        {{-- Mid --}}
-        <div class="Mid">
-
-            {{-- OTP Container --}}
-            <div class="OTPContainer">
-
-                {{-- OTP Form --}}
-                <div class="OTPForm">
-                {{-- form for inputing the OTP to verifying --}}
-                <form action="{{route('StaffOTP.Confirm')}}" method="POST" class="">
-                    @csrf
-                    @method('POST')
-                    <div class="OTPLabelArea">
-                        <h2 class="OTPLAbel">Enter the OTP for verification.</h2>
-                    </div>
-                    <div class="OTPInput">
-                        <input type="text" name="OTPcode" class="OTPValue">
-                    </div>
-                    <div class="OTPerror">
-                        @error('OTPcode')
-                        <span class="alert alert-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="OTPBtnArea">
-                        <button type="submit" class="btn btn-primary OTPBtn">Confirm</button>
-                    </div>
-                </form>{{-- OTP Form --}}
-                </div>
-            </div>{{-- OTP Container --}}
-
-        </div>{{-- Mid --}}
-
-        {{-- Right Side --}}
-        <div class="RightSide">
-
-        </div>{{-- Right Side --}}
-        
-    </div>{{-- Main Area --}}
-
-    {{-- Bottom Area --}}
-    <div class="BottomArea">
-
-    </div>{{-- Bottom Area --}}
+            <div class="OTPBtnArea">
+                <button type="submit" class="btn btn-primary OTPBtn">Confirm</button>
+            </div>
+        </form>{{-- OTP Form --}}
+        </div>
+    </div>{{-- OTP Container --}}
 
 </body>
     {{-- Javascript --}}

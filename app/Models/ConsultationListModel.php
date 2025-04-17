@@ -12,5 +12,6 @@ class ConsultationListModel extends Model
 
     protected $fillable = [
         'ConsultationList',
+        'ConsultationSchedule'
     ];
 }

@@ -9,11 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     {{-- Fontawesome --}}
     <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script>
-    
     <title>Barangay San Jose Rural Health Unit III</title>
     
   </head>
-  <body class="">
+  <body class="bg-black">
     <nav class="bg-blue-500 m-3">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
@@ -49,12 +48,12 @@
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4 mx-auto">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-white hover:bg-gray-700 hover:text-white" -->
-                <a href="{{route('HomePage')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Home</a>
-                <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Schedule</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Services</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Login</a>
-                <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Contact Us</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">About Us</a>
+              <a href="{{route('HomePage')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Home</a>
+              <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Schedule</a>
+              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Services</a>
+              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Login</a>
+              <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Contact Us</a>
+              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">About Us</a>
               </div>
             </div>
           </div>
@@ -78,65 +77,10 @@
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">About Us</a>
         </div>
       </div>
-    </nav><!-- Navigation -->
-
+    </nav>
+    <!-- Navigation -->
     <!-- Carousel -->
-    <div class="Carousel bg-white w-5/6 h-96 mx-auto mt-10 rounded-md relative overflow-hidden shadow-md">
-
-      <!-- Left Button -->
-      <button type="button"
-              class="absolute w-10 h-full left-0 text-2xl bg-black/50 text-white rounded-l-md z-10 hover:bg-black"
-              onclick="prevSlide()">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-
-      <!-- Right Button -->
-      <button type="button"
-              class="absolute w-10 h-full right-0 text-2xl bg-black/50 text-white rounded-r-md z-10 hover:bg-black"
-              onclick="nextSlide()">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-
-      <!-- Carousel Image -->
-      @foreach($carouselImages as $index => $image)
-      <img 
-          src="{{ asset('images/' . $image->getFilename()) }}" 
-          class="carousel-slide w-fit h-fit object-cover transition-opacity duration-700 rounded-md absolute top-0 left-0 {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}" 
-          data-index="{{ $index }}"
-      />
-  @endforeach
-
-    </div><!-- Carousel -->
     
-    <!-- Event Bulletin -->
-    <div class="Container w-full h-auto mt-10 bg-green-300 p-5">
-      <div class="BulletinBoard bg-blue-300 mx-10 flex flex-col">
-        <div class="Events mx-auto">
-          <span class="">Event</span>
-        </div>
-        <div class="Content">
-          <table class="table-auto">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                <td>Malcolm Lockyer</td>
-              </tr>
-              <tr>
-                <td>Witchy Woman</td>
-                <td>The Eagles</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div><!-- Event Bulletin -->
-
   </body>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -154,33 +98,7 @@
       });
     });
   </script>
-  <script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('opacity-100');
-            slide.classList.add('opacity-0');
-        });
-        slides[index].classList.add('opacity-100');
-        slides[index].classList.remove('opacity-0');
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    // Optional: autoplay every 5 seconds
-    setInterval(nextSlide, 5000);
-</script>
-
+  
   
   
 </html>

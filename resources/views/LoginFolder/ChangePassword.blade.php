@@ -16,26 +16,26 @@
 <body>
 
             {{-- Update Password Container --}}
-            <div class="ForgotPasswordContainer us:bg-black us:w-fit us:h-fit us:mt-20 us:rounded-md us:mx-2 xxs:mx-auto">
+            <div class="ForgotPasswordContainer us:bg-black us:w-fit us:h-fit us:mt-20 us:rounded-md us:mx-auto xxs:mx-auto">
 
                 {{-- Update Password Form --}}
-                <form action="{{route('Update.NewPassword')}}" method="POST" class="UpdatePasswordForm">
+                <form action="{{route('Update.NewPassword')}}" method="POST" class="UpdatePasswordForm us:flex us:flex-col">
                     @csrf
                     @method('POST')
-                    <div class="TitleArea us:flex us:pt-3 us:w-full us:h-fit">
-                        <span class="TitleForm  us:text-lg us:col-start-2 us:px-2 us:text-center us:ml-1 us:mt-3 us:font-semibold us:font-font-Arial x:mx-4 x:text-xl us:text-white">Update Password</span>
+                    <div class="TitleArea us:flex us:pt-3 us:w-full us:h-fit us:px-3">
+                        <span class="TitleForm us:mx-auto us:font-semibold us:font-font-Arial us:text-2xl x:text-3xl us:text-white">Update Password</span>
                     </div>
-                    <div class="InputPasswordArea">
-                        <input type="password" name="UpdatePassword" class="InputPassword" placeholder="Password *">
+                    <div class="InputPasswordArea us:flex">
+                        <input type="password" name="UpdatePassword" class="InputPassword us:w-full us:mx-4 us:my-2 us:rounded-md" placeholder="Password *">
                     </div>
-                    <div class="InputPasswordAgainArea">
-                        <input type="password" name="ReTypePassword" class="InputAgainPassword" placeholder="Re-type Password">
+                    <div class="InputPasswordAgainArea us:flex">
+                        <input type="password" name="ReTypePassword" class="InputAgainPassword us:w-full us:mx-4 us:my-2 us:rounded-md" placeholder="Re-type Password">
                     </div>
                     <div class="ErrorsArea">
 
                     </div>
-                    <div class="UpdatePassword">
-                        <button type="submit" class="btn btn-primary UpdatePasswordBtn">Confirm</button>
+                    <div class="UpdatePassword us:flex">
+                        <button type="submit" class="btn btn-primary UpdatePasswordBtn us:mx-auto us:my-2">Confirm</button>
                     </div>
                 </form>{{-- Update Password Form --}}
 

@@ -14,18 +14,23 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-document.getElementById("QrCodeBtn").onclick = function(){
-    const QrCodeBadge = document.getElementById("QrCodeArea");
+document.addEventListener("DOMContentLoaded", function() {
+    const qrCodeBtn = document.getElementById("QrCodeBtn");
+    if (qrCodeBtn) {
+        qrCodeBtn.addEventListener("click", function () {
+            const QrCodeBadge = document.getElementById("QrCodeArea");
+            html2canvas(QrCodeBadge).then((canvas) => {
+                const DownloadName = canvas.toDataURL("image/png");
+                var link = document.createElement('a');
+                link.setAttribute("href", DownloadName);
+                link.setAttribute("download", "Patient-QrCode.png");
+                link.click();
+                link.remove();
+            });
+        });
+    }
+});
 
-    html2canvas(QrCodeBadge).then((canvas) => {
-            const DownloadName = canvas.toDataURL("image/png");
-            var link = document.createElement('a');
-            link.setAttribute("href", DownloadName);
-            link.setAttribute("download", "Patient-QrCode.png");
-            link.click();
-            link.remove();
-    });
-}
 
 
 

@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ConsultationList',function (Blueprint $table){
+        Schema::create('consultationlist',function (Blueprint $table){
             $table->id();                                                                               
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();    
             $table->timestamps();
             $table->string('ConsultationList');
+            $table->string('ConsultationSchedule');
         });
+      
     }
 
     /**

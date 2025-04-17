@@ -11,32 +11,34 @@
         </div>
 
         @if (session('Add'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             {{ session('Add') }}
         </div>
         @elseif (session('Edit'))
-        <div class="alert alert-success">
+        <div class="alert alert-success text-center">
             {{ session('Edit') }}
         </div>
         @endif
 
         @error('ConsultationList')
-        <div class="alert alert-danger LastName-error">{{ $message }}</div>
+        <div class="alert alert-danger text-center">{{ $message }}</div>
         @enderror
 
         <form action="{{route ('Admin.AddProgram')}}" method="POST" class="InputArea us:m-2 us:flex us:flex-col xs:flex xs:flex-row us:mb-5">
             @csrf
-            <input type="text" class="ConsultationInput  us:max-w-[190px] us:mx-auto us:text-sm us:font-font-Arial us:placeholder:italic us:placeholder:font-semibold us:py-1 us:px-3 x:text-lg x:max-w-[480px]" name="ConsultationList" placeholder="Enter new Consultation">
+            <input type="text" class="ConsultationInput us:max-w-[190px] us:mx-auto us:text-sm us:font-font-Arial us:placeholder:italic us:placeholder:font-semibold us:py-1 us:px-3 x:text-lg x:max-w-[480px]" name="ConsultationList" placeholder="Enter new Consultation">
+           <input type="text" class="ConsultaionSched us:max-w-[190px] us:mx-auto us:text-sm us:font-font-Arial us:placeholder:italic us:placeholder:font-semibold us:py-1 us:px-3 x:text-lg x:max-w-[480px]" name="ConsultationSchedule" placeholder="Schedule">
             <button type="submit" class="btn btn-info AddProgramBtn us:w-fit us:mx-auto us:my-1">Add</button>
         </form>
 
 
         <div class="ProgramListArea us:overflow-y-auto us:overflow-hidden us:max-h-[475px] us:rounded-md us:m-1 x:max-h-[530px] md:max-h-[600px]">
-            <div class="List">
+            <div class="List x:px-10">
                 <table class=" us:table-auto x:mx-auto">
                     <thead class=" ">
                         <tr class=" ">
                             <th class="ConsultationListLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Consultation List</td>
+                            <th class="ConsultationSchedLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Schedule</td>
                             <th class="ActionLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Action</td>
                         </tr>
                     </thead>
@@ -45,6 +47,9 @@
                         <tr class="">
                             <td class="ConsultationListArea us:text-center us:p-2 x:text-xl us:font-font-Arial">
                                 {{$AllConsultation->ConsultationList}}
+                            </td>
+                            <td class="ConsultationListArea us:text-center us:p-2 x:text-xl us:font-font-Arial">
+                                {{$AllConsultation->ConsultationSchedule}}
                             </td>
                             <td class="ActionArea us:text-center us:p-2 ">
                                 <span>
@@ -65,6 +70,8 @@
                                                 <div class="modal-body">
                                                     <input type="text" name="OldConsul" value="{{e($AllConsultation->ConsultationList)}}" class="" hidden>
                                                     <input type="text" name="EditConsul" value="{{e($AllConsultation->ConsultationList)}}" class="">
+                                                    <input type="text" name="OldConsulSched" value="{{e($AllConsultation->ConsultationSchedule)}}" class="" hidden>
+                                                    <input type="text" name="EditConsulSched" value="{{e($AllConsultation->ConsultationSchedule)}}" class="">
                                                 </div>
                                                 <div class="modal-footer">
                                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

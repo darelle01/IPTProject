@@ -11,29 +11,11 @@
     {{-- <script src="https://kit.fontawesome.com/6d462838cf.js" crossorigin="anonymous"></script> --}}
     {{-- Css --}}
     <link rel="stylesheet" href="{{asset('LoginCss/Background.css')}}">
-    <link rel="stylesheet" href="{{asset('LoginCss/OTP.css')}}" >
     <title>OTP Confirmation</title>
 </head>
 <body>
-
-    {{-- Top Area --}}
-    <div class="TopArea">
-
-    </div>{{-- Top Area --}}
-
-    {{-- Main Area --}}
-    <div class="MainArea">
-
-        {{-- Left Side --}}
-        <div class="LeftSide">
-
-        </div>{{-- Left Side --}}
-
-        {{-- Mid --}}
-        <div class="Mid">
-
             {{-- OTP Container --}}
-            <div class="OTPContainer">
+            <div class="OTPContainer us:bg-black us:w-full us:max-w-[250px] us:h-full us:max-h-[700px] us:mt-10 us:mx-auto us:rounded-md x:max-w-[400px]">
 
                 {{-- OTP Form --}}
                 <div class="OTPForm">
@@ -42,11 +24,11 @@
                     @csrf
                     @method('POST')
 
-                    <div class="OTPLabelArea">
-                        <h2 class="OTPLAbel">Enter the OTP for verification.</h2>
+                    <div class="OTPLabelArea us:flex">
+                        <span class="OTPLAbel us:text-lg us:mx-auto us:my-3 us:text-white us:font-font-Arial us:font-semibold us:text-center x:text-2xl">Enter the OTP for verification.</span>
                     </div>
-                    <div class="OTPInput">
-                        <input type="text" name="OTPcode" class="OTPValue">
+                    <div class="OTPInput us:flex">
+                        <input type="text" name="OTPcode" class="OTPValue us:mx-auto us:my-2">
                     </div>
                     <div class="OTPerror">
                         @error('OTPcode')
@@ -54,27 +36,12 @@
                         @enderror
                     </div>
 
-                    <div class="OTPBtnArea">
-                        <button type="submit" class="btn btn-primary OTPBtn">Confirm</button>
+                    <div class="OTPBtnArea us:flex">
+                        <button type="submit" class="btn btn-primary OTPBtn us:mx-auto us:my-2">Confirm</button>
                     </div>
                 </form>{{-- OTP Form --}}
                 </div>
             </div>{{-- OTP Container --}}
-
-        </div>{{-- Mid --}}
-
-        {{-- Right Side --}}
-        <div class="RightSide">
-
-        </div>{{-- Right Side --}}
-        
-    </div>{{-- Main Area --}}
-
-    {{-- Bottom Area --}}
-    <div class="BottomArea">
-
-    </div>{{-- Bottom Area --}}
-
 </body>
     {{-- Javascript --}}
 
