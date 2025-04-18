@@ -39,7 +39,7 @@
                         <tr class=" ">
                             <th class="ConsultationListLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Consultation List</td>
                             <th class="ConsultationSchedLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Schedule</td>
-                            <th class="ActionLabelArea us:text-center us:p-1 us:text-lg x:text-2xl us:font-font-Arial">Action</td>
+                            <th class="ActionLabelArea us:text-center us:p-1 us:text-lg us:px-10 x:text-2xl us:font-font-Arial">Action</td>
                         </tr>
                     </thead>
                     <tbody class="">
