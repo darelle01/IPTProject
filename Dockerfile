@@ -39,7 +39,11 @@ COPY . .
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 775 storage bootstrap/cache
+    chmod -R 775 storage bootstrap/cache && \
+    chmod -R 775 public/
+
+# Generate application key if not exists
+RUN if [ ! -f .env ]; then cp .env.example .env && php artisan key:generate; fi
 
 # Run composer scripts
 RUN composer dump-autoload --optimize && \
@@ -50,10 +54,12 @@ RUN npm install && npm run build && npm cache clean --force
 
 # Laravel setup
 RUN php artisan storage:link && \
+    php artisan config:clear && \
+    php artisan cache:clear && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
     php artisan migrate --force
 
 EXPOSE 80
-CMD ["apache2-foreground"]
+CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && apache2-foreground"]
