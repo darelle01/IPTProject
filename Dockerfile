@@ -42,16 +42,16 @@ RUN composer install --no-interaction --no-dev --no-scripts --no-autoloader
 # Copy the rest of the application
 COPY . .
 
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 775 storage bootstrap/cache
+
 # Finish composer installation
 RUN composer dump-autoload --optimize && \
     composer run-script post-install-cmd
 
 # Install JS dependencies and build assets
 RUN npm install && npm run build && npm cache clean --force
-
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R ug+rwx storage bootstrap/cache
 
 # Laravel setup
 RUN php artisan storage:link && \
