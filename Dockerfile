@@ -15,17 +15,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
 
-# Enable Apache mods
-RUN a2enmod rewrite headers
-
-# Configure GD library
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
+# Enable Apache mods and configure PHP extensions
+RUN a2enmod rewrite headers && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install pdo_mysql pdo_pgsql zip mbstring bcmath gd
 
 # Set Apache Document Root to Laravel's public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
-# Update Apache configs to use public/ as the web root
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
     sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && \
     echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf && \
@@ -34,29 +30,35 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
     echo "    Require all granted" >> /etc/apache2/apache2.conf && \
     echo "</Directory>" >> /etc/apache2/apache2.conf
 
-# Install Composer globally
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy source code to container
+# Copy only composer files first for better caching
+COPY composer.json composer.lock ./
+
+# Install PHP dependencies (no autoloader optimization yet)
+RUN composer install --no-interaction --no-dev --no-scripts --no-autoloader
+
+# Copy the rest of the application
 COPY . .
 
-# Install PHP dependencies
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+# Finish composer installation
+RUN composer dump-autoload --optimize && \
+    composer run-script post-install-cmd
 
 # Install JS dependencies and build assets
 RUN npm install && npm run build && npm cache clean --force
 
-# Create necessary directories and set permissions
-RUN mkdir -p storage/framework/{cache,sessions,views} \
-    storage/logs && \
-    chown -R www-data:www-data /var/www/html && \
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html && \
     chmod -R ug+rwx storage bootstrap/cache
 
-# Laravel post-setup
+# Laravel setup
 RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
-    php artisan view:cache
+    php artisan view:cache && \
+    php artisan migrate --force
+
 EXPOSE 80
-# Start Apache with Laravel optimized
-CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
+CMD ["apache2-foreground"]
