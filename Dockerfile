@@ -34,42 +34,29 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
     echo "    Require all granted" >> /etc/apache2/apache2.conf && \
     echo "</Directory>" >> /etc/apache2/apache2.conf
 
-# Set the ServerName to avoid Apache warning
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Create necessary directories and set permissions
-RUN mkdir -p /var/www/html/storage/framework/{cache,sessions,views} \
-    /var/www/html/storage/logs && \
-    chown -R www-data:www-data /var/www/html && \
-    chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Switch to www-data user to avoid running as root
-USER www-data
-
-# Copy only composer.json and composer.lock before running composer install to leverage Docker cache
-COPY composer.json composer.lock /var/www/html/
-
-# Install Composer dependencies as the www-data user
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# Now copy the rest of the application code
+# Copy source code to container
 COPY . .
 
-# Install NPM dependencies and build assets
+# Install PHP dependencies
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+
+# Install JS dependencies and build assets
 RUN npm install && npm run build && npm cache clean --force
 
-# Laravel post-setup (build-safe)
+# Create necessary directories and set permissions
+RUN mkdir -p storage/framework/{cache,sessions,views} \
+    storage/logs && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R ug+rwx storage bootstrap/cache
+
+# Laravel post-setup
 RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
-    php artisan view:cache && \
-    if [ ! -f database/migrations/*_create_sessions_table.php ]; then php artisan session:table; fi
-
-# Expose port 80
+    php artisan view:cache
 EXPOSE 80
-
 # Start Apache with Laravel optimized
-CMD ["apache2-foreground"]
+CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
