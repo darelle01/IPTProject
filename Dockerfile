@@ -57,7 +57,7 @@ RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
-    php artisan session:table || true && \
+    if [ ! -f database/migrations/*_create_sessions_table.php ]; then php artisan session:table; fi && \
     php artisan migrate --force || true
 
 
