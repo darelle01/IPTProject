@@ -7,10 +7,10 @@ WORKDIR /var/www/html
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     zip unzip curl git libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libzip-dev libpq-dev libgd-dev lsb-release ca-certificates \
+    libonib-dev libzip-dev libpq-dev libgd-dev lsb-release ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js v18
+# Install Node.js 18.x
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
@@ -31,7 +31,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy only what's needed for composer install
 COPY composer.json composer.lock ./
 
-# Install dependencies without running scripts
+# Install production dependencies
 RUN composer install --no-interaction --no-dev --no-scripts --no-autoloader
 
 # Copy the rest of the application
@@ -39,13 +39,12 @@ COPY . .
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 775 storage bootstrap/cache && \
-    chmod -R 775 public/
+    chmod -R 775 storage bootstrap/cache public/
 
 # Generate application key if not exists
 RUN if [ ! -f .env ]; then cp .env.example .env && php artisan key:generate; fi
 
-# Run composer scripts
+# Optimize autoloader
 RUN composer dump-autoload --optimize && \
     composer run-script post-autoload-dump
 
@@ -58,8 +57,7 @@ RUN php artisan storage:link && \
     php artisan cache:clear && \
     php artisan config:cache && \
     php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan migrate --force
+    php artisan view:cache
 
-EXPOSE 80
-CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && apache2-foreground"]
+EXPOSE 10000
+CMD ["sh", "-c", "php artisan migrate --force && php artisan config:clear && php artisan cache:clear && apache2-foreground"]
