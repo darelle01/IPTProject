@@ -40,10 +40,19 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Create necessary directories and set permissions
+RUN mkdir -p /var/www/html/storage/framework/{cache,sessions,views} \
+    /var/www/html/storage/logs && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Switch to www-data user to avoid running as root
+USER www-data
+
 # Copy only composer.json and composer.lock before running composer install to leverage Docker cache
 COPY composer.json composer.lock /var/www/html/
 
-# Install Composer dependencies
+# Install Composer dependencies as the www-data user
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Now copy the rest of the application code
@@ -51,12 +60,6 @@ COPY . .
 
 # Install NPM dependencies and build assets
 RUN npm install && npm run build && npm cache clean --force
-
-# Create necessary directories and set permissions
-RUN mkdir -p storage/framework/{cache,sessions,views} \
-    storage/logs && \
-    chown -R www-data:www-data /var/www/html && \
-    chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Laravel post-setup (build-safe)
 RUN php artisan storage:link && \
