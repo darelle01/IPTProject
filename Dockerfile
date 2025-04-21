@@ -60,6 +60,5 @@ RUN php artisan storage:link && \
     if [ ! -f database/migrations/*_create_sessions_table.php ]; then php artisan session:table; fi && \
     php artisan migrate --force || true
 
-
 # Start Apache with Laravel optimized
-CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
+CMD ["bash", "-c", "php artisan migrate --force && php artisan optimize && apache2-foreground"]
