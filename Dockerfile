@@ -56,7 +56,7 @@ RUN mkdir -p storage/framework/{cache,sessions,views} \
 RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
-    php artisan view:cache && 
+    php artisan view:cache
 
 
 # Start Apache with Laravel optimized
