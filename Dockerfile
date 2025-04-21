@@ -52,13 +52,13 @@ RUN mkdir -p storage/framework/{cache,sessions,views} \
     chown -R www-data:www-data /var/www/html && \
     chmod -R ug+rwx storage bootstrap/cache
 
-# Laravel post-setup
+# Laravel post-setup (build-safe)
 RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
-    php artisan session:table && \
-    php artisan migrate --force
+    php artisan session:table
+
 
 # Start Apache with Laravel optimized
 CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
