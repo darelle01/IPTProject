@@ -59,3 +59,5 @@ RUN php artisan view:cache
 
 EXPOSE 10000
 CMD ["sh", "-c", "php artisan migrate --force && php artisan config:clear && php artisan cache:clear && apache2-foreground"]
+CMD php artisan migrate --force && apache2-foreground
+
