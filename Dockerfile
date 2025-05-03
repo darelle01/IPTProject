@@ -33,18 +33,15 @@ COPY . .
 # Install Composer dependencies properly
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
+# Install and build front-end assets
+RUN npm install && npm run dev && npm run build && npm cache clean --force
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 storage bootstrap/cache public/
 
-# Copy the actual .env file (you can skip .env.example)
-COPY .env .env
-
 # Set up Laravel environment
-RUN php artisan key:generate
-
-# Install and build front-end assets
-RUN npm install && npm run build && npm cache clean --force
+RUN cp .env .env
 
 EXPOSE 10000
 
