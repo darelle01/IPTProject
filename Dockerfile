@@ -49,12 +49,13 @@ RUN composer dump-autoload --optimize && \
 RUN npm install && npm run build && npm cache clean --force
 
 # Laravel setup
-RUN php artisan storage:link && \
-    php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
+# Run artisan commands separately for easier debugging
+RUN php artisan storage:link || true
+RUN php artisan config:clear
+RUN php artisan cache:clear
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
 
 EXPOSE 10000
 CMD ["sh", "-c", "php artisan migrate --force && php artisan config:clear && php artisan cache:clear && apache2-foreground"]
