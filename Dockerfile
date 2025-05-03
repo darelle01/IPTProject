@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     zip unzip curl git libpng-dev libjpeg-dev libfreetype6-dev \
-    libonib-dev libzip-dev libpq-dev libgd-dev lsb-release ca-certificates \
+    libonig-dev libzip-dev libpq-dev libgd-dev lsb-release ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 18.x
