@@ -41,9 +41,6 @@ COPY . .
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 storage bootstrap/cache public/
 
-# Generate application key if not exists
-RUN if [ ! -f .env ]; then cp .env.example .env && php artisan key:generate; fi
-
 # Optimize autoloader
 RUN composer dump-autoload --optimize && \
     composer run-script post-autoload-dump
