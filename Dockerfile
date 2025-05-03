@@ -37,8 +37,17 @@ RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 storage bootstrap/cache public/
 
-# Set up Laravel environment
-RUN cp .env.example .env || cp .env.example .env
+# Copy the actual .env file (you can skip .env.example)
+COPY .env .env
+
+# Set up Laravel environment (no need to copy .env.example)
+RUN php artisan key:generate && \
+    php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache && \
+    php artisan storage:link
 
 # Install and build front-end assets
 RUN npm install && npm run build && npm cache clean --force
