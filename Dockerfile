@@ -40,14 +40,8 @@ RUN chown -R www-data:www-data /var/www/html && \
 # Copy the actual .env file (you can skip .env.example)
 COPY .env .env
 
-# Set up Laravel environment (no need to copy .env.example)
-RUN php artisan key:generate && \
-    php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan storage:link
+# Set up Laravel environment
+RUN php artisan key:generate
 
 # Install and build front-end assets
 RUN npm install && npm run build && npm cache clean --force
