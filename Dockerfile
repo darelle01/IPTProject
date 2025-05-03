@@ -38,18 +38,12 @@ RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 storage bootstrap/cache public/
 
 # Set up Laravel environment
-RUN cp .env.example .env && \
-    php artisan key:generate && \
-    php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan storage:link
+RUN cp .env.example .env || cp .env.example .env
 
 # Install and build front-end assets
 RUN npm install && npm run build && npm cache clean --force
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php artisan migrate --force && apache2-foreground"]
+# Run migration and other artisan commands on startup
+CMD ["sh", "-c", "php artisan migrate --force && php artisan config:clear && php artisan cache:clear && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan storage:link && apache2-foreground"]
