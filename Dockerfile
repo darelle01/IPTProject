@@ -1,7 +1,6 @@
 # Use PHP 8.2 with Apache
 FROM php:8.2-apache
 
-# Set working directory
 WORKDIR /var/www/html
 
 # Install system dependencies
@@ -19,7 +18,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install pdo pdo_mysql pdo_pgsql zip mbstring bcmath gd
 
-# Apache configuration
+# Apache config
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN a2enmod rewrite headers && \
     sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
@@ -28,36 +27,29 @@ RUN a2enmod rewrite headers && \
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy only what's needed for composer install
-COPY composer.json composer.lock ./
-
-# Install production dependencies
-RUN composer install --no-interaction --no-dev --no-scripts --no-autoloader
-
-# Copy the rest of the application
+# Copy entire app now (so artisan exists)
 COPY . .
+
+# Install Composer dependencies properly
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 775 storage bootstrap/cache public/
 
-# Generate application key if not exists
-RUN if [ ! -f .env ]; then cp .env.example .env && php artisan key:generate; fi
-
-# Optimize autoloader
-RUN composer dump-autoload --optimize && \
-    composer run-script post-autoload-dump
-
-# Install and build assets
-RUN npm install && npm run build && npm cache clean --force
-
-# Laravel setup
-RUN php artisan storage:link && \
+# Set up Laravel environment
+RUN cp .env.example .env && \
+    php artisan key:generate && \
     php artisan config:clear && \
     php artisan cache:clear && \
     php artisan config:cache && \
     php artisan route:cache && \
-    php artisan view:cache
+    php artisan view:cache && \
+    php artisan storage:link
+
+# Install and build front-end assets
+RUN npm install && npm run build && npm cache clean --force
 
 EXPOSE 10000
-CMD ["sh", "-c", "php artisan migrate --force && php artisan config:clear && php artisan cache:clear && apache2-foreground"]
+
+CMD ["sh", "-c", "php artisan migrate --force && apache2-foreground"]
