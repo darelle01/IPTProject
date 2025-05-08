@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev libzip-dev libpq-dev libgd-dev lsb-release ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js v18 from NodeSource
+# Install Node.js v18
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
@@ -18,14 +18,14 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
 # Enable Apache mods
 RUN a2enmod rewrite headers
 
-# Configure GD library
+# Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install pdo_mysql pdo_pgsql zip mbstring bcmath gd
+    docker-php-ext-install pdo pdo_pgsql pgsql zip mbstring bcmath gd
 
-# Set Apache Document Root to Laravel's public folder
+# Set Apache Document Root to Laravel public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
-# Update Apache configs to use public/ as the web root
+# Update Apache configs
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
     sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && \
     echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf && \
@@ -37,29 +37,28 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy source code to container
+# Copy application source
 COPY . .
 
-# Install PHP dependencies
+# Install PHP and JS dependencies
 RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# Install JS dependencies and build assets
 RUN npm install && npm run build && npm cache clean --force
 
-# Create necessary directories and set permissions
+# Set permissions
 RUN mkdir -p storage/framework/{cache,sessions,views} \
     storage/logs && \
     chown -R www-data:www-data /var/www/html && \
     chmod -R ug+rwx storage bootstrap/cache
 
-# Laravel post-setup
+# Laravel setup
 RUN php artisan storage:link && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache
 
-# Ensure database connection and session migrations
-RUN php artisan migrate --force
+# Add wait-for-postgres script
+COPY ./wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
+RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
-# Start Apache with Laravel optimized
-CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
+# Start Apache and run migration when DB is ready
+CMD ["bash", "-c", "wait-for-postgres.sh && php artisan migrate --force && apache2-foreground"]
