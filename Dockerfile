@@ -58,5 +58,8 @@ RUN php artisan storage:link && \
     php artisan route:cache && \
     php artisan view:cache
 
+# Ensure database connection and session migrations
+RUN php artisan migrate --force
+
 # Start Apache with Laravel optimized
 CMD ["bash", "-c", "php artisan optimize && apache2-foreground"]
