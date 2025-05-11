@@ -24,9 +24,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 
 # Set Apache Document Root to Laravel public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-ENV PORT=8080
 
-# Update Apache configs
+# Update Apache configs to use Laravel public dir
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
     sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && \
     echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf && \
@@ -45,9 +44,8 @@ COPY . .
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN npm install && npm run build && npm cache clean --force
 
-# Set permissions
-RUN mkdir -p storage/framework/{cache,sessions,views} \
-    storage/logs && \
+# Set permissions for Laravel storage and bootstrap
+RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs && \
     chown -R www-data:www-data /var/www/html && \
     chmod -R ug+rwx storage bootstrap/cache
 
@@ -61,11 +59,13 @@ RUN php artisan storage:link && \
 COPY ./wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
 RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
-# Expose port for Render (optional for docs)
+# Expose Render's port (Render injects the real port value)
 EXPOSE 8080
 
-# Start Apache with dynamic PORT on Render
-CMD ["bash", "-c", "wait-for-postgres.sh && php artisan migrate --force && \
+# Start Apache and Laravel after PostgreSQL is ready
+CMD ["bash", "-c", "wait-for-postgres.sh && \
+echo \"Running on port $PORT\" && \
+php artisan migrate --force && \
 sed -i \"s/Listen 80/Listen ${PORT}/\" /etc/apache2/ports.conf && \
 sed -i \"s/<VirtualHost \\*:80>/<VirtualHost *:${PORT}>/\" /etc/apache2/sites-enabled/000-default.conf && \
 apache2-foreground"]
