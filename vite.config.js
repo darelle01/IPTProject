@@ -1,22 +1,28 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';    
+import tailwindcss from 'tailwindcss';
 
 export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
+                'resources/sass/app.scss', // Include your SCSS file here
                 'resources/js/app.js',
             ],
             refresh: true,
         }),
-        tailwindcss(),
     ],
-    resolve:{
-        alias:{
-            '@': '/resources',
-            '$': 'jquery'
-        }
-    }
+    css: {
+        preprocessorOptions: {
+            scss: {
+                // Optional: Include global SCSS variables or mixins
+                // additionalData: '@import "@/resources/sass/_variables.scss";'
+            },
+        },
+        postcss: {
+            plugins: [
+                tailwindcss(),
+            ],
+        },
+    },
 });
