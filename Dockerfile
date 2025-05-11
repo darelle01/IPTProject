@@ -24,6 +24,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 
 # Set Apache Document Root to Laravel public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+ENV PORT=8080
 
 # Update Apache configs
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
@@ -60,8 +61,11 @@ RUN php artisan storage:link && \
 COPY ./wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
 RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
-# Expose port for Render
-EXPOSE 10000
+# Expose port for Render (optional for docs)
+EXPOSE 8080
 
-# Start Apache on Render's dynamic PORT
-CMD ["bash", "-c", "wait-for-postgres.sh && php artisan migrate --force && sed -i \"s/80/${PORT}/g\" /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf && apache2-foreground"]
+# Start Apache with dynamic PORT on Render
+CMD ["bash", "-c", "wait-for-postgres.sh && php artisan migrate --force && \
+sed -i \"s/Listen 80/Listen ${PORT}/\" /etc/apache2/ports.conf && \
+sed -i \"s/<VirtualHost \\*:80>/<VirtualHost *:${PORT}>/\" /etc/apache2/sites-enabled/000-default.conf && \
+apache2-foreground"]
