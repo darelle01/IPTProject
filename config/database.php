@@ -89,7 +89,7 @@ return [
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'rhusanjose_saiu'),
             'username' => env('DB_USERNAME', 'rhusanjose_saiu_user'),
-            'password' => env('5VSIHHKm55n8ZLgSedBWfL1ydLc7y2t4', ''),
+            'password' => env('DB_PASSWORD', '5VSIHHKm55n8ZLgSedBWfL1ydLc7y2t4'),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
