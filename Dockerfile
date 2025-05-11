@@ -61,7 +61,7 @@ COPY ./wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
 RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
 # Expose port for Render
-EXPOSE 8080
+EXPOSE 80
 
 # Start Apache on Render's dynamic PORT
 CMD ["bash", "-c", "wait-for-postgres.sh && php artisan migrate --force && sed -i \"s/80/${PORT}/g\" /etc/apache2/ports.conf /etc/apache2/sites-enabled/000-default.conf && apache2-foreground"]
