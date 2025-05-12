@@ -25,9 +25,6 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 # Set Apache Document Root to Laravel public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
-# NOTE: Do NOT override the PORT provided by Render.
-# ENV PORT=8080  <-- ❌ REMOVE or COMMENT OUT this line if present
-
 # Update Apache configs to point to /public folder
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
     sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && \
@@ -63,14 +60,15 @@ RUN php artisan storage:link && \
 COPY ./wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
 RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
-# Help Render detect a port (this is just a hint, Render will inject $PORT)
-EXPOSE 10000
+# Remove EXPOSE (Render injects PORT)
+# EXPOSE 10000  <-- ❌ Remove this
 
 # Start Apache with dynamic PORT on Render
 CMD ["bash", "-c", "\
   echo 'Render injected PORT: $PORT'; \
   wait-for-postgres.sh && \
   php artisan migrate --force && \
+  export PORT=${PORT:-8080} && \
   sed -i \"s/Listen 80/Listen ${PORT}/\" /etc/apache2/ports.conf && \
   sed -i \"s/<VirtualHost \\*:80>/<VirtualHost *:${PORT}>/\" /etc/apache2/sites-enabled/000-default.conf && \
   apache2-foreground \
