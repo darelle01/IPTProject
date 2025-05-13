@@ -47,4 +47,4 @@ RUN php artisan storage:link && \
 EXPOSE 80
 
 # Start command
-CMD bash -c "php artisan optimize && apache2-foreground"
+CMD bash -c "php artisan migrate --force && php artisan optimize && apache2-foreground"
