@@ -84,17 +84,15 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', 'dpg-d032dohr0fns738o6790-a'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'rhusanjose_saiu'),
-            'username' => env('DB_USERNAME', 'rhusanjose_saiu_user'),
-            'password' => env('DB_PASSWORD', '5VSIHHKm55n8ZLgSedBWfL1ydLc7y2t4'),
-            'charset' => env('DB_CHARSET', 'utf8'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'prefix' => '',
-            'prefix_indexes' => true,
-            'search_path' => 'public',
-            'sslmode' => 'prefer',
+            'schema' => 'public',
+            'sslmode' => env('DB_SSLMODE', 'prefer'), // Add this line
         ],
 
         'sqlsrv' => [
