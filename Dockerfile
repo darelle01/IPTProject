@@ -1,4 +1,4 @@
-@@ -1,58 +1,55 @@
+
 FROM php:8.2-apache
 
 # Install dependencies and PHP extensions
