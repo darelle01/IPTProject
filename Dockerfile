@@ -46,5 +46,5 @@ RUN php artisan storage:link && \
 
 EXPOSE 80
 
-# Run migrations from /migrations folder, optimize and start Apache
-CMD bash -c "php artisan migrate --path=/migrations --force && php artisan optimize && apache2-foreground"
+# Run migrations (default folder database/migrations), optimize, then start Apache
+CMD bash -c "php artisan migrate --force && php artisan optimize && apache2-foreground"
