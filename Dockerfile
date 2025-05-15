@@ -20,15 +20,15 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Copy application
+# Copy application files
 COPY . /var/www/html/
 WORKDIR /var/www/html
 
-# Install dependencies
+# Install PHP dependencies and build assets
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 RUN npm install && npm run build && npm cache clean --force
 
-# Setup storage
+# Setup storage directories
 RUN mkdir -p /var/www/html/storage/framework/{cache,sessions,views} && \
     mkdir -p /var/www/html/storage/logs
 
@@ -46,5 +46,5 @@ RUN php artisan storage:link && \
 
 EXPOSE 80
 
-# Start command
-CMD bash -c "php artisan migrate --force && php artisan optimize && apache2-foreground"
+# Run migrations from /migrations folder, optimize and start Apache
+CMD bash -c "php artisan migrate --path=/migrations --force && php artisan optimize && apache2-foreground"
