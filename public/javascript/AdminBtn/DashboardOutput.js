@@ -335,5 +335,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial fetch
     fetchDashboardData();
 
+<<<<<<< HEAD
     setInterval(fetchDashboardData, 30000);
+=======
+>>>>>>> 078606184ae19d89b2ce1fbf1060e81782f2ee41
 });

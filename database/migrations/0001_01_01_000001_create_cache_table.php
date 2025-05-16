@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    public $connection = 'pgsql';  // <-- add this here
     /**
      * Run the migrations.
      */
