@@ -51,7 +51,6 @@
               <a href="{{route('HomePage')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Home</a>
               <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Schedule</a>
               <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Services</a>
-              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Login</a>
               <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Contact Us</a>
               <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">About Us</a>
               </div>
@@ -72,7 +71,6 @@
           <a href="{{route('HomePage')}}" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
           <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Schedule</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Services</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Login</a>
           <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Contact Us</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">About Us</a>
         </div>

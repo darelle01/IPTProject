@@ -52,7 +52,6 @@
                 <a href="{{route('HomePage')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Home</a>
                 <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Schedule</a>
                 <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Services</a>
-                <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Login</a>
                 <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">Contact Us</a>
                 <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white text-center" aria-current="page">About Us</a>
               </div>
@@ -73,7 +72,6 @@
           <a href="{{route('HomePage')}}" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
           <a href="{{route('Schedule')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Schedule</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Services</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Login</a>
           <a href="{{route('ContactUs')}}" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">Contact Us</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white ">About Us</a>
         </div>
@@ -110,31 +108,29 @@
     
     <!-- Event Bulletin -->
     <div class="Container w-full h-auto mt-10 bg-green-300 p-5">
-      <div class="BulletinBoard bg-blue-300 mx-10 flex flex-col">
-        <div class="Events mx-auto">
-          <span class="">Event</span>
-        </div>
-        <div class="Content">
-          <table class="table-auto">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                <td>Malcolm Lockyer</td>
-              </tr>
-              <tr>
-                <td>Witchy Woman</td>
-                <td>The Eagles</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <table class="table-fixed">
+        <thead class="">
+            <tr class="">
+                <th class=" us:px-5">Title</th>
+                <th class=" us:px-5">Description</th>
+                <th class=" us:px-5">Date</th>
+                <th class=" us:px-5">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr class=" ">
+                <th class=" "></th>
+                <th class=""></th>
+                <th class=""></th>
+                <th class="">
+                    <div class="">
+                        <button class="">Edit</button>
+                        <button class="">Delete</button>
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
     </div><!-- Event Bulletin -->
 
   </body>

@@ -112,6 +112,6 @@
 
 </body>
     {{-- Javascript --}}
-    <script src="{{asset('/javascript/Adminpopup.js')}}" ></script>
-    <script src="{{asset('/javascript/Staffpopup.js')}}" ></script>
+    {{-- <script src="{{asset('/javascript/Adminpopup.js')}}" ></script>
+    <script src="{{asset('/javascript/Staffpopup.js')}}" ></script> --}}
 </html>

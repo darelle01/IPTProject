@@ -4,7 +4,7 @@
     <x-slot:Title>
         Create Account
     </x-slot:Title>
-    <form action="{{route('Admin.Store')}}" method="POST" class="CreateAccountForm bg-white us:max-w-fit us:mt-3 us:max-h-[700px] xxs:max-w-[250px] xs:max-w-[300px] us:overflow-y-auto us:overflow-hidden us:rounded-md md:max-h-fit" enctype="multipart/form-data">
+    <form action="{{route('Admin.Store')}}" method="POST" class="CreateAccountForm bg-white us:max-w-fit us:mt-3 us:h-fit xxs:max-w-[250px] xs:max-w-[300px] us:overflow-y-auto us:overflow-hidden us:rounded-md md:max-h-fit" enctype="multipart/form-data">
         @csrf
         <div class="us:bg-blue-500 us:w-full us:flex us:rounded-t-md">
             <label class="us:text-white us:font-semibold us:font-font-Arial us:italic us:text-xl us:mx-auto us:py-1 x:text-2xl x:py-1">Create Account</label>

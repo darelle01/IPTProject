@@ -94,6 +94,12 @@
                     <span class="ButtonName">Consultation</span>
                 </button>
             </div>
+            <div class="AddEventsArea">
+                <button class="AddEvents" onclick="redirectToEventList()">
+                    <i class="fa-solid fa-table-list"></i>
+                    <span class="ButtonName">Events</span>
+                </button>
+            </div>
             <div class="contain">
                 <form action="{{route ('RedirectTo.Settings')}}" method="GET" class="SettingsArea">
                     @csrf
@@ -144,6 +150,7 @@
     <script src="{{asset('/javascript/AdminBtn/AdminNewPatientBtn.js')}}" ></script>
     <script src="{{asset('/javascript/AdminBtn/PatientListBtn.js')}}" ></script>
     <script src="{{asset('/javascript/AdminBtn/AddProgramBtn.js')}}" ></script>
+    <script src="{{asset('/javascript/AdminBtn/EventList.js')}}" ></script>
     <script src="{{asset('/javascript/AdminBtn/Settings.js')}}" ></script>
     
 </html>

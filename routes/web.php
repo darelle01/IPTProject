@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AddEventsController;
+use App\Http\Controllers\EventsListController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminNewPatient;
@@ -114,13 +116,17 @@ Route::middleware(['auth','AdminOTPMiddle'])->group(function () {
     Route::get('/Add-New-Program', [ConsultationListController::class,'ConsultationListPage'])->name('Admin.AddProgramView');
     Route::post('/Add-Consultation', [ConsultationListController::class,'ConsultationList'])->name('Admin.AddProgram');
     Route::put('/Edit-Consultation', [ConsultationListController::class,'EditConsultation'])->name('Admin.EditProgram');
+
+    Route::get('/Events-List', [EventsListController::class,'ShowEventsList'])->name('Events');
+    Route::post('/Add-Event', [AddEventsController::class,'AddEvents'])->name('AddEvents');
+
     Route::post('/Log-out', [LogOutBtnController::class,'LogoutBtn'])->name('Log-Out');
 });
 
+Route::get('/RHU-Dashboard', [DashboardController::class, 'ShowDashboard'])->name('Admin.Dashboard');
+Route::get('/RHU-Dashboard-Fetch', [DashboardFetchDataController::class,'DashboardFetchData'])->name('Dashboard.fetchData');
 
 Route::middleware(['auth','CombineMiddle'])->group(function () {  
-    Route::get('/RHU-Dashboard', [DashboardController::class, 'ShowDashboard'])->name('Admin.Dashboard');
-    Route::get('/RHU-Dashboard-Fetch', [DashboardFetchDataController::class,'DashboardFetchData'])->name('Dashboard.fetchData');
     Route::get('/New-Patient',[AdminNewPatient::class,'ViewAdminNewPatient'])->name('Admin.New');
     Route::post('/New-Patient',[AdminSaveBtnController::class,'AdminSaveBtn'])->name('Admin.Save');
     

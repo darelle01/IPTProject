@@ -53,3 +53,10 @@ th,td{
         min-width: auto; /* Remove forced min-width to allow fluid resizing */
     }
 }
+@media (min-width: 320px) {
+    .Mid {
+        display: flex;
+        width: 79%;
+        height: 100vh;
+    }
+}

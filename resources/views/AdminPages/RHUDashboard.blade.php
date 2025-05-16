@@ -95,7 +95,6 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(fetchDashboardData);
-
     </script>
     {{-- Script for Google Chart --}}
   
