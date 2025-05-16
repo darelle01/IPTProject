@@ -10,6 +10,7 @@
     "@fortawesome/fontawesome-free": "^6.7.1",
     "@iconify/tailwind": "^1.1.3",
     "@popperjs/core": "^2.11.8",
+    "@tailwindcss/cli": "^4.1.7",
     "@tailwindcss/forms": "^0.5.2",
     "alpinejs": "^3.4.2",
     "autoprefixer": "^10.4.21",
@@ -17,10 +18,10 @@
     "bootstrap": "^5.3.3",
     "laravel-vite-plugin": "^1.0",
     "sass": "^1.81.0",
+    "tailwindcss": "^4.1.7",
     "vite": "^6.2.3"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.0.6",
     "@tailwindcss/vite": "^4.0.6",
     "browserslist": "^4.24.4",
     "html2canvas": "^1.4.1",
